@@ -26,13 +26,40 @@
             </form>
            
             <div class="text-end">
-              <a type="button"><img src="http://assets.stickpng.com/images/585e4beacb11b227491c3399.png" class="logo"></a>
+              <a type="button" data-bs-toggle="modal" data-bs-target="#modalForm"><img src="http://assets.stickpng.com/images/585e4beacb11b227491c3399.png" class="logo"></a>
             </div>
           </div>
         </div>
       </header>
 
 </body>
+
+<!-- Modal -->
+<div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                    </div>
+                    <div class="modal-footer d-block">
+                        <button class="btn btn-warning float-end">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
