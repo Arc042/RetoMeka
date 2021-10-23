@@ -3,6 +3,9 @@
     width: 50px;
 }
 
+header{
+    background-color: darkblue;
+}
 
 #textNav{
     color: white;
