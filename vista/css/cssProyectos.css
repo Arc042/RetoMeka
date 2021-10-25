@@ -1,3 +1,4 @@
+/*DIV CENTRAL*/
 .central{
     height: 800px;
     background-color: aqua;
@@ -55,10 +56,47 @@
 .espacio{
 	width: 50px;
 }
-/*Fin cards para mostrar y ocultar*/
 
 .texto{
     font-weight: bolder;
     font-size: 20px;
 }
+/*Fin cards para mostrar y ocultar*/
 
+
+/*DIV con el fondo animado y el titulo*/
+.divParallaxTexto{
+    /* The image used */
+    background-image: url("https://hmtzdev.tech/drones/Imagenes/GIFS/giphy-6.gif");
+  
+    /* Set a specific height */
+    min-height: 550px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.titulo{
+    font-size: 50px;
+    font-weight: bolder;
+    position: absolute;
+        top:50%;
+        left: 50%;           
+        margin-top: -130px;
+        margin-left: -200px;
+}
+
+.subtitulo{
+    font-size: 20px;
+    position: absolute;
+        top: 60%;
+        left: 50%;           
+        margin-top: -130px;
+        margin-left: -100px;
+}
+/*DIV con el fondo animado y el titulo*/
+
+/*Modal*/

@@ -11,22 +11,86 @@
     
     <div id="header"></div>
 
+    <div class="divParallaxTexto" >
+        <h1 class="titulo">Nuestros Proyectos</h1>
+        <p class="subtitulo">Proyectos para nuestro futuro</p>
+    </div>
+
     <div class="fondo">
-        <div class="cardArriba">
+        <div class="cardArriba" data-bs-toggle="modal" data-bs-target="#modalSalvamento">
             <div class="card-body">
                 <p class="texto">Dron Salvamento</p>
             </div>
         </div>
         <div class="espacio"></div>
-        <div class="cardArriba">
+        <div class="cardArriba" data-bs-toggle="modal" data-bs-target="#modalCine">
             <div class="card-body" id="dron2">
-                <p class="texto">Dron Cine</p>
+                <p class="texto">Dron de Cine</p>
             </div>
         </div>
     </div>
 
+   
     <div id="footer"></div>
+
+    
 </body>
+
+<div class="modal fade" id="modalSalvamento" tabindex="-1" aria-labelledby="modalSalvamento" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="fondoParallax">
+          <h5 class="modal-title" id="modalSalvamento">Project no.1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your 
+            own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you 
+            to tell a story and let your users know a little more about you.</p>
+            <span></span>
+            <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more 
+            detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with 
+            the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who 
+            you are.</p>
+            <span></span>
+            <p>At Wix we’re passionate about making templates that allow you to build fabulous websites and it’s all thanks to the support and 
+            feedback from users like you! Keep up to date with New Releases and what’s Coming Soon in Wixellaneous in Support. Feel free to tell 
+            us what you think </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCine" tabindex="-1" aria-labelledby="modalCine" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCine">Project no.2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your 
+                own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you 
+                to tell a story and let your users know a little more about you.</p>
+                <span></span>
+                <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more 
+                detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with 
+                the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who 
+                you are.</p>
+                <span></span>
+                <p>At Wix we’re passionate about making templates that allow you to build fabulous websites and it’s all thanks to the support and 
+                feedback from users like you! Keep up to date with New Releases and what’s Coming Soon in Wixellaneous in Support. Feel free to tell 
+                us what you think </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+    </div>
+</div>
 
 <!-- bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
