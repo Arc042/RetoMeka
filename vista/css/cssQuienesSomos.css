@@ -1,0 +1,48 @@
+.central{
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
+    background-color: violet;
+}
+
+
+.divParallaxTexto{
+    height:500px;
+    text-align:center;
+    /* The image used */
+    background-image: url("https://i.ytimg.com/vi/zavWwAovlCA/maxresdefault.jpg");
+  
+    /* Set a specific height */
+    min-height: 500px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.divTexto{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width:500px;
+    position: absolute;  
+    bottom: 19.3%;  
+    right: 0;
+    margin-right: 5%;
+    padding: 2%;
+    background-color:white;
+}
+
+.titulo{
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.relleno{
+    font-size: 13px;
+    margin-top: 1.5%;
+    text-align: left;
+}
+

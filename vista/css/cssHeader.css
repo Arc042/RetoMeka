@@ -1,0 +1,16 @@
+.logo{
+    height: 50px;
+    width: 50px;
+}
+
+header{
+    background-color: darkblue;
+}
+
+#textNav{
+    color: white;
+}
+
+#textNav:hover{
+    color: aquamarine;
+}
