@@ -1,0 +1,64 @@
+.central{
+    height: 800px;
+    background-color: aqua;
+}
+
+/*CSS del fondo detras de los cards*/
+.fondo{
+    margin-top: 2%;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2%;
+}
+/*Fin CSS detras cards*/
+
+/*Los cards para mostrar y ocultar*/
+.cardArriba{
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	height: 300px;
+	width: 500px;
+}
+
+.card-body{
+    background-image: url(/vista/imagenes/dronSalvar.jpg);
+    background-repeat: no-repeat;
+}
+
+.card-body:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+#dron2{
+    background-image: url(/vista/imagenes/dron.jpg);
+    background-repeat: no-repeat;
+}
+
+.imagenCard{
+	height: 260px;
+	width: 460px;
+}
+
+.imagenCard:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    display: block;
+}
+
+.card-body{
+	text-align: center;
+}
+
+.espacio{
+	width: 50px;
+}
+/*Fin cards para mostrar y ocultar*/
+
+.texto{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
