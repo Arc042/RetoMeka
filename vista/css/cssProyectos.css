@@ -70,7 +70,7 @@
     background-image: url("https://hmtzdev.tech/drones/Imagenes/GIFS/giphy-6.gif");
   
     /* Set a specific height */
-    min-height: 550px;
+    min-height: 300px;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
