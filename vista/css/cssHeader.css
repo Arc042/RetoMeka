@@ -8,13 +8,13 @@
 }
 
 header{
-    background-color: darkblue;
+    background-color: white;
 }
 
 #textNav{
-    color: white;
+    color: black;
 }
 
 #textNav:hover{
-    color: aquamarine;
+    color: rgb(197, 197, 197);
 }
