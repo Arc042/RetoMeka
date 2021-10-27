@@ -42,15 +42,25 @@ function soloLetras(e) {
   var correo = document.getElementById("email");
 
   if (emailRegex.test(correo.value)) {
-      var correocomprobacion=true;
+      var correo=true;
+      console.log(correo);
 
   } else {
-      var correocomprobacion=false;
+      var correo=false;
       alert("no funciona email");
       /*alert("EMAIL NO VALIDO");*/
   } 
 
-  if(name == true && mensaje == true) {
-    alert("Formulario enviado");
+  if(name == true && mensaje == true && correo == true) {
+    
+    Swal.fire(
+      'Correcto!',
+      'Formulario enviado correctamente!',
+      'success'
+    )
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("mensaje").value = "";
   }
 }
