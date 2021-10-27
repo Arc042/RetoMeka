@@ -27,11 +27,9 @@
     flex-direction: column;
     height: 300px;
     width:500px;
-    position:absolute;
-    margin-bottom: 8.8%;
-    bottom: 0;
-    right: 0;
-    right: 0;
+    position:relative;
+    bottom: -40%;
+    right: -60%;
     padding: 2%;
     background-color:white;
 }
