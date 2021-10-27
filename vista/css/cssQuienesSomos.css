@@ -27,10 +27,11 @@
     flex-direction: column;
     height: 300px;
     width:500px;
-    position: absolute;  
-    bottom: 19.3%;  
+    position:absolute;
+    margin-bottom: 8.8%;
+    bottom: 0;
     right: 0;
-    margin-right: 5%;
+    right: 0;
     padding: 2%;
     background-color:white;
 }
