@@ -25,7 +25,16 @@ function soloLetras(e) {
         alert("no funciona nombre");
       } else {
         var name = true;
+        console.log(name);
+        
     }
+
+    if (document.getElementById("mensaje").value == "") {
+      alert("no funciona mensaje");
+    } else {
+      var mensaje = true;
+      console.log(mensaje);
+  }
    
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
     
@@ -33,10 +42,15 @@ function soloLetras(e) {
   var correo = document.getElementById("email");
 
   if (emailRegex.test(correo.value)) {
-      correocomprobacion=true;
+      var correocomprobacion=true;
+
   } else {
-      correocomprobacion=false;
+      var correocomprobacion=false;
       alert("no funciona email");
       /*alert("EMAIL NO VALIDO");*/
   } 
+
+  if(name == true && mensaje == true) {
+    alert("Formulario enviado");
   }
+}
