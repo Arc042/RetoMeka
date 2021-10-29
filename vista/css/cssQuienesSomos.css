@@ -1,7 +1,7 @@
 .central{
     display: flex;
     flex-direction: column;
-    height: 1000px;
+    height: 100%;
     background-color: violet;
     position: relative;
 }
@@ -47,11 +47,35 @@
 }
 
 .informacion{
-    height: 40%;
+    display: flex;
+    flex-direction: row;
+    height: 1%;
     width: 80%;
-    margin-top: 2.9%;
+    margin-top: 2%;
     margin-left: 10%;
-    background-color: brown;
+    padding: 2%;
 }
 
+.imagen{
+    height: 300px;
+    width: 50%;
+    background-color: chocolate;
+}
 
+#foto{
+    height: 100%;
+    width: 100%;
+}
+
+.texto{
+    height: 200px;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+.titulo2{
+    margin-top: 1%;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+}
