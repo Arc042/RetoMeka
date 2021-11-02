@@ -68,9 +68,13 @@
 }
 
 .texto{
+    display: flex;
+    border: 2px solid black;
+    border-radius: 20px 0px 20px 0px;
     height: 200px;
     width: 100%;
     background-color: blueviolet;
+    padding: 1%;
 }
 
 .titulo2{
