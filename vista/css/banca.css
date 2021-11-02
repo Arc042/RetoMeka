@@ -4,4 +4,36 @@
     height: 800px;
     margin-left: 20%;
     margin-right: 20%;
+    justify-content: center;
+
+}
+
+.titulillo{
+    text-align: center;
+    padding: 10px;
+}
+
+.saldo{
+    text-align: center;
+    padding: 10px;
+}
+
+.movimientos{
+    text-align: center;
+    width: 60%;
+    margin: 10px;
+    margin-top: 20px;
+    background-color: green;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.botones{
+    text-align: center;
+}
+.botones button{
+    background-color: greenyellow;
+    border-style: none;
+    border-radius: 20px;
+    height: 40px;
 }
