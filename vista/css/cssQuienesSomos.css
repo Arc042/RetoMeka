@@ -60,21 +60,66 @@
     height: 300px;
     width: 50%;
     background-color: chocolate;
+    
 }
 
 #foto{
     height: 100%;
     width: 100%;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .texto{
     display: flex;
+    flex-direction: column;
     border: 2px solid black;
     border-radius: 20px 0px 20px 0px;
     height: 200px;
     width: 100%;
     background-color: blueviolet;
     padding: 1%;
+}
+
+.nombre{
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    color: black;
+}
+
+.tipo{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+}
+
+.info{
+    text-align: center;
+    font-style: italic;
+    color: grey;
+}
+
+.info:hover{
+    border-bottom:2px solid grey;
+}
+
+.email{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+}
+.telefono{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+}
+
+.espacio{
+    height: 100px;
 }
 
 .titulo2{
