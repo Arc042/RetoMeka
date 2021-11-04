@@ -29,6 +29,20 @@ function soloLetras(e) {
         
     }
 
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    
+    var correo = document.getElementById("email");
+  
+    if (emailRegex.test(correo.value)) {
+        var correo=true;
+        console.log(correo);
+  
+    } else {
+        var correo=false;
+        alert("*Campo incompleto: Email*");
+        /*alert("EMAIL NO VALIDO");*/
+    } 
+
     if (document.getElementById("mensaje").value == "") {
       alert("*Campo incompleto: Mensaje*");
     } else {
@@ -36,20 +50,7 @@ function soloLetras(e) {
       console.log(mensaje);
   }
    
-  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    
-  var correo = document.getElementById("email");
-
-  if (emailRegex.test(correo.value)) {
-      var correo=true;
-      console.log(correo);
-
-  } else {
-      var correo=false;
-      alert("*Campo incompleto: Email*");
-      /*alert("EMAIL NO VALIDO");*/
-  } 
-
+ 
   if(name == true && mensaje == true && correo == true) {
     
     Swal.fire(
