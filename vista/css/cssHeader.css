@@ -16,5 +16,10 @@ header{
 }
 
 #textNav:hover{
+    text-decoration-line: underline;
+    
+}
+
+#textNav:hover{
     color: rgb(0, 0, 0);
 }
