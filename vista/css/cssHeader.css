@@ -8,7 +8,7 @@
 }
 
 header{
-    background-color: white;
+    background-color: #D6D5D5;
 }
 
 #textNav{
@@ -16,5 +16,10 @@ header{
 }
 
 #textNav:hover{
-    color: rgb(197, 197, 197);
+    text-decoration-line: underline;
+    
+}
+
+#textNav:hover{
+    color: rgb(0, 0, 0);
 }
