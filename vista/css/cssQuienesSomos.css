@@ -105,7 +105,7 @@
 }
 
 .info:hover{
-    border-bottom:2px solid grey;
+    text-decoration-line: underline;
 }
 
 .email{
