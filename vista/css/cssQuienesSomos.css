@@ -1,8 +1,9 @@
 .central{
     display: flex;
     flex-direction: column;
-    height: 1000px;
+    height: 100%;
     background-color: violet;
+    position: relative;
 }
 
 
@@ -27,11 +28,10 @@
     flex-direction: column;
     height: 300px;
     width:500px;
-    position:absolute;
-    margin-bottom: 8.8%;
-    bottom: 0;
-    right: 0;
-    right: 0;
+    position:relative;
+    /*margin-bottom: 8.8%;*/
+    bottom: -40%;
+    right: -60%;
     padding: 2%;
     background-color:white;
 }
@@ -47,3 +47,86 @@
     text-align: left;
 }
 
+.informacion{
+    display: flex;
+    flex-direction: row;
+    height: 1%;
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 10%;
+    padding: 2%;
+}
+
+.imagen{
+    height: 300px;
+    width: 50%;
+    background-color: chocolate;
+    
+}
+
+#foto{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 20px 0px 20px 0px;
+    height: 200px;
+    width: 100%;
+    background-color: blueviolet;
+    padding: 1%;
+}
+
+.nombre{
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    color: black;
+}
+
+.tipo{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+    text-decoration-line: underline;
+}
+
+.info{
+    text-align: center;
+    font-style: italic;
+    color: grey;
+}
+
+.info:hover{
+    text-decoration-line: underline;
+}
+
+.email{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+}
+.telefono{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+}
+
+.espacio{
+    height: 100px;
+}
+
+.titulo2{
+    margin-top: 1%;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+}
