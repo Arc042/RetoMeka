@@ -38,7 +38,7 @@ class producto_model extends producto_class{
         $list = array();
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
-            $newProducto = new productos_model();
+            $newProducto = new producto_model();
 
             $newProducto->idProducto=$row['idProducto'];
             $newProducto->nombre=$row['nombre'];
