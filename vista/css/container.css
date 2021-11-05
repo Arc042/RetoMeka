@@ -117,3 +117,123 @@
     height: 634px;
     grid-area: image5;
 }
+@media screen and (max-width: 1396px) and (min-width:300px) {
+    .container-fluid{
+       
+        grid-template-areas: "title  title"
+                             "text1  text1"
+                             "image1 image1"
+                             "text2  text2"
+                             "image2 image2"
+                             "text3  text3"
+                             "image3 image4"
+                             "text4  text4"
+                             "image5 image5";
+    }
+    .texto1 {
+      background-color: transparent;
+       position: relative;
+       left:0;
+       width: auto;
+       grid-area: text1;
+       justify-self: center;
+   
+   }
+   .t-1{
+       position: relative;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       background-color: white;
+       top: 0;
+   }
+    .img1 img{
+        position: relative;
+       
+        width: 478px;
+        height: 580px;
+        grid-area: image1;
+       justify-self: center;
+   }
+    .img2 img{
+       position: relative;
+       left:0;
+       width:486px;
+       height:385px;
+       grid-area: image2;
+       justify-self: center;
+   }
+    .texto2{
+       background-color: transparent;
+       position: relative;
+       right:0;
+       width: auto;
+       grid-area: text2;
+       justify-self: center;
+   }
+   .t-2{
+       position: relative;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       background-color: white;
+       top: 0;
+   }
+    .img3 img{
+        z-index:1;
+       position: relative;
+       top:0;
+       left:0;
+       width:100%;
+       height:auto;
+       grid-area: image3;
+       object-fit:cover;
+       object-position: 100% 60% 80%;
+   }
+   .texto3  {
+       position: relative;
+       top:0;
+       grid-area: text3;
+       justify-self: center;
+   }
+   .t-3{
+       z-index: 1;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       background-color: white;
+       position: relative;
+       left:0;
+   }
+    .img4 img {
+       z-index: 1;
+       position: relative;
+       bottom:0;
+       width:auto;
+       height:100%;
+       grid-area: image4;
+       justify-self: center;
+   }
+    .texto4 {
+        position: relative;
+        grid-area: text4;
+        justify-self: center;
+        width:auto;
+   }
+   .t-4{
+       z-index: 1;
+       position: relative;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       background-color: white;
+       top:0;
+   }
+    .img5 img{
+        position: relative;
+        right:0;
+       width: 521px; 
+       height: 634px;
+       grid-area: image5;
+   }
+}
