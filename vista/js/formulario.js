@@ -22,35 +22,35 @@ function soloLetras(e) {
   document.getElementById("btnFormulario").onclick = function() {
       
     if (document.getElementById("name").value == "") {
-        alert("no funciona nombre");
+        alert("*Campo incompleto: Nombre*");
       } else {
         var name = true;
         console.log(name);
         
     }
 
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    
+    var correo = document.getElementById("email");
+  
+    if (emailRegex.test(correo.value)) {
+        var correo=true;
+        console.log(correo);
+  
+    } else {
+        var correo=false;
+        alert("*Campo incompleto: Email*");
+        /*alert("EMAIL NO VALIDO");*/
+    } 
+
     if (document.getElementById("mensaje").value == "") {
-      alert("no funciona mensaje");
+      alert("*Campo incompleto: Mensaje*");
     } else {
       var mensaje = true;
       console.log(mensaje);
   }
    
-  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    
-  var correocomprobacion=false;
-  var correo = document.getElementById("email");
-
-  if (emailRegex.test(correo.value)) {
-      var correo=true;
-      console.log(correo);
-
-  } else {
-      var correo=false;
-      alert("no funciona email");
-      /*alert("EMAIL NO VALIDO");*/
-  } 
-
+ 
   if(name == true && mensaje == true && correo == true) {
     
     Swal.fire(

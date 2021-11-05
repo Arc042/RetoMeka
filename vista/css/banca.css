@@ -1,0 +1,53 @@
+.contenedorPrincipal{
+    background-color: red;
+    width: 60%;
+    height: 800px;
+    margin-left: 20%;
+    margin-right: 20%;
+    justify-content: center;
+
+}
+
+.titulillo{
+    text-align: center;
+    padding: 10px;
+}
+
+/* saldo */
+.saldo{
+    text-align: center;
+    padding: 10px;
+}
+
+/* movimientos */
+.movimientos{
+    text-align: center;
+    width: 80%;
+    margin: 10px;
+    margin-top: 20px;
+    background-color: green;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* botones de opciones */
+.botones{
+    text-align: center;
+}
+.botones button{
+    background-color: greenyellow;
+    border-style: none;
+    border-radius: 20px;
+    height: 40px;
+}
+
+/* transferencias */
+.transferencia{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+    margin-top: 20px;
+    background-color: indigo;
+}
