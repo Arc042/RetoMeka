@@ -2,11 +2,11 @@
 
 include_once '../model/producto_Model.php';
 
-$producto = new producto_model();
+$newProducto = new producto_model();
 
 $response = array();
 
-/*$response['list']=$producto->verProductos();*/
+/*$response['list']=$newProducto->verProductos();*/
 
 $response['error']="no error";
 
