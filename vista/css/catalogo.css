@@ -31,7 +31,7 @@ img{
     height: 100%;
     position: fixed;
     margin-left: -300px;
-    background-color: #100901;
+    background-color: #fff;
     transition: 0.5s;
   }
   
