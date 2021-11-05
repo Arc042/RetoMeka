@@ -3,14 +3,23 @@
     width: 50px;
 }
 
+.logoWeb{
+    width: 125px;
+}
+
 header{
-    background-color: darkblue;
+    background-color: #D6D5D5;
 }
 
 #textNav{
-    color: white;
+    color: black;
 }
 
 #textNav:hover{
-    color: aquamarine;
+    text-decoration-line: underline;
+    
+}
+
+#textNav:hover{
+    color: rgb(0, 0, 0);
 }
