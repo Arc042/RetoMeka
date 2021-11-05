@@ -6,7 +6,7 @@ $producto = new producto_model();
 
 $response = array();
 
-$response['list']=$producto->verProductos();
+/*$response['list']=$producto->verProductos();*/
 
 $response['error']="no error";
 
