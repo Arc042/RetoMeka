@@ -38,3 +38,13 @@ function sessionVarsView()
 	})
 	.catch(error => console.error('Error status:', error));			
 }
+
+function mostrar() {
+
+	var url = "controlador/controlador_tienda.php";
+	
+	fetch(url, {
+		  method: 'GET', 
+		  headers:{'Content-Type': 'application/json'}  // input data
+		  })
+}
