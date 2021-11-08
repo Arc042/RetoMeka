@@ -122,3 +122,30 @@ img{
   
   /*Fin Filter*/
   
+
+  /*pruebas*/
+  #container {
+    /*width: 300px;*/
+    width: 100%;
+    background-color: #ffcc33;
+    margin: auto;
+}
+#divcard {
+    /*width: 100px;*/
+    width: 60%;
+    float: left;
+    height: 350px;
+        background-color: blue;
+}
+#divimg {
+    /*width: 200px;*/
+    width: 40%;
+    float: left;
+    height: 350px;
+    background-color: green;
+}
+#second div img{
+  width: 315px;
+  height: auto;
+}
+/*Fin pruebas*/
