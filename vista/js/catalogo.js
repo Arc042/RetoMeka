@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
     var uah_min = $("#user_age_handler_min");
     var uah_max = $("#user_age_handler_max");
 
@@ -21,4 +21,4 @@ $(function() {
       uah_max.text( ui.values[1] );
     }
   });
-  });
+  });*/

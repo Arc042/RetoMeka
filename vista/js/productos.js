@@ -1,6 +1,14 @@
-function mostrar() {
+/*window.onload = function() {
+    mostrar();
+    console.log('fbidffiusbfivu')
+  };*/
 
-	var url = "controlador/controlador_tienda.php";
+  document.addEventListener("DOMContentLoaded", function (event){
+    mostrar();
+
+  })
+function mostrar() {
+	var url = "../../controlador/controlador_tienda.php";
 	
 	fetch(url, {
 		  method: 'GET', 
@@ -9,15 +17,47 @@ function mostrar() {
 
     .then(res => res.json()).then(result =>{
 
-        console.log('succes:',res.list);
+        console.log('succes:',result.list);
 
         var producto = result.list;
+        console.table(producto);
 
-        for(let i = 0; i<producto.length; i++) {
+        for(let i = 0; i<=result.list.length; i++) {
 
-            producto += "";
+            producto += '"<div id="container">'
+            +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                       + '<ul>'
+                         + '<li>'+producto[i].descripcion+'</li>'
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4">'
+                      +'<img src="../imagenes/Catalogo/'+producto[i].nombre+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+            +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="../imagenes/Catalogo/'+producto[i].nombre+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'
+          +'</div>";'
         }
-        document.getElementById("").innerHTML=producto;
+        document.getElementById("relleno").innerHTML=producto;
     })
     .catch(error => console.log('Error status:', error));
 }
