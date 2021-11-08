@@ -127,24 +127,24 @@ img{
   #container {
     /*width: 300px;*/
     width: 100%;
-    background-color: #ffcc33;
+    /*background-color: #ffcc33;*/
     margin: auto;
 }
 #divcard {
     /*width: 100px;*/
     width: 60%;
     float: left;
-    height: 350px;
-        background-color: blue;
+    height: auto;
+       /* background-color: blue;*/
 }
 #divimg {
     /*width: 200px;*/
     width: 40%;
     float: left;
-    height: 350px;
-    background-color: green;
+    height: 400px;
+    /*background-color: green;*/
 }
-#second div img{
+#divimg div img{
   width: 315px;
   height: auto;
 }
