@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded",function (event) {
     
-    document.getElementById("submit").addEventListener('click', login);
+    // document.getElementById("submit").addEventListener('click', login);
     document.getElementById("logout").addEventListener('click', logout);
     
     // LOGIN
 	document.getElementById("login").addEventListener('click', function(){
-		document.getElementById("divUser").style.display="block";
+		document.getElementById("modalForm").style.display="block";
 	});
 })
 
@@ -23,8 +23,8 @@ function sessionVarsView()
 		
 		if (result.error =="no error"){
 			
-			document.getElementById("msg").innerHTML="You are "+result.user.name+" and type : "+result.user.type;
-			if (result.user.type == 1)
+			document.getElementById("msg").innerHTML="You are "+result.usuario.nombre+" and type : "+result.usuario.type;
+			if (result.usuario.type == 1)
 			{
 				document.getElementById("berria").style.display="inline-block";	
 				document.getElementById("ezabatu").style.display="inline-block";	
