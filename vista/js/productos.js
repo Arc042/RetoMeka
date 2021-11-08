@@ -11,15 +11,17 @@ function mostrar() {
 
         console.log('succes:',res.list);
 
-        var prodcuto = result.list;
+        var producto = result.list;
 
-        var resultado = "";
+        for(let i = 0; i<producto.length; i++) {
 
-        for(let i = 0; i<prodcuto.length; i++) {
-
-            prodcuto += "";
+            producto += "";
         }
-        document.getElementById("").innerHTML=prodcuto;
+        document.getElementById("").innerHTML=producto;
     })
     .catch(error => console.log('Error status:', error));
+}
+
+function ordenar() {
+
 }

@@ -31,7 +31,7 @@ class producto_model extends producto_class{
 
     public function mostrar() {
         $this->OpenConnect();
-        $sql = "CALL";
+        $sql = "SELECT * FROM producto";
 
         $result = $this->link->query($sql);
 
