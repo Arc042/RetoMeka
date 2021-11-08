@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: violet;
     position: relative;
+    background-color: crimson;
 }
 
 
@@ -60,7 +60,6 @@
 .imagen{
     height: 300px;
     width: 50%;
-    background-color: chocolate;
     
 }
 
@@ -77,8 +76,8 @@
     border-radius: 20px 0px 20px 0px;
     height: 200px;
     width: 100%;
-    background-color: blueviolet;
     padding: 1%;
+    background-color: cadetblue;
 }
 
 .nombre{
@@ -129,4 +128,8 @@
     font-weight: bolder;
     font-size: 30px;
     text-align: center;
+}
+
+color{
+    color: whi;
 }
