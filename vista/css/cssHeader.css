@@ -1,3 +1,6 @@
+/*Header de nuestra pagina web*/
+
+/*Seccion del logo + logo*/
 .logo{
     height: 50px;
     width: 50px;
@@ -6,7 +9,9 @@
 .logoWeb{
     width: 125px;
 }
+/*Fin seccion del logo + logo*/
 
+/*Header */
 header{
     background-color: #D6D5D5;
 }
@@ -23,3 +28,5 @@ header{
 #textNav:hover{
     color: rgb(0, 0, 0);
 }
+/*Fin header*/
+/*Fin del header*/
