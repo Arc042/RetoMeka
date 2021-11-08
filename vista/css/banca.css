@@ -1,5 +1,5 @@
 .contenedorPrincipal{
-    background-color: red;
+    background-color: #CBD3CC;
     width: 60%;
     height: 800px;
     margin-left: 20%;
@@ -8,15 +8,23 @@
 
 }
 
+.seleccion{
+    margin-top: 0px;
+}
+
 .titulillo{
+    background-color: #90C5F1;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    margin: 0px;
+    color:#5B5D5E;
 }
 
 /* saldo */
 .saldo{
     text-align: center;
     padding: 10px;
+    color: #5B5D5E;
 }
 
 /* movimientos */
