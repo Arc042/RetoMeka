@@ -4,9 +4,9 @@
   };*/
 
   document.addEventListener("DOMContentLoaded", function (event){
-    mostrar();
+    mostrarAZ();
   })
-function mostrar() {
+function mostrarAZ() {
 	var url = "../../controlador/controlador_tienda.php";
 	
 	fetch(url, {
