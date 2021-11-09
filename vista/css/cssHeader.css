@@ -1,3 +1,4 @@
+
 .logo{
     height: 50px;
     width: 50px;
@@ -23,3 +24,18 @@ header{
 #textNav:hover{
     color: rgb(0, 0, 0);
 }
+#divUser{
+	display:none;
+}
+#logout{
+	display:none;
+}
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-footer {
+    background-color: #f9f9f9;
+  }

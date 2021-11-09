@@ -7,12 +7,12 @@ session_start();
 
 if ((isset($_SESSION['nombre']))  && (isset($_SESSION['tipo']))){
     
-    $usuario= new usuario_model();
+    $user= new usuario_model();
     
-    $usuario->nombre=$_SESSION['nombre'];
-    $usuario->type=$_SESSION['type'];
+    $user->nombre=$_SESSION['nombre'];
+    $user->tipo=$_SESSION['tipo'];
     
-    $response['usuario']= $usuario;
+    $response['user']= $user;
     $response['error']="no error";
     
 } else{  
