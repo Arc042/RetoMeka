@@ -55,4 +55,34 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+
+    public function mostrarAZ() {
+        $this->OpenConnect();
+
+        $nombre=$this->nombre;
+
+        $sql = "SELECT * FROM producto ORDER BY nombre='$nombre'";
+
+        $result = $this->link->query($sql);
+
+        $list = array();
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+            $newProducto = new producto_model();
+
+            $newProducto->idProducto=$row['idProducto'];
+            $newProducto->nombre=$row['nombre'];
+            $newProducto->tipo=$row['tipo'];
+            $newProducto->descripcion=$row['descripcion'];
+            $newProducto->precio=$row['precio'];
+            $newProducto->stock=$row['stock'];
+            $newProducto->img=$row['img'];
+
+            array_push($list, $newProducto);
+        }
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return $list;
+    }
 }
