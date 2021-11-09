@@ -17,14 +17,19 @@ function mostrar() {
 
     .then(res => res.json()).then(result =>{
 
-        console.log('succes:',result.list);
-
+        // console.log('succes:',result.list);
+        var producto="";
         var producto = result.list;
-        console.table(producto);
+        // console.table(producto[0]);
 
-        for(let i = 0; i<=result.list.length; i++) {
+        for(var i = 0; i<=producto.length-1; i++) {
 
-            producto += '"<div id="container">'
+          // console.log(i);
+          // console.log(producto);
+          // console.log(producto[i].descripcion);
+          console.log(producto[i]);
+          console.log(producto[i].img);
+          document.getElementById("relleno").innerHTML += '<div id="container">'
             +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
                + '<div>'
@@ -41,7 +46,7 @@ function mostrar() {
                      + '</div>'
                     +'</div>'
                     +'<div class="col-md-4">'
-                      +'<img src="../imagenes/Catalogo/'+producto[i].nombre+'" class="img-fluid rounded-start"'
+                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
                   +'</div>'
@@ -51,13 +56,12 @@ function mostrar() {
             +'<div id="divimg">'
               +'<div>'
             
-                +'<img src="../imagenes/Catalogo/'+producto[i].nombre+'" class="img-fluid rounded-start" alt="">'
+                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
             
               +'</div>'
             +'</div>'
-          +'</div>";'
+          +'</div>'
         }
-        document.getElementById("relleno").innerHTML=producto;
     })
     .catch(error => console.log('Error status:', error));
 }
