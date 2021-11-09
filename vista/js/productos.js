@@ -96,9 +96,13 @@ function mostrar() {
     .catch(error => console.log('Error status:', error));
 }
 
-function ordenarAlfabetoAZ() {
+document.getElementById("user_sort").addEventListener("click", function(){
+  ordenarAlfabetoAZ();
+})
 
-    var url = "controlador/controlador_tienda.php";
+function ordenarAlfabetoAZ() {
+    console.log("hola")
+    var url = "../../controlador/controlador_tienda.php";
 	
 	fetch(url, {
 		  method: 'GET', 
@@ -106,7 +110,7 @@ function ordenarAlfabetoAZ() {
 		  })
     .then(res => res.json()).then(result =>{
 
-        console.log('succes:',res.list);
+        console.log('succes:',result.list);
     
         var producto = result.list;
         
