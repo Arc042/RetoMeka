@@ -24,11 +24,8 @@ function mostrar() {
 
         for(var i = 0; i<=producto.length-1; i++) {
 
-          // console.log(i);
-          // console.log(producto);
-          // console.log(producto[i].descripcion);
-          console.log(producto[i]);
-          console.log(producto[i].img);
+          console.log(producto);
+
           document.getElementById("relleno").innerHTML += '<div id="container">'
             +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
@@ -46,7 +43,7 @@ function mostrar() {
                      + '</div>'
                     +'</div>'
                     +'<div class="col-md-4">'
-                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
+                      +'<img src="" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
                   +'</div>'
@@ -56,7 +53,7 @@ function mostrar() {
             +'<div id="divimg">'
               +'<div>'
             
-                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
+                +'<img src="" class="img-fluid rounded-start" alt="">'
             
               +'</div>'
             +'</div>'
