@@ -1,6 +1,14 @@
-function mostrar() {
+/*window.onload = function() {
+    mostrar();
+    console.log('fbidffiusbfivu')
+  };*/
 
-	var url = "controlador/controlador_tienda.php";
+  document.addEventListener("DOMContentLoaded", function (event){
+    mostrar();
+
+  })
+function mostrar() {
+	var url = "../../controlador/controlador_tienda.php";
 	
 	fetch(url, {
 		  method: 'GET', 
@@ -9,15 +17,51 @@ function mostrar() {
 
     .then(res => res.json()).then(result =>{
 
-        console.log('succes:',res.list);
-
+        // console.log('succes:',result.list);
+        var producto="";
         var producto = result.list;
+        // console.table(producto[0]);
 
-        for(let i = 0; i<producto.length; i++) {
+        for(var i = 0; i<=producto.length-1; i++) {
 
-            producto += "";
+          // console.log(i);
+          // console.log(producto);
+          // console.log(producto[i].descripcion);
+          console.log(producto[i]);
+          console.log(producto[i].img);
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+            +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                       + '<ul>'
+                         + '<li>'+producto[i].descripcion+'</li>'
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4">'
+                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+            +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'
+          +'</div>'
         }
-        document.getElementById("").innerHTML=producto;
     })
     .catch(error => console.log('Error status:', error));
 }

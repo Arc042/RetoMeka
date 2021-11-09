@@ -46,6 +46,7 @@ class producto_model extends producto_class{
             $newProducto->descripcion=$row['descripcion'];
             $newProducto->precio=$row['precio'];
             $newProducto->stock=$row['stock'];
+            $newProducto->img=$row['img'];
 
             array_push($list, $newProducto);
         }

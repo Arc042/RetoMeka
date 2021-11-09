@@ -1,6 +1,6 @@
 <?php
 
-include_once '../model/producto_Model.php';
+include_once '../modelo/producto_model.php';
 
 $newProducto = new producto_model();
 
