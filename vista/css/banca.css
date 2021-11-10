@@ -58,12 +58,9 @@
 /* movimientos */
 .movimientos{
     text-align: center;
-    width: 80%;
     margin: 10px;
-    margin-top: 20px;
-    background-color: green;
-    margin-left: 10%;
-    margin-right: 10%;
+    height: 300px;
+    overflow-y: scroll;
 }
 
 /* transferencias */

@@ -7,7 +7,21 @@ function movimientos() {
     document.getElementById("campoDinamico").innerHTML = ''
     document.getElementById("campoDinamico").style.display = "none";
 
-    
+    document.getElementById("campoDinamico").innerHTML = '<div class="movimientos overflow-auto">'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+    '</div>'
+    document.getElementById("campoDinamico").style.display = "block";
 }
 
 // Funcion que muestra la tabla de prestamos
