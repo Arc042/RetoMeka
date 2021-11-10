@@ -35,19 +35,29 @@
     background-color: white;
     top: 40%;
 }
- .img1 {
+ .img1{
      position: relative;
      left:30%;
      width: 478px;
-     height: 580px;
+     height: 480px;
     grid-area: image1;
+}
+.img1 img{
+    position: relative;
+    width: 478px;
+     height: 480px;
 }
  .img2{
     position: relative;
     left:10%;
-    width:486px;
+    width:386px;
     height:385px;
     grid-area: image2;
+}
+.img2 img{
+    position: relative;
+    width:486px;
+    height:385px;
 }
  .texto2{
     background-color: transparent;
@@ -70,7 +80,7 @@
     top:60%;
     left:35%;
     width:361px;
-    height:425px;
+    height:325px;
     object-fit: cover;
     grid-area: image3;
 }
@@ -118,6 +128,8 @@
     grid-area: image5;
 }
 @media screen and (max-width: 1396px) and (min-width:300px) {
+    
+    
     .container-fluid{
        
         grid-template-areas: "title"
