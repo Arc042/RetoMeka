@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="stylesheet" href="../css/catalogo.css">
-    <!--pruebas-->
-    
-<!--pruebas-->
+
+
+    <!--prueba-->
+    <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
+<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+
+	<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
+  <!--prueba-->
+
 </head>
 <body style="background-color: rgb(167, 161, 161);">
     
@@ -24,20 +30,28 @@
                 <label for="user_name">Nombre</label>
             <input type="email" class="form-control" id="user_name" placeholder="User name">
               </div>
-              
-              <!--<div class="form-group">
-                <label for="user_age">Age</label>
-                <div id="user_age">
-                  <div id="user_age_handler_min" class="ui-slider-handle"></div>
-                  <div id="user_age_handler_max" class="ui-slider-handle"></div>
-                </div>
-              <imnput type="hidden" id="user_age_min" name="user_age_min"/>
-              <imnput type="hidden" id="user_age_max" name="user_age_max"/>
-              </div>-->
+
               <div class="form-group">
+            <!--<label for="user_gender">Tipo</label>
+            <select class="form-control custom-select" id="user_gender">
+              <option></option>
+              <option>Rescate</option>
+              <option>Vigilancia</option>
+            </select>-->
+          </div>
+          <form>
+            <div data-role="rangeslider" id="preciorango">
+                <label for="range-1a">Rangeslider:</label>
+                <input type="range" name="range-1a" id="range-1a" class="inputprecio" min="0" max="2000" value="0" data-popup-enabled="true" data-show-value="true">
+                <label for="range-1b">Rangeslider:</label>
+                <input type="range" name="range-1b" id="range-1b" class="inputprecio" min="0" max="2000" value="2000" data-popup-enabled="true" data-show-value="true">
+            </div>
+          </form>
+              <!--<div class="form-group">
                 <label for="user_sort">Precio</label>
                 <input class="range_precio" type="range" value="24" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
                 <output>24</output>
+              </div>-->
                 <!--<label for="user_age">Age</label>
                 <div id="user_age">
                   <div id="user_age_handler_min" class="ui-slider-handle"></div>
@@ -45,7 +59,7 @@
                 </div>
               <imnput type="hidden" id="user_age_min" name="user_age_min"/>
               <imnput type="hidden" id="user_age_max" name="user_age_max"/>-->
-              </div>
+              
                 <div class="form-group">
             <label for="user_sort">Ordenar</label>
             <select class="form-control custom-select" id="user_sort">
@@ -85,7 +99,6 @@
         </div>
       </div>
 
-    
 
       <div id="relleno">
 
@@ -179,7 +192,7 @@
             </li>
           </ul>
           <hr>
-          <!--<div class="dropdown pb-4">
+          <div class="dropdown pb-4">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
               id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
