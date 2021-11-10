@@ -57,7 +57,7 @@ class producto_model extends producto_class{
         return $list;
     }
 
-    /*public function mostrarAZ() {
+    public function ordenarAZ() {
         $this->OpenConnect();
 
         $sql = "SELECT * FROM producto ORDER BY nombre ASC";
@@ -67,25 +67,25 @@ class producto_model extends producto_class{
         $list = array();
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
-            $productoAZ = new producto_model();
+            $newProducto = new producto_model();
 
-            $productoAZ->idProducto=$row['idProducto'];
-            $productoAZ->nombre=$row['nombre'];
-            $productoAZ->tipo=$row['tipo'];
-            $productoAZ->descripcion=$row['descripcion'];
-            $productoAZ->precio=$row['precio'];
-            $productoAZ->stock=$row['stock'];
-            $productoAZ->img=$row['img'];
+            $newProducto->idProducto=$row['idProducto'];
+            $newProducto->nombre=$row['nombre'];
+            $newProducto->tipo=$row['tipo'];
+            $newProducto->descripcion=$row['descripcion'];
+            $newProducto->precio=$row['precio'];
+            $newProducto->stock=$row['stock'];
+            $newProducto->img=$row['img'];
 
-            array_push($list, $productoAZ);
+            array_push($list, $newProducto);
         }
 
         mysqli_free_result($result);
         $this->CloseConnect();
         return $list;
-    }*/
+    }
 
-     /*public function mostrarZA() {
+     public function mostrarZA() {
         $this->OpenConnect();
 
         $sql = "SELECT * FROM producto ORDER BY nombre DESC";
@@ -111,5 +111,5 @@ class producto_model extends producto_class{
         mysqli_free_result($result);
         $this->CloseConnect();
         return $list;
-    }*/
+    }
 }

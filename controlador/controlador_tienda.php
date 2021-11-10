@@ -7,8 +7,8 @@ $newProducto = new producto_model();
 $response = array();
 
 $response['list']=$newProducto->mostrar();
-//$response['list']=$newProducto->mostrarAZ();
-//$response['list']=$newProducto->mostrarZA();
+$response['list2']=$newProducto->ordenarAZ();
+$response['list3']=$newProducto->mostrarZA();
 
 $response['error']="no error";
 
