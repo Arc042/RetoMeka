@@ -1,10 +1,11 @@
 .contenedorPrincipal{
     background-color: #CBD3CC;
     width: 60%;
-    height: 800px;
+    height: auto;
     margin-left: 20%;
     margin-right: 20%;
-    justify-content: center;    
+    justify-content: center;   
+    padding-bottom: 40px; 
 }
 
 .titulillo{
@@ -36,14 +37,22 @@
     text-align: center;
     padding: 10px;
 }
-.botones button{
-    margin: 5px;
-    background-color: #2A96CD;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    height: 40px;
-}
+    .botones button{
+        margin: 5px;
+        background-color: #2A96CD;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        height: 45px;
+        width: auto;
+        font-weight:  bolder;
+    }
+    .botones button:hover{
+        background-color: #37B9FC;
+    }
+    .botones button:focus{
+        background-color: #37B9FC;
+    }
 
 
 /* movimientos */
@@ -65,4 +74,19 @@
     margin-right: 10%;
     margin-top: 20px;
     background-color: indigo;
+}
+
+/* campo dinamico autogenerad mediante botones */
+.campoDinamico{
+    width: 70%;
+    background-color: #ffffff;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: auto;
+    /* height: 600px; */
+    padding: 10px;
+    margin-top: 10px;
+    border: 3px solid #2771C1;
+    border-radius: 10px;
+    display: none;
 }
