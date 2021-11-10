@@ -95,21 +95,12 @@ img{
   .widget:hover h2 {
     background-color: #ebebeb;
  }
-  #user_age_handler_min, #user_age_handler_max {
-    width: 3em;
-    margin-left: -1.5em;
-    height: 1.6em;
-    top: 50%;
-    margin-top: -0.8em;
-    text-align: center;
-    line-height: 1.6em;
- }
- #user_age_handler_max {
+ #user_age_handler_min, #user_age_handler_max {
   width: 3em;
-  margin-left: 10em;
+  margin-left: -1.5em;
   height: 1.6em;
   top: 50%;
-  margin-top: -0.8em;
+  margin-top: -.8em;
   text-align: center;
   line-height: 1.6em;
 }

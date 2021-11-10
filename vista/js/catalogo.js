@@ -1,24 +1,18 @@
-/*$(function() {
-    var uah_min = $("#user_age_handler_min");
-    var uah_max = $("#user_age_handler_max");
-
-    console.log(uah_min)
-    console.log(uah_max)
-
-  $("#user_age").slider({
-    range: true,
-    min: 0,
-    max: 150,
-    values: [0, 150],
-    create: function() {
-     uah_min.text(0);
-      uah_max.text(150);
-    },
-    slide: function(event, ui) {
-      $("#user_age_min").val(ui.values[0]);
-      $("#user_age_max").val(ui.values[1]);
-      uah_min.text( ui.values[0] );
-      uah_max.text( ui.values[1] );
-    }
+$(document).ready(function() {
+  $("#slider").slider({
+      min: 0,
+      max: 100,
+      step: 1,
+      values: [10, 90],
+      slide: function(event, ui) {
+          for (var i = 0; i < ui.values.length; ++i) {
+              $("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
+          }
+      }
   });
-  });*/
+
+  $("input.sliderValue").change(function() {
+      var $this = $(this);
+      $("#slider").slider("values", $this.data("index"), $this.val());
+  });
+});
