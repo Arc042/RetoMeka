@@ -23,20 +23,20 @@
 	width: 500px;
 }
 
-.card-body{
-    background-image: url(/vista/imagenes/dronSalvar.jpg);
+/* .dronSalvar{
+    background-image: url(../imagenes/dronSalvar.jpg);
     background-repeat: no-repeat;
-}
+} */
 
 .card-body:hover{
     opacity: 0.4;
     filter: alpha(opacity=40); /* For IE8 and earlier */
 }
-
-#dron2{
-    background-image: url(/vista/imagenes/dron.jpg);
+/* 
+.dronCine{
+    background-image: url(../imagenes/dron.jpg);
     background-repeat: no-repeat;
-}
+} */
 
 .imagenCard{
 	height: 260px;
