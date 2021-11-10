@@ -6,16 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="stylesheet" href="../css/catalogo.css">
-    <!--<script>
-      var menu_btn = document.querySelector("#menu-btn");
-      console.log(menu_btn)
-      var sidebar = document.querySelector("#sidebar");
-      var container = document.querySelector(".my-container");
-      menu_btn.addEventListener("click", () => {
-        sidebar.classList.toggle("active-nav");
-        container.classList.toggle("active-cont");
-      });
-    </script>-->
+    <!--pruebas-->
+    
+<!--pruebas-->
 </head>
 <body style="background-color: rgb(167, 161, 161);">
     
@@ -31,14 +24,16 @@
                 <label for="user_name">Nombre</label>
             <input type="email" class="form-control" id="user_name" placeholder="User name">
               </div>
-              <div class="form-group">
-            <!--<label for="user_gender">Tipo</label>
-            <select class="form-control custom-select" id="user_gender">
-              <option></option>
-              <option>Rescate</option>
-              <option>Vigilancia</option>
-            </select>-->
-          </div>
+              
+              <!--<div class="form-group">
+                <label for="user_age">Age</label>
+                <div id="user_age">
+                  <div id="user_age_handler_min" class="ui-slider-handle"></div>
+                  <div id="user_age_handler_max" class="ui-slider-handle"></div>
+                </div>
+              <imnput type="hidden" id="user_age_min" name="user_age_min"/>
+              <imnput type="hidden" id="user_age_max" name="user_age_max"/>
+              </div>-->
               <div class="form-group">
                 <label for="user_sort">Precio</label>
                 <input class="range_precio" type="range" value="24" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
@@ -87,6 +82,8 @@
           </div>
         </div>
       </div>
+
+    
 
       <div id="relleno">
 
