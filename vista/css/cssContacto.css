@@ -34,3 +34,31 @@
     margin-top: 1%;
 }
 /*Fin formulario*/
+
+@media screen and (max-width:400px){
+
+    .formulario{
+        top: 55%;
+        width: 100%;
+        left: 0;
+        height: 80%;
+    }
+
+    .fondoImagen{
+        background-image: none;
+    }
+
+    #btnFormulario{
+        margin-left: 150px;
+        margin-top: 30px;
+    }
+
+}
+
+@media screen and (max-width:900px){
+
+    .formulario{
+        top: 50%;
+    }
+
+}
