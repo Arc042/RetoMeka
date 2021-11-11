@@ -33,7 +33,7 @@ class usuario_model extends usuario_class {
         $nombre=$this->nombre;
         $contrasena=$this->contrasena;
         
-        $sql="SELECT * FROM `usuario` WHERE usuario.nombre='$nombre'";
+        $sql="SELECT usuario.*  FROM usuario WHERE usuario.nombre='$nombre'";
         $result= $this->link->query($sql);
         
         $userExists=false;

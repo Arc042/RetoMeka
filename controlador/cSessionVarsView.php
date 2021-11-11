@@ -16,7 +16,7 @@ if ((isset($_SESSION['nombre']))  && (isset($_SESSION['tipo']))){
     $response['error']="no error";
     
 } else{  
-    $response['error']="You are not logged";
+    $response['error']="";
 }
 echo json_encode($response);
 

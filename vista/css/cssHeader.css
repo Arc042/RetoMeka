@@ -27,12 +27,12 @@ header{
 /* #divUser{
 	display:none;
 } */
-.botonsalida{
+.botones{
     width:100%;
     text-align: right;
     padding-right:60px;
 }
-#logout{
+#logout,#banca,#clientes{
 	display:none;
    
 }
@@ -64,7 +64,7 @@ color:black;
         padding-right:0px;
         font-size: 16px;
     }
-    .botonsalida{
+    .botones{
         text-align: left;
         padding-right:0px;
        

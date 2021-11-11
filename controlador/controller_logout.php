@@ -2,7 +2,7 @@
 
 session_start();
 session_destroy();
-setcookie("PHPSESSID", "", time() - 3600);
+setcookie("PHPSESSID", "", time() - 1600);
 
 setcookie("numVisits",1);
 

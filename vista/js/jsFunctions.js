@@ -1,4 +1,4 @@
-var Imagenes = ["../imagenes/IMGINDEX/3005287.jpg", "../imagenes/IMGINDEX/dron-cofepasa-blog.jpg", "../imagenes/IMGINDEX/f608x342-340279_370002_13.jpg", "../imagenes/IMGINDEX/Masca.webp", "../imagenes/IMGINDEX/reunióndenegocios.webp", "../imagenes/IMGINDEX/taller-1.jpg", "../imagenes/IMGINDEX/Volar un avión no tripulado.webp"]
+var Imagenes = ["../imagenes/IMGINDEX/3005287.jpg", "../imagenes/IMGINDEX/Ave.webp", "../imagenes/IMGINDEX/dron-cofepasa-blog.jpg", "../imagenes/IMGINDEX/DroneQuadcopter.webp", "../imagenes/IMGINDEX/f608x342-340279_370002_13.jpg", "../imagenes/IMGINDEX/Hacedorentaller.webp", "../imagenes/IMGINDEX/Masca.webp", "../imagenes/IMGINDEX/reunióndenegocios.webp", "../imagenes/IMGINDEX/taller-1.jpg", "../imagenes/IMGINDEX/Volarunaviónnotripulado.webp"]
 	
 
 	var textoarray1 = ["HOLA", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni expedita vitae officia tempora eius dolor quaerat. Facere suscipit ullam officiis?."];
@@ -7,7 +7,7 @@ var Imagenes = ["../imagenes/IMGINDEX/3005287.jpg", "../imagenes/IMGINDEX/dron-c
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-	sessionVarsView();
+	// sessionVarsView();
 	loadGrid();
 	//  document.getElementById("submit").addEventListener('click', login);
 	//  document.getElementById("logout").addEventListener('click', logout);
@@ -34,15 +34,18 @@ function sessionVarsView() {
 	})
 		.then(res => res.json()).then(result => {
 
-			console.log(result);
+			// console.log(result);
 
 			if (result.error == "no error") {
 
-				document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
+				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
-					alert("usuario tipo 1")
+					document.getElementById("clientes").style.display="inline-block";	
+				}else if (result.user.tipo == "AdminFinanzas") {
+					document.getElementById("banca").style.display="inline-block";	
+
 				}
-				// document.getElementById("divUser").style.display="none";
+				// document.getElementById("modalForm").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
 			} else {
 				document.getElementById("msg").innerHTML = result.error;
@@ -62,11 +65,11 @@ function loadGrid() {
 			newRow +="<h6>"+textoarray1[0]+"</h6>";
 			newRow +="<p>"+textoarray1[1]+"</p></div ></div > ";
 			newRow += "<div class='img1'><img src="+Imagenes[5]+"></div>"
-            newRow += "<div class='img2'><img src="+Imagenes[4]+"></div>";
+            newRow += "<div class='img2'><img src="+Imagenes[7]+"></div>";
 			newRow +=" <div class='texto2'><div class='t-2'>";
 			newRow +="<h6>"+textoarray2[0]+"</h6>";
 			newRow +="<p>"+textoarray2[1]+"</p></div ></div > ";
-			newRow += "<div class='img3'><img src="+Imagenes[2]+"></div>"
+			newRow += "<div class='img3'><img src="+Imagenes[3]+"></div>"
 			newRow +=" <div class='texto3'><div class='t-3'>";
 			newRow +="<h6>"+textoarray1[0]+"</h6>";
 			newRow +="<p>"+textoarray1[1]+"</p></div ></div>";
@@ -74,9 +77,9 @@ function loadGrid() {
 			newRow +=" <div class='texto4'><div class='t-4'>";
 			newRow +="<h6>"+textoarray2[0]+"</h6>";
 			newRow +="<p>"+textoarray2[1]+"</p></div ></div> ";
-			newRow += "<div class='img5'><img src="+Imagenes[3]+"></div>";
+			newRow += "<div class='img5'><img src="+Imagenes[6]+"></div>";
 
-			console.log(newRow)
+			// console.log(newRow)
 
 			document.getElementById("contenedor").innerHTML = newRow; // add
 
@@ -85,18 +88,8 @@ function loadGrid() {
 };
 
 
-
-
-
-
-
-
-
-
-
-
 function login() {
-	alert("hola");
+	// alert("hola");
 	var name = document.getElementById("name").value;
 	var password = document.getElementById("password").value;
 
@@ -112,13 +105,17 @@ function login() {
 
 			alert(result.error);
 			if (result.error == "no error") {
-				document.getElementById("msg").innerHTML = "You are " + result.user.name + " and type : " + result.user.tipo;
+				// document.getElementById("msg").innerHTML = "You are " + result.user.name + " and type : " + result.user.tipo;
 				document.getElementById("name").value = "";
 				document.getElementById("password").value = "";
 				// document.getElementById("divUser").style.display="none";
 
 				if (result.user.tipo == "AdminInformatico") {
-					alert("usuario tipo 1")
+					document.getElementById("clientes").style.display="inline-block";	
+
+				}else if (result.user.tipo == "AdminFinanzas") {
+					document.getElementById("banca").style.display="inline-block";	
+
 				}
 				// document.getElementById("divUser").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
@@ -140,14 +137,14 @@ function logout() {
 
 			console.log(result.error);
 
-			document.getElementById("msg").innerHTML = "Session destruida. You are not logged";
+			// document.getElementById("msg").innerHTML = "Session destruida. You are not logged";
 
 			buttons = document.querySelectorAll("#buttons button");
 
 			for (let i = 0; i < buttons.length; i++) {
 				buttons[i].style.display = "none";
 			}
-			document.getElementById("btnLogin").style.display = "inline-block";
+			 document.getElementById("submit").style.display = "inline-block";
 		})
 		.catch(error => console.error('Error status:', error));
 }
