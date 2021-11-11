@@ -1,5 +1,33 @@
 // Funciones de la pagina de la cuenta bancaria
+document.addEventListener("DOMContentLoaded", function (event){
+    mostrar();
+})
 
+function mostrar() {
+        var url = "../../controlador/controller_banca.php";
+        console.log("hola")
+        fetch(url, {
+              method: 'GET', 
+              headers:{'Content-Type': 'application/json'}  // input data
+              })
+    
+        .then(res => res.json()).then(result =>{
+    
+            // console.log('succes:',result.list);
+            var cuenta="";
+            var cuenta = result.list;
+            console.log(cuenta);
+    
+            for(var i = 0; i<=cuenta.length; i++) {
+    
+              console.log(cuenta[i]);
+    
+              document.getElementById("seleccionarCuenta").innerHTML += "<option>"+cuenta[i].tipoCuenta+"</option>";
+  
+            }
+        })
+        .catch(error => console.log('Error status:', error));
+}
 
 // Funcion que muestra los movimientos de la cuenta bancaria seleccionada
 $('#movimientos').click(function(){

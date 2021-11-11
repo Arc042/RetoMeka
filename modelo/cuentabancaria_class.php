@@ -1,6 +1,6 @@
 <?php
 
-    class cuentaBancaria_class{
+    class cuentabancaria_class{
         public $idCuentaBancaria;
         public $tipoCuenta;
         public $saldo;
