@@ -1,13 +1,10 @@
 // Funciones de la pagina de la cuenta bancaria
 
 // Funcion que muestra los movimientos de la cuenta bancaria seleccionada
-function movimientos() {
+$('#movimientos').click(function(){
     console.log("movimientos")
-
-    document.getElementById("campoDinamico").innerHTML = ''
-    document.getElementById("campoDinamico").style.display = "none";
-
-    document.getElementById("campoDinamico").innerHTML = '<div class="movimientos overflow-auto">'+
+    $('#campoDinamico').html('')
+    $('#campoDinamico').html('<div class="movimientos overflow-auto">'+
     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
@@ -17,53 +14,43 @@ function movimientos() {
     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '</div>'
-    document.getElementById("campoDinamico").style.display = "block";
-}
+    '</div>')
+    $('#campoDinamico').css('display','block')
+})
 
 // Funcion que muestra la tabla de prestamos
-function prestamo() {
+$('#prestamo').click(function() {
     console.log("prestamos")
+    $('#campoDinamico').html('')
+    $('#campoDinamico').html()
+    $('#campoDinamico').css('display','block')
+})
 
-    document.getElementById("campoDinamico").innerHTML = ''
-    document.getElementById("campoDinamico").style.display = "none";
-
-
-}
 
 // Funcion que muestra la tabla de leasing
-function leasing() {
+$('#leasing').click(function() {
     console.log("leasing")
+    $('#campoDinamico').html('')
+    $('#campoDinamico').html()
+    $('#campoDinamico').css('display','block')
+})
 
-    document.getElementById("campoDinamico").innerHTML = ''
-    document.getElementById("campoDinamico").style.display = "none";
-
-
-}
 
 // Funcion para transferir capital de una cuenta a otra
-function transferir() {
+$('#transferir').click(function() {
     console.log("transferir")
-
-    document.getElementById("campoDinamico").innerHTML = ''
-    document.getElementById("campoDinamico").style.display = "none";
-
-
-}
+    $('#campoDinamico').html('')
+    $('#campoDinamico').html()
+    $('#campoDinamico').css('display','block')
+})
 
 // Funcion para insertar Capital a la cuenta bancaria
-function insertar() {
+$('#insertar').click(function(){  
     console.log("insertar")
-    
-    document.getElementById("campoDinamico").innerHTML = ''
-    document.getElementById("campoDinamico").style.display = "none";
-
-    document.getElementById("campoDinamico").innerHTML = '<form><div class="mb-3"><label for="exampleInputEmail1" class="form-label">Cantidad de Capital a Insertar</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" onclick="insertCorrecto()">Submit</button></form>'
-    document.getElementById("campoDinamico").style.display = "block";
-}
+    $('#campoDinamico').html('')
+    $('#campoDinamico').html('<form><div class="mb-3"><label for="exampleInputEmail1" class="form-label">Cantidad de Capital a Insertar</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" onclick="insertCorrecto()">Submit</button></form>')
+    $('#campoDinamico').css('display','block')
+})      
 
 // Funcion que muestra un mensaje al insertar capital
 function insertCorrecto() {

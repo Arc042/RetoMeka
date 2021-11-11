@@ -12,7 +12,7 @@
 <div class="contenedorPrincipal">
 
     <!-- titulo de la pagina -->
-    <h2 class="titulillo">GESTION BANCARIA</h2>
+    <h1 class="titulillo">GESTION BANCARIA</h1  >
     
 
     <!-- contenedor con informacion acerca de la cuenta bancaria -->
@@ -33,18 +33,32 @@
 
     <!-- menu con las opciones a realizar-->
     <div class="botones">
-        <button onclick="movimientos()">Movimientos</button>
-        <button onclick="prestamo()">Prestamo</button>
-        <button onclick="leasing()">Leasing</button>
-        <button onclick="transferir()">Transferir dinero</button>
-        <button onclick="insertar()">Insertar dinero</button>
+        <button id="movimientos">Movimientos</button>
+        <button id="prestamo">Prestamo</button>
+        <button id="leasing">Leasing</button>
+        <button id="transferir">Transferencias</button>
+        <button id="insertar">Insertar capital</button>
     </div>
 
 
     <!-- Campo que se autogenera con el contenido seleccionado -->
     <div class="campoDinamico" id="campoDinamico">
         
+        <h2>Transferencia:</h2>
+        <br>
+        <form>
+            <h2>Desde</h2>
+            <p>
+                Cuenta de origen
+                <select class="form-select" aria-label="Default select example" id="seleccionarCuenta">
+                    <option selected value="Corriente">Cuenta Corriente</option>
+                    <option value="Credito">Cuenta de Credito</option>
+                </select>    
+            </p>
+        </form>
         
+
+
 
     </div>
 
@@ -53,9 +67,9 @@
 
 </body>
     <!-- scrip para la banca -->
+    
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="../js/bancajsFunctions.js"></script>
-
-
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
