@@ -67,7 +67,7 @@
 /*DIV con el fondo animado y el titulo*/
 .divParallaxTexto{
     /* The image used */
-    background-image: url("/vista/imagenes/gifFondo.gif");
+    background-image: url("../imagenes/gifFondo.gif");
   
     /* Set a specific height */
     min-height: 300px;
