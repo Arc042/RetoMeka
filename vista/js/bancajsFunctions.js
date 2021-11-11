@@ -39,7 +39,7 @@ $('#leasing').click(function() {
 // Funcion para transferir capital de una cuenta a otra
 $('#transferir').click(function() {
     console.log("transferir")
-    $('#campoDinamico').html('')
+    $('#campoDinamico').html()
     $('#campoDinamico').html()
     $('#campoDinamico').css('display','block')
 })
@@ -57,6 +57,11 @@ function insertCorrecto() {
     Swal.fire(
         'Correcto!',
         'Insertado Correctamente',
-        'success'
-      )
+        'ok'
+    )
+    // Swal.fire(
+    //     'Error!',
+    //     'Campos Sin rellenar o erroneos',
+    //     'ok'
+    // )
 }
