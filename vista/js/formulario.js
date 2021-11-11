@@ -19,7 +19,7 @@ function soloLetras(e) {
   }
   /*Fin solo valores alfabeticos*/
 
-  document.getElementById("btnFormulario").onclick = function() {
+  document.getElementById("btnFormulario").onclick = function Hola() {
       
     if (document.getElementById("name").value == "") {
         alert("*Campo incompleto: Nombre*");
@@ -59,8 +59,40 @@ function soloLetras(e) {
       'success'
     )
 
+    insert();
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("mensaje").value = "";
+ 
   }
 }
+
+
+
+
+function insert() {
+
+  var nombre = document.getElementById("name").value;
+  var correo = document.getElementById("email").value;
+  var texto = document.getElementById("mensaje").value;
+
+  var url = "../../controlador/controlador_reclamaciones.php";
+  var data = {'nombre':nombre, 'correo':correo, 'texto':texto };
+
+  fetch(url, {
+	  method: 'POST', // or 'POST'
+	  body: JSON.stringify(data), // data can be `string` or {object}!
+	  headers:{'Content-Type': 'application/json'}  //input data
+	  })
+
+    .then(res => res.json()).then(result => {
+      
+      console.log(result)
+      document.getElementById("name").value="";
+      document.getElementById("email").value="";
+      document.getElementById("mensaje").value="";
+
+})
+.catch(error => console.error('Error status:', error));	
+};
+  
