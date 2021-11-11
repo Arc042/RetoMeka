@@ -1,5 +1,6 @@
 // Funciones de la pagina de la cuenta bancaria
 
+
 // Funcion que muestra los movimientos de la cuenta bancaria seleccionada
 $('#movimientos').click(function(){
     console.log("movimientos")
