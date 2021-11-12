@@ -34,6 +34,6 @@ if (( $nombre !=null ) && ( $contrasena !=null )){
 }
 
 echo json_encode($response);
-
 unset($response);
+
 

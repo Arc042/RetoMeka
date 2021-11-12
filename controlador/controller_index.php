@@ -1,12 +1,18 @@
 <?php
 
-if (isset($_COOKIE['numVisits']))
-{
-    $numVisits=$_COOKIE['numVisits']+1;
-    
-}else {
-    $numVisits=0;
-}
-setcookie("numVisits",$numVisits);
+include_once ("../modelo/gridModelo.php");
 
+
+$grid= new gridModelo();
+
+$response=array();
+
+$response['list']=$grid->setGrids(); // returns the list 
+
+$response['error']="no error";
+
+
+echo json_encode($response); // pasar de php a json
+
+unset ($grid);
 
