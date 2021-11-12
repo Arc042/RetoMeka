@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function (event){
     mostrar();
 })
-
+idcuenta=0;
 function mostrar() {
         var url = "../../controlador/controller_banca.php";
         console.log("hola")
@@ -17,35 +17,87 @@ function mostrar() {
             var cuenta="";
             var cuenta = result.list;
             console.log(cuenta);
-    
-            for(var i = 0; i<=cuenta.length; i++) {
-    
-              console.log(cuenta[i]);
-    
-              document.getElementById("seleccionarCuenta").innerHTML += "<option>"+cuenta[i].tipoCuenta+"</option>";
-  
+            
+            for(var i = 0; i<cuenta.length; i++) {
+
+             document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].tipoCuenta+"</option>";
+             console.log(cuenta[i].idCuentaBancaria);
+             
             }
+            
+            document.getElementById("seleccionarCuenta").addEventListener("change", function(){
+                index=document.getElementById("seleccionarCuenta").value;
+                document.getElementById("saldo").innerHTML = "<h3>"+cuenta[index-1].saldo+"</h3>";
+            });
         })
         .catch(error => console.log('Error status:', error));
 }
 
-// Funcion que muestra los movimientos de la cuenta bancaria seleccionada
-$('#movimientos').click(function(){
-    console.log("movimientos")
-    $('#campoDinamico').html('')
-    $('#campoDinamico').html('<div class="movimientos overflow-auto">'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-    '</div>')
-    $('#campoDinamico').css('display','block')
+document.getElementById("movimientos").addEventListener("click", function(){
+    
+    idcuenta=document.getElementById('seleccionarCuenta').value
+    console.log(idcuenta);
+    enseñarPorId(idcuenta);
+
 })
+
+function enseñarPorId(idCuentaBancaria) {
+    //console.log(cuenta[i].idCuentaBancaria)
+    
+        valor = document.getElementById("seleccionarCuenta").value;
+
+        console.log(valor);
+
+        var url = "../../controlador/controlador_movimientos.php";
+        var miData= {'idCuentaBancaria': idCuentaBancaria};
+        miData= JSON.stringify(miData);
+
+        fetch(url, {
+            method: 'POST', 
+            body: miData,
+            headers:{'Content-Type': 'application/json'}  // input data
+            })
+
+            .then(res => res.json()).then(result =>{
+                console.log(result.list);
+
+                document.getElementById("campoDinamico").innerHTML="";
+                for(var i = 0; i<result.list.length; i++) {
+
+                    var variable = 
+                    '<tr>'
+                    +'<td>'+result.list[i].idMovimientos+'</td>'
+                    +'<td>'+result.list[i].fecha+'</td>'
+                    +'<td>'+result.list[i].concepto+'</td>'
+                    +'<td>'+result.list[i].cantidad+'</td>'
+                    +'</tr>'
+                    document.getElementById("campoDinamico").innerHTML += variable;
+                    
+                    
+                }
+
+            })
+            .catch(error => console.log('Error status:', error));
+}
+
+
+// Funcion que muestra los movimientos de la cuenta bancaria seleccionada
+// $('#movimientos').click(function(){
+//     console.log("movimientos")
+//     $('#campoDinamico').html('')
+//     $('#campoDinamico').html('<div class="movimientos overflow-auto">'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
+//     '</div>')
+//     $('#campoDinamico').css('display','block')
+// })
 
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {

@@ -1,9 +1,9 @@
 <?php
 
 include_once ("connect_data.php"); 
-include_once("cuentabancaria_class.php");
+include_once("movimientos_class.php");
 
-class cuentabancaria_model extends cuentabancaria_class{
+class movimientos_model extends movimientos_class{
 
     private $link;
 
@@ -29,23 +29,25 @@ class cuentabancaria_model extends cuentabancaria_class{
         mysqli_close ($this->link);
     }
 
-    public function mostrar() {
+    public function mostrar($idCuentaBancaria) {
         $this->OpenConnect();
 
-        $sql = "SELECT * FROM cuentabancaria";
+        $sql = "SELECT * FROM movimientos WHERE idCuentaBancaria = '$idCuentaBancaria'";
 
         $result = $this->link->query($sql);
 
         $list = array();
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
-            $cuentaBancaria = new cuentabancaria_model();
+            $movimientos = new movimientos_model();
 
-            $cuentaBancaria->idCuentaBancaria=$row['idCuentaBancaria'];
-            $cuentaBancaria->tipoCuenta=$row['tipoCuenta'];
-            $cuentaBancaria->saldo=$row['saldo'];
+            $movimientos->idMovimientos=$row['idMovimientos'];
+            $movimientos->fecha=$row['fecha'];
+            $movimientos->concepto=$row['concepto'];
+            $movimientos->cantidad=$row['cantidad'];
+            $movimientos->idCuentaBancaria=$row['idCuentaBancaria'];
 
-            array_push($list, $cuentaBancaria);
+            array_push($list, $movimientos);
         }
 
         mysqli_free_result($result);
