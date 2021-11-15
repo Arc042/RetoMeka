@@ -4,6 +4,7 @@ class producto_class{
     public $idProducto;
     public $nombre;
     public $tipo;
+    public $descripcion;
     public $precio;
     public $stock;
 
@@ -103,6 +104,26 @@ class producto_class{
     public function setStock($stock)
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of descripcion
+     */ 
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set the value of descripcion
+     *
+     * @return  self
+     */ 
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
 
         return $this;
     }

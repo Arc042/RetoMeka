@@ -1,3 +1,4 @@
+/*Fondo de la pagina*/
 .fondo{
     width: auto;
     height: 635px;
@@ -5,13 +6,17 @@
 
 }
 
+/*CSS de la imagen del fondo*/
 .fondoImagen{
     margin: auto;
     height: 95%;
     width: 70%;
     background-image: url("../imagenes/fondoContacto.jpg");
 }
+/*Fin del CSS de la imagen del fondo*/
+/*Fin del fondo*/
 
+/*Formulario de la pagina*/
 .formulario{
     height: 60%;
     width: 25%;
@@ -27,5 +32,5 @@
 
 .formTitulo{
     margin-top: 1%;
-
 }
+/*Fin formulario*/

@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="stylesheet" href="../css/catalogo.css">
-    <!--<script>
-      var menu_btn = document.querySelector("#menu-btn");
-      console.log(menu_btn)
-      var sidebar = document.querySelector("#sidebar");
-      var container = document.querySelector(".my-container");
-      menu_btn.addEventListener("click", () => {
-        sidebar.classList.toggle("active-nav");
-        container.classList.toggle("active-cont");
-      });
-    </script>-->
+
+
+    <!--prueba-->
+    <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
+<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+
+	<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
+  <!--prueba-->
+
 </head>
 <body style="background-color: rgb(167, 161, 161);">
     
@@ -31,18 +30,28 @@
                 <label for="user_name">Nombre</label>
             <input type="email" class="form-control" id="user_name" placeholder="User name">
               </div>
+
               <div class="form-group">
-            <label for="user_gender">Tipo</label>
+            <!--<label for="user_gender">Tipo</label>
             <select class="form-control custom-select" id="user_gender">
               <option></option>
               <option>Rescate</option>
               <option>Vigilancia</option>
-            </select>
+            </select>-->
           </div>
-              <div class="form-group">
+          <form>
+            <div data-role="rangeslider" id="preciorango">
+                <label for="range-1a">Rangeslider:</label>
+                <input type="range" name="range-1a" id="range-1a" class="inputprecio" min="0" max="2000" value="0" data-popup-enabled="true" data-show-value="true">
+                <label for="range-1b">Rangeslider:</label>
+                <input type="range" name="range-1b" id="range-1b" class="inputprecio" min="0" max="2000" value="2000" data-popup-enabled="true" data-show-value="true">
+            </div>
+          </form>
+              <!--<div class="form-group">
                 <label for="user_sort">Precio</label>
                 <input class="range_precio" type="range" value="24" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
                 <output>24</output>
+              </div>-->
                 <!--<label for="user_age">Age</label>
                 <div id="user_age">
                   <div id="user_age_handler_min" class="ui-slider-handle"></div>
@@ -50,21 +59,19 @@
                 </div>
               <imnput type="hidden" id="user_age_min" name="user_age_min"/>
               <imnput type="hidden" id="user_age_max" name="user_age_max"/>-->
-              </div>
+              
                 <div class="form-group">
             <label for="user_sort">Ordenar</label>
             <select class="form-control custom-select" id="user_sort">
-              <option>A-Z</option>
-              <option>Z-A</option>
-              <option>New users</option>
-              <option>Most viewed</option>
-              <option>Most liked</option>
-              <option>Popular</option>
+              <option value="0">Elige un orden</option>
+              <option value="1">A-Z</option>
+              <option value="2">Z-A</option>
             </select>
           </div>
                 <div class="form-group">
             <label for="user_filter">Tamaño</label>
             <select class="form-control custom-select" id="user_filter">
+              <option value="0">Elige un orden</option>
               <option>Pequeño</option>
               <option>Mediano</option>
               <option>Grande</option>
@@ -92,245 +99,12 @@
         </div>
       </div>
 
-      
 
-      <div class="col py-3">
-        <div id="container">
-          <div id="divcard">
-            <div class="card mb-3 cards" >
-              <div>
-                <div class="row g-0 cards">
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">4DRC F4 GPS 5G WIFI 2KM FPV with 4K HD Camera 2-Axis Gimbal Optical Flow Positioning
-                        Brushless Foldable RC Quadcopter Drone RTF - One Battery</h5>
-                      <ul>
-                        <li>4k kamera</li>
-                        <li>Bateria bat</li>
-                        <li>Wifi konexioa</li>
-                        <li>GPS barneratua</li>
-                      </ul>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">137,45€</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <img src="../imagenes/Catalogo/4DRC F4 GPS 5G WIFI 2KM FPV with 4K HD.webp" class="img-fluid rounded-start"
-                      alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="divimg">
-            <div>
-          
-              <img src="../imagenes/Catalogo/4DRC F4 GPS 5G WIFI 2KM FPV with 4K HD.webp" class="img-fluid rounded-start" alt="">
-          
-            </div>
-          </div>
-        </div>
-        <div id="container-cards">
-          <div style="display: inline;">
-            <div class="card mb-3 cards" style="display: inline-block;width: 74%;float:left;">
-              <div>
-                <div class="row g-0 cards">
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">4DRC F4 GPS 5G WIFI 2KM FPV with 4K HD Camera 2-Axis Gimbal Optical Flow Positioning
-                        Brushless Foldable RC Quadcopter Drone RTF - One Battery</h5>
-                      <ul>
-                        <li>4k kamera</li>
-                        <li>Bateria bat</li>
-                        <li>Wifi konexioa</li>
-                        <li>GPS barneratua</li>
-                      </ul>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">137,45€</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <img src="../imagenes/Catalogo/4DRC F4 GPS 5G WIFI 2KM FPV with 4K HD.webp" class="img-fluid rounded-start"
-                      alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="display: inline-block;width: 25%;margin-left: 15%;">
-          
-              <img src="../imagenes/Catalogo/4DRC F4 GPS 5G WIFI 2KM FPV with 4K HD.webp" class="img-fluid rounded-start" alt="">
-          
-            </div>
-          </div><br><br><br>
-          <div style="display: inline;">
-            <div style="display: inline-block;width: 25%;float:left;margin-left: 10%;">
-          
-              <img src="../imagenes/Catalogo/Potensic T25 Drone GPS de 9 Ejes.jpg" class="img-fluid rounded-start" alt="">
-          
-            </div>
-            <div class="card mb-3 cards cardimpar float-right" style="display: inline-block;width: 74%;float:right;">
-              <div class="row g-0 cards">
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">POTENSIC T25 DRONE GPS DE 9 EJES
-                      REMOTO GIROSCOPIO MEJORADO CON 120
-                      ° DE ÁNGULO AMPLIO AJUSTABLE CÁMARA,
-                      DRONE PROFESIONAL PARA ADULTO (DOS
-                      BATERÍAS + MALETÍN DE TRANSPORTE)</h5>
-                    <ul>
-                      <li>Bi bateria</li>
-                      <li>Garraiatzeko maletin bat</li>
-                      <li>Dron profesionala</li>
-                      <li>Kamera ajustatzeko angulo ireki bat</li>
-                      <li>9 eje</li>
-                      <li>GPS barneratua</li>
-                    </ul>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">200€</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <img src="../imagenes/Catalogo/Potensic T25 Drone GPS de 9 Ejes.jpg" class="img-fluid rounded-start" alt="">
-                </div>
-              </div>
-            </div>
-          </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-          <div style="display: inline;">
-            <div class="card mb-3 cards" style="display: inline-block;width: 74%;float:left;">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="../imagenes/Catalogo/LS-MIN MINI WIFI FPV.webp" class="img-fluid rounded-start" alt="">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">LS-MIN MINI WIFI FPV WITH 4K/1080P HD
-                      CAMERA ALTITUDE HOLD MODE FOLDABLE RC
-                      DRONE QUADCOPTER RTF - WHITE 4K THREE
-                      BATTERIES WITHOUT STORAGE BAG</h5>
-                    <ul>
-                      <li>Mini dron arrunta</li>
-                      <li>Hiru bateri, pilak beharrezkoa</li>
-                      <li>Wifi konexioa</li>
-                      <li>4k/1080p kamera</li>
-                    </ul>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">35,21€</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="display: inline-block;width: 25%;margin-right: 15%;float:right">
-          
-              <img src="../imagenes/Catalogo/LS-MIN MINI WIFI FPV.webp" class="img-fluid rounded-start" alt="">
-          
-            </div>
-          </div><br><br><br>
-          <div style="display: inline;">
-            <div style="display: inline-block;width: 25%;float:left;margin-left: 10%;">
-          
-              <img src="../imagenes/Catalogo/Mavic 2 Pro.jpg" class="img-fluid rounded-start" alt="">
-          
-            </div>
-            <div class="card mb-3 cards cardimpar float-right">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="../imagenes/Catalogo/Mavic 2 Pro.jpg" class="img-fluid rounded-start" alt="">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">MAVIC 2 PRO (DJI SMART CONTROLLER)</h5>
-                    <ul>
-                      <li>Aireontzi bat</li>
-                      <li>DJI Smart Controller</li>
-                      <li>USB 24 W kargadorea</li>
-                      <li>Hegaldi-bateria adimenduna</li>
-                      <li>Elikatze-kablea</li>
-                      <li>Protector del estabilizador</li>
-                      <li>USB 3.0 komunikazio-kablea</li>
-                      <li>Ordezko piezak kontrolatzeko palankak (Par)</li>
-                      <li>Gehienezko abiadura 72km/h</li>
-                    </ul>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">2.000€</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="display: inline;">
-            <div class="card mb-3 cards" style="display: inline-block;width: 74%;float:left;">
-              <div class="row g-0 cards">
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">101 GPS 5G WIFI FPV CON 4K ELÉCTRICO
-                      CÁMARA SEGUIMIENTO INTELIGENTE 20
-                      MINUTOS DE TIEMPO DE VUELO RC DRONE
-                      CUADRICÓPTERO RTF</h5>
-                    <ul>
-                      <li>Kamera jarraintzailea</li>
-                      <li>20 minutuko hegaldia</li>
-                      <li>Wifi konexioa 5G</li>
-                      <li>4k/1080p kamera</li>
-                    </ul>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">90,20€</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <img src="../imagenes/Catalogo/101 GPS 5G WiFi FPV con 4K eléctrico Cámara.webp" class="img-fluid rounded-start"
-                    alt="">
-                </div>
-              </div>
-            </div>
-            <div style="display: inline-block;width: 25%;margin-right: 10%;">
-          
-              <img src="../imagenes/Catalogo/101 GPS 5G WiFi FPV con 4K eléctrico Cámara.webp" class="img-fluid rounded-start" alt="">
-          
-            </div>
-          </div><br><br><br><br><br><br><br><br>
-          <div style="display: inline;">
-            <div style="display: inline-block;width: 25%;float:left;margin-left: 15%;">
-          
-              <img src="../imagenes/Catalogo/DRONE DJI FPV COMBO.webp" class="img-fluid rounded-start" alt="">
-          
-            </div>
-            <div class="card mb-3 cards cardimpar " style="display: inline-block;width: 74%;float:right;">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="../imagenes/Catalogo/DRONE DJI FPV COMBO.webp" class="img-fluid rounded-start" alt="">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">DRONE DJI FPV COMBO (4K - AUTONOMÍA:
-                      HASTA 20 MIN - NEGRO)</h5>
-                    <ul>
-                      <li>GPS</li>
-                      <li>4k kamera</li>
-                      <li>20 minutuko hegaldia</li>
-                      <li>DJI FPV GOGGLES V2</li>
-                      <li>FPV (First-Person View)</li>
-                      <li>Gehienezko abiadura 140km/h</li>
-                      <li>795g pisua</li>
-                      <li>6000m gehienezko altitudea</li>
-                      <li>Erabilera profesionala</li>
-                    </ul>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">1.307€</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div id="relleno">
+
+      </div>      
+
+      
   </div>
 
     
@@ -345,6 +119,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="../js/productos.js"></script>
       <script src="../js/catalogo.js"></script>
       <script src="../js/jquery.js"></script>
 </body>
@@ -417,7 +192,7 @@
             </li>
           </ul>
           <hr>
-          <!--<div class="dropdown pb-4">
+          <div class="dropdown pb-4">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
               id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">

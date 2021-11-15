@@ -1,12 +1,14 @@
+/*El centro de la pagina*/
 .central{
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: violet;
     position: relative;
+    background-color: crimson;
 }
 
-
+/*Div donde va toda la informacion corta con la imagen*/
+/*Imagen parallax*/
 .divParallaxTexto{
     height:500px;
     text-align:center;
@@ -22,6 +24,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+/*Fin de imagen parallax*/
+
 
 .divTexto{
     display: flex;
@@ -46,7 +50,9 @@
     margin-top: 1.5%;
     text-align: left;
 }
+/*Fin del div*/
 
+/*Zona de la informacion*/
 .informacion{
     display: flex;
     flex-direction: row;
@@ -60,7 +66,6 @@
 .imagen{
     height: 300px;
     width: 50%;
-    background-color: chocolate;
     
 }
 
@@ -77,8 +82,8 @@
     border-radius: 20px 0px 20px 0px;
     height: 200px;
     width: 100%;
-    background-color: blueviolet;
     padding: 1%;
+    background-color: cadetblue;
 }
 
 .nombre{
@@ -130,3 +135,5 @@
     font-size: 30px;
     text-align: center;
 }
+/*Fin de la zona de informacion*/
+/*Fin del centro de la pagina*/
