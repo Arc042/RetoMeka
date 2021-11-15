@@ -9,7 +9,7 @@ var textoarray2 = ["ADIOS", "Lorem ipsum dolor sit amet consectetur adipisicing 
 document.addEventListener("DOMContentLoaded", function (event) {
 
 	// sessionVarsView();
-	// loadGrid();
+	
 	// document.getElementById("submit").addEventListener('click', login);
 	// document.getElementById("logout").addEventListener('click', logout);
 
@@ -70,34 +70,7 @@ function sessionVarsView() {
 }
 
 
-function loadGrid() {
 
-	// var url = "../../controlador/controller_index.php";
-
-
-	var newRow = "<div class='titulo '><h2>TITULO</h2></div>";
-	newRow += " <div class='texto1'><div class='t-1'>";
-	newRow += "<h6>" + textoarray1[0] + "</h6>";
-	newRow += "<p>" + textoarray1[1] + "</p></div ></div > ";
-	newRow += "<div class='img1'><img src=" + Imagenes[5] + "></div>"
-	newRow += "<div class='img2'><img src=" + Imagenes[7] + "></div>";
-	newRow += " <div class='texto2'><div class='t-2'>";
-	newRow += "<h6>" + textoarray2[0] + "</h6>";
-	newRow += "<p>" + textoarray2[1] + "</p></div ></div > ";
-	newRow += "<div class='img3'><img src=" + Imagenes[3] + "></div>"
-	newRow += " <div class='texto3'><div class='t-3'>";
-	newRow += "<h6>" + textoarray1[0] + "</h6>";
-	newRow += "<p>" + textoarray1[1] + "</p></div ></div>";
-	newRow += "<div class='img4'><img src=" + Imagenes[1] + "></div>";
-	newRow += " <div class='texto4'><div class='t-4'>";
-	newRow += "<h6>" + textoarray2[0] + "</h6>";
-	newRow += "<p>" + textoarray2[1] + "</p></div ></div> ";
-	newRow += "<div class='img5'><img src=" + Imagenes[6] + "></div>";
-
-	// console.log(newRow)
-
-	document.getElementById("contenedor").innerHTML = newRow; // add
-};
 
 
 
