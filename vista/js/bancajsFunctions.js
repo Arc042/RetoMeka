@@ -80,25 +80,6 @@ function enseñarPorId(idCuentaBancaria) {
             .catch(error => console.log('Error status:', error));
 }
 
-
-// Funcion que muestra los movimientos de la cuenta bancaria seleccionada
-// $('#movimientos').click(function(){
-//     console.log("movimientos")
-//     $('#campoDinamico').html('')
-//     $('#campoDinamico').html('<div class="movimientos overflow-auto">'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '<p>Lorem, ipsum dolor sit amet consectetur adipisi.</p>'+
-//     '</div>')
-//     $('#campoDinamico').css('display','block')
-// })
-
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
     console.log("prestamos")
@@ -125,6 +106,43 @@ $('#transferir').click(function() {
     $('#campoDinamico').css('display','block')
 })
 
+
+function insertarSaldo() {
+    valor = document.getElementById("seleccionarCuenta").value;
+
+        console.log(valor);
+
+        var url = "../../controlador/controlador_insertarSaldo.php";
+        var miData= {'idCuentaBancaria': idCuentaBancaria};
+        miData= JSON.stringify(miData);
+
+        fetch(url, {
+            method: 'POST', 
+            body: miData,
+            headers:{'Content-Type': 'application/json'}  // input data
+            })
+
+            .then(res => res.json()).then(result =>{
+                console.log(result.list);
+
+                document.getElementById("campoDinamico").innerHTML="";
+                for(var i = 0; i<result.list.length; i++) {
+
+                    var variable = 
+                    '<tr>'
+                    +'<td>'+result.list[i].idMovimientos+'</td>'
+                    +'<td>'+result.list[i].fecha+'</td>'
+                    +'<td>'+result.list[i].concepto+'</td>'
+                    +'<td>'+result.list[i].cantidad+'</td>'
+                    +'</tr></br>'
+                    document.getElementById("campoDinamico").innerHTML += variable;
+                    
+                    
+                }
+
+            })
+            .catch(error => console.log('Error status:', error));
+}
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
     console.log("insertar")
