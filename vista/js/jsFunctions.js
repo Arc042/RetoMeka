@@ -94,7 +94,7 @@ function loadGrid() {
 	newRow += "<p>" + textoarray2[1] + "</p></div ></div> ";
 	newRow += "<div class='img5'><img src=" + Imagenes[6] + "></div>";
 
-	// console.log(newRow)
+	console.log(newRow)
 
 	document.getElementById("contenedor").innerHTML = newRow; // add
 };
