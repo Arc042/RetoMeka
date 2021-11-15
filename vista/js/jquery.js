@@ -11,7 +11,7 @@ window.onload=function() {
   function funcionesHeader(){
 
     sessionVarsView();
-    loadGrid();
+    // loadGrid();
 
     $("#submit").on('click', login);
     $("#logout").on('click', logout);
