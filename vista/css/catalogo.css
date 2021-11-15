@@ -1,6 +1,14 @@
 /*::-webkit-scrollbar {
   display: none;
 }*/
+#textNav{
+  color: #191337 !important;
+  text-decoration: none;
+  font-weight: normal;
+}
+form input{
+  margin-bottom: 1%;
+}
 *{
   overflow-x: hidden;
 }
@@ -66,6 +74,7 @@ img{
     width: 100vw;
     height: 100vh;
     display: flex;
+    margin-right: 1%;
     /*justify-content: center;
     align-items: center;*/
  }
@@ -113,13 +122,17 @@ img{
   
   /*Fin Filter*/
   
-
-  /**/
+#relleno{
+  margin-top: 70px;
+}
+/*cards*/
   #container {
-    /*width: 300px;*/
+    /*width: 540px;*/
     width: 100%;
+    height: auto;
     /*background-color: #ffcc33;*/
     margin: auto;
+    
 }
 #divcard {
     /*width: 100px;*/
@@ -139,12 +152,30 @@ img{
   width: 315px;
   height: auto;
 }
-/**/
-
-form  {
-  margin: 60px 0 0 0 !important;
+#cardbody{
+  width: 100%;
+}
+#cardimg{
+  width: 315px;
+  height: auto;
+  display: none;
 }
 
+@media screen and (max-width: 1195px) and (min-width:300px) {
+  #cardbody{
+    width: 60%;
+  }
+  #cardimg{
+    width: 170px;
+    display: block;
+  }
+  #divimg {
+    display: none;
+  }
+}
+/*cards*/
+
+/*filtro rango precio*/
 #preciorango{
   width: 200px;
   font-size: 11px;
@@ -170,3 +201,4 @@ form  {
   z-index: 100;
   opacity: 0.8;
 }
+/*filtro rango precio*/
