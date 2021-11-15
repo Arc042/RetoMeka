@@ -53,4 +53,11 @@ class cuentabancaria_model extends cuentabancaria_class{
         return $list;
     }
 
+    public function insertarSaldo($idCuentaBancaria){
+        $this->OpenConnect();
+
+        $sql = "UPDATE `cuentabancaria` SET `saldo`='[value-3]' WHERE idCuentaBancaria = $idCuentaBancaria";
+
+
+    }
 }

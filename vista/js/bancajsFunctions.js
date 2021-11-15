@@ -70,7 +70,7 @@ function enseñarPorId(idCuentaBancaria) {
                     +'<td>'+result.list[i].fecha+'</td>'
                     +'<td>'+result.list[i].concepto+'</td>'
                     +'<td>'+result.list[i].cantidad+'</td>'
-                    +'</tr>'
+                    +'</tr></br>'
                     document.getElementById("campoDinamico").innerHTML += variable;
                     
                     
