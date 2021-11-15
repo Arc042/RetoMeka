@@ -1,4 +1,5 @@
-var Imagenes = ["../imagenes/IMGINDEX/3005287.jpg", "../imagenes/IMGINDEX/Ave.webp", "../imagenes/IMGINDEX/dron-cofepasa-blog.jpg", "../imagenes/IMGINDEX/DroneQuadcopter.webp", "../imagenes/IMGINDEX/f608x342-340279_370002_13.jpg", "../imagenes/IMGINDEX/Hacedorentaller.webp", "../imagenes/IMGINDEX/Masca.webp", "../imagenes/IMGINDEX/reunióndenegocios.webp", "../imagenes/IMGINDEX/taller-1.jpg", "../imagenes/IMGINDEX/Volarunaviónnotripulado.webp"]
+var Imagenes = ["../imagenes/IMGINDEX/3005287.jpg", 
+"../imagenes/IMGINDEX/Ave.webp", "../imagenes/IMGINDEX/dron-cofepasa-blog.jpg", "../imagenes/IMGINDEX/DroneQuadcopter.webp", "../imagenes/IMGINDEX/f608x342-340279_370002_13.jpg", "../imagenes/IMGINDEX/Hacedorentaller.webp", "../imagenes/IMGINDEX/Masca.webp", "../imagenes/IMGINDEX/reunióndenegocios.webp", "../imagenes/IMGINDEX/taller-1.jpg", "../imagenes/IMGINDEX/Volarunaviónnotripulado.webp"]
 
 
 var textoarray1 = ["HOLA", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni expedita vitae officia tempora eius dolor quaerat. Facere suscipit ullam officiis?."];
@@ -74,72 +75,30 @@ function loadGrid() {
 	// var url = "../../controlador/controller_index.php";
 
 
-	// var newRow = "<div class='titulo '><h2>TITULO</h2></div>";
-	// newRow += " <div class='texto1'><div class='t-1'>";
-	// newRow += "<h6>" + textoarray1[0] + "</h6>";
-	// newRow += "<p>" + textoarray1[1] + "</p></div ></div > ";
-	// newRow += "<div class='img1'><img src=" + Imagenes[5] + "></div>"
-	// newRow += "<div class='img2'><img src=" + Imagenes[7] + "></div>";
-	// newRow += " <div class='texto2'><div class='t-2'>";
-	// newRow += "<h6>" + textoarray2[0] + "</h6>";
-	// newRow += "<p>" + textoarray2[1] + "</p></div ></div > ";
-	// newRow += "<div class='img3'><img src=" + Imagenes[3] + "></div>"
-	// newRow += " <div class='texto3'><div class='t-3'>";
-	// newRow += "<h6>" + textoarray1[0] + "</h6>";
-	// newRow += "<p>" + textoarray1[1] + "</p></div ></div>";
-	// newRow += "<div class='img4'><img src=" + Imagenes[1] + "></div>";
-	// newRow += " <div class='texto4'><div class='t-4'>";
-	// newRow += "<h6>" + textoarray2[0] + "</h6>";
-	// newRow += "<p>" + textoarray2[1] + "</p></div ></div> ";
-	// newRow += "<div class='img5'><img src=" + Imagenes[6] + "></div>";
+	var newRow = "<div class='titulo '><h2>TITULO</h2></div>";
+	newRow += " <div class='texto1'><div class='t-1'>";
+	newRow += "<h6>" + textoarray1[0] + "</h6>";
+	newRow += "<p>" + textoarray1[1] + "</p></div ></div > ";
+	newRow += "<div class='img1'><img src=" + Imagenes[5] + "></div>"
+	newRow += "<div class='img2'><img src=" + Imagenes[7] + "></div>";
+	newRow += " <div class='texto2'><div class='t-2'>";
+	newRow += "<h6>" + textoarray2[0] + "</h6>";
+	newRow += "<p>" + textoarray2[1] + "</p></div ></div > ";
+	newRow += "<div class='img3'><img src=" + Imagenes[3] + "></div>"
+	newRow += " <div class='texto3'><div class='t-3'>";
+	newRow += "<h6>" + textoarray1[0] + "</h6>";
+	newRow += "<p>" + textoarray1[1] + "</p></div ></div>";
+	newRow += "<div class='img4'><img src=" + Imagenes[1] + "></div>";
+	newRow += " <div class='texto4'><div class='t-4'>";
+	newRow += "<h6>" + textoarray2[0] + "</h6>";
+	newRow += "<p>" + textoarray2[1] + "</p></div ></div> ";
+	newRow += "<div class='img5'><img src=" + Imagenes[6] + "></div>";
 
-	// // console.log(newRow)
+	// console.log(newRow)
 
-	// document.getElementById("contenedor").innerHTML = newRow; // add
-
-	var url = "../../controlador/controller_index.php"
-	fetch(url, {
-	  method: 'GET', // or 'POST'
-	})
-	.then(res => res.json()).then(result => {
-		
-			console.log('Success:', result.list);
-			
-			var grids = result.list;
-
-       		var newRow ="";
-
-			for (let i = 0; i <grids.length; i++) {
-				newRow +="<div class='titulo '><h2>TITULO</h2></div>";
-				 newRow += " <div class='texto1'><div class='t-1'>";
-				 newRow += "<h6>" + textoarray1[0] + "</h6>";
-				 newRow += "<p>" + textoarray1[1] + "</p></div ></div > ";
-				 newRow += "<div class='img1'><img src=" + Imagenes[5] + "></div>"
-				 newRow += "<div class='img2'><img src=" + Imagenes[7] + "></div>";
-				newRow += "<tr>" +"<td>"+pelikulak[i].idPelicula+"</td>"
-									+"<td>"+pelikulak[i].TituloPelicula+"</td>"
-									+"<td>"+pelikulak[i].Anio+"</td>"
-									+"<td>"+pelikulak[i].objDirector.NombreDirector+"</td>"
-									+"<td><img src='"+pelikulak[i].cartel+"'/></td>"
-								+"</tr>";	
-			}
-       		newRow +="</table>";   
-       		document.getElementById("tableFilms").innerHTML = newRow; // add
-       		document.getElementById("numVisits").value=result.numVisits;
-       		
-       		var lista=loadSelect(pelikulak);;
-       		document.getElementById("selectDelete").innerHTML=lista;
-       		document.getElementById("selectUpdate").innerHTML=lista;
-       		
-       		var directors= result.directors;
-       		
-       		var listaDirectors=loadDirectors(directors);
-       		
-       		document.getElementById("SelectDirectorInsert").innerHTML=listaDirectors;
-	})
-	.catch(error => console.error('Error status:', error));	
+	document.getElementById("contenedor").innerHTML = newRow; // add
 };
-};
+
 
 
 function login() {
