@@ -27,7 +27,7 @@ function mostrar() {
             
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
                 index=document.getElementById("seleccionarCuenta").value;
-                document.getElementById("saldo").innerHTML = "<h3>"+cuenta[index-1].saldo+"</h3>";
+                document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +cuenta[index-1].saldo+"</h3>";
             });
         })
         .catch(error => console.log('Error status:', error));
@@ -61,21 +61,21 @@ function enseñarPorId(idCuentaBancaria) {
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
 
+                var variable = "<table id='tabla'><tr><td>Id</td><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
                 for(var i = 0; i<result.list.length; i++) {
 
-                    var variable = 
+                     variable += 
                     '<tr>'
                     +'<td>'+result.list[i].idMovimientos+'</td>'
                     +'<td>'+result.list[i].fecha+'</td>'
                     +'<td>'+result.list[i].concepto+'</td>'
                     +'<td>'+result.list[i].cantidad+'</td>'
-                    +'</tr></br>'
-                    document.getElementById("campoDinamico").innerHTML += variable;
-                    
+                    +'</tr>'
                     
                 }
-
+                variable += "</table>"
+                document.getElementById("campoDinamico").innerHTML += variable;
             })
             .catch(error => console.log('Error status:', error));
 }
