@@ -60,20 +60,9 @@ color:black;
 .modal-header{
     background-color: green;
 }
-#msg{
-    position: relative;
-    width:100%;
-    text-align: right;
-    padding-right:60px;
-    font-size: 16px;
-}
+
 @media screen and (max-width: 991px) and (min-width:300px) {
-    #msg{
-        width:100%;
-        text-align: center;
-        padding-right:0px;
-        font-size: 16px;
-    }
+
     .botones{
         text-align: left;
         padding-right:0px;
