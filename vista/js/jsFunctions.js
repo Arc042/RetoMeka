@@ -55,12 +55,12 @@ function sessionVarsView() {
 
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
-					document.getElementById("clientes").style.display = "inline-block";
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";
+					document.getElementById("clientes").style.display = "inline-block";
 
 				}
-				// document.getElementById("modalForm").style.display="none";
+				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
 			} else {
 				document.getElementById("msg").innerHTML = result.error;
@@ -95,14 +95,15 @@ function login() {
 				// document.getElementById("msg").innerHTML = "You are " + result.user.name + " and type : " + result.user.tipo;
 				document.getElementById("name").value ="";
 				document.getElementById("password").value ="";
-				// document.getElementById("divUser").style.display="none";
+				document.getElementById("btnLogin").style.display = "none";
 
 				if (result.user.tipo == "AdminInformatico") {
-					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("btnLogin").style.display = "none";
 
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";
-
+					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("btnLogin").style.display = "none";
 				}
 				// document.getElementById("divUser").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
@@ -132,6 +133,7 @@ function logout() {
 			for (let i = 0; i < buttons.length; i++) {
 				buttons[i].style.display = "none";
 			}
+			document.getElementById("btnLogin").style.display = "block";
 			document.getElementById("submit").style.display = "inline-block";
 		})
 		.catch(error => console.error('Error status:', error));

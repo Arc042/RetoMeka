@@ -37,6 +37,28 @@ header{
 /* #divUser{
 	display:none;
 } */
+.f-1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:auto;
+    justify-content: center;
+    justify-items: center;
+}
+.f-2{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:auto;
+    justify-content: center;
+    justify-items: center;
+}
+.f-2 .botones{
+    padding-top:10px;
+}
+.f-1 form{
+   padding-top:10px;
+}
 .botones{
     width:100%;
     text-align: right;
