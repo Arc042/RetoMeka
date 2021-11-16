@@ -83,9 +83,8 @@ function enseñarPorId(idCuentaBancaria) {
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
     console.log("prestamos")
-    $('#campoDinamico').html('')
-    $('#campoDinamico').html()
-    $('#campoDinamico').css('display','block')
+    $('#calculadora1').css('display','block')
+    $('#enseñarDatos').css('display','block')
 })
 
 

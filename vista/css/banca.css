@@ -103,3 +103,11 @@
 #saldo{
     margin-left: 2%;
 }
+
+#calculadora1{
+    display: none;
+}
+
+#enseñarDatos{
+    display: none;
+}
