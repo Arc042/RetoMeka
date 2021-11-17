@@ -75,7 +75,7 @@
 
 /* campo dinamico autogenerad mediante botones */
 .campoDinamico{
-    width: 75%;
+    width: 70%;
     background-color: #ffffff;
     margin-left: 15%;
     margin-right: 15%;
@@ -93,15 +93,10 @@
 }
 
 #tabla{
-
-    height: 100%;
-    width: 100%;
-
     padding: 3%;
     height: 100%;
     width: 100%;
     margin: 1%;
-
     text-align: center;
 }
 

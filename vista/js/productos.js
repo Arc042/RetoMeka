@@ -24,6 +24,24 @@ function mostrar() {
 
         for(var i = 0; i<=producto.length-1; i++) {
 
+          const carc1 = producto[i].descripcion.split("-");
+          const carc2 = producto[i+1].descripcion.split("-");
+
+          var carc1text="";
+          for (let i = 0; i < carc1.length; i++) {
+
+            carc1text += '<li>'+carc1[i]+'</li>'
+            
+          }
+          console.log(carc1text);
+          var carc2text="";
+          for (let i = 0; i < carc2.length; i++) {
+
+            carc2text += '<li>'+carc2[i]+'</li>'
+            
+          }
+          console.log(carc2text);
+
           console.log(producto[i]);
 
           document.getElementById("relleno").innerHTML += '<div id="container">'
@@ -31,18 +49,18 @@ function mostrar() {
               +'<div class="card mb-3 cards" >'
                + '<div>'
                  +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
                        + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
                        + '<ul>'
-                         + '<li>'+producto[i].descripcion+'</li>'
+                         + carc1text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
@@ -71,18 +89,18 @@ function mostrar() {
               +'<div class="card mb-3 cards" >'
                + '<div>'
                  +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
                        + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
                        + '<ul>'
-                         + '<li>'+producto[i+1].descripcion+'</li>'
+                         + carc2text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
