@@ -1,5 +1,6 @@
 // Funciones de la pagina de la cuenta bancaria
 document.addEventListener("DOMContentLoaded", function (event){
+    indexCuenta=0;
     mostrar();
 })
 idcuenta=0;
@@ -26,30 +27,33 @@ function mostrar() {
             }
             
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
-                index=document.getElementById("seleccionarCuenta").value;
-                document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +cuenta[index-1].saldo+"</h3>";
+                indexCuenta=document.getElementById("seleccionarCuenta").value;
+                document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +cuenta[indexCuenta-1].saldo+"</h3>";
+                console.log("indexCuenta");
+                console.log(indexCuenta);
+                enseñarPorId();
             });
         })
         .catch(error => console.log('Error status:', error));
 }
 
-document.getElementById("movimientos").addEventListener("click", function(){
-    
-    idcuenta=document.getElementById('seleccionarCuenta').value
-    console.log(idcuenta);
-    enseñarPorId(idcuenta);
+// document.getElementById("movimientos").addEventListener("click", function(){
 
-})
+//     console.log("indexCuenta");
+//     console.log(indexCuenta);
+//     enseñarPorId();
 
-function enseñarPorId(idCuentaBancaria) {
+// })
+
+function enseñarPorId() {
     //console.log(cuenta[i].idCuentaBancaria)
     
-        valor = document.getElementById("seleccionarCuenta").value;
+       
 
-        console.log(valor);
+        console.log(indexCuenta);
 
         var url = "../../controlador/controlador_movimientos.php";
-        var miData= {'idCuentaBancaria': idCuentaBancaria};
+        var miData= {'idCuentaBancaria': indexCuenta};
         miData= JSON.stringify(miData);
 
         fetch(url, {
