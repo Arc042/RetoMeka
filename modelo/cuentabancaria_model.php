@@ -53,30 +53,6 @@ class cuentabancaria_model extends cuentabancaria_class{
         return $list;
     }
 
-
-    public function insertarSaldo($idCuentaBancaria, $saldo){
-        $this->OpenConnect();
-
-        $sql = "UPDATE cuentabancaria SET saldo='$saldo' WHERE idCuentaBancaria = $idCuentaBancaria";
-
-        $result = $this->link->query($sql);
-
-        $list = array();
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-
-            $insertarSaldo = new cuentabancaria_model();
-
-            $insertarSaldo->idCuentaBancaria=$row['idCuentaBancaria'];
-            $insertarSaldo->tipoCuenta=$row['tipoCuenta'];
-            $insertarSaldo->saldo=$row['saldo'];
-
-            array_push($list, $insertarSaldo);
-        }
-
-        mysqli_free_result($result);
-        $this->CloseConnect();
-        return $list;
-
     // public function insertarSaldo($idCuentaBancaria, $saldo){
     //     $this->OpenConnect();
 
@@ -113,6 +89,5 @@ class cuentabancaria_model extends cuentabancaria_class{
 
     
         $this->CloseConnect();
-
     }
 }
