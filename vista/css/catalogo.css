@@ -1,6 +1,11 @@
 /*::-webkit-scrollbar {
   display: none;
 }*/
+*{
+  padding: 0px !important;
+  margin: 0px !important;
+  
+}
 #textNav{
   color: #191337 !important;
   text-decoration: none;
@@ -71,16 +76,18 @@ img{
 
   /*Filter*/
   .sidebar {
-    width: 100vw;
+    /*width: 100vw;*/
+    width: 300px;
     height: 100vh;
     display: flex;
     margin-right: 1%;
+    background-color: white;
     /*justify-content: center;
     align-items: center;*/
  }
   .widget {
     padding: 0.75rem 1.25rem;
-    /*width: 278px;*/
+    width: 275px;
     color: rgba(0, 0, 0, 0.87);
     background-color: white;
     border-radius: 2px;
@@ -124,6 +131,31 @@ img{
   
 #relleno{
   margin-top: 70px;
+  /*margin-left: 5px !important;*/
+  width: 900px;
+  background-color: red;
+}
+@media screen and (max-width: 1485px) and (min-width:300px) {
+  #relleno{
+    /*margin-left: 3%;*/
+    /*width: 80%;*/
+  }
+  .sidebar {
+   /* width: 300px;
+    height: 100vh;
+    display: flex;
+    margin-right: 10%;*/
+ }
+}
+@media screen and (max-width: 992px) and (min-width:300px) {
+  #relleno{
+    /*margin-left: 3%;*/
+    /*width: 80%;*/
+  }
+  .sidebar {
+   width: 250px;
+    
+ }
 }
 /*cards*/
   #container {
@@ -161,7 +193,7 @@ img{
   display: none;
 }
 
-@media screen and (max-width: 1195px) and (min-width:300px) {
+@media screen and (max-width: 1285px) and (min-width:300px) {
   #cardbody{
     width: 60%;
   }
@@ -171,6 +203,25 @@ img{
   }
   #divimg {
     display: none;
+  }
+}
+@media screen and (max-width: 830px) and (min-width:300px) {
+  #sidebar{
+    display: none;
+  }
+  #cardbody{
+    width: 50%;
+  }
+  #relleno{
+    margin-left: 20% !important;
+  }
+}
+@media screen and (max-width: 700px) and (min-width:300px) {
+  #relleno{
+    margin-left: 10% !important;
+  }
+  #cardbody{
+    width: 40%;
   }
 }
 /*cards*/

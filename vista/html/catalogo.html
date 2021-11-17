@@ -16,96 +16,100 @@
   <!--prueba-->
 
 </head>
-<body style="background-color: rgb(167, 161, 161);">
+<body >
     
   <div id="header"></div>
 
   <div class="container-fluid">
     <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="margin-left: -10px;background-color: #fff;">
+      <div id="sidebar" class="col-lg-4 col-md-4 px-sm-6 col-0 px-0" style="background-color: blue;">
         <div class="sidebar">
           <div class="widget user_widget_search">
             <form id="user_wiget_search_form" class="user_wiget_search_form" method="GET">
               <div class="form-group">
                 <label for="user_name">Nombre</label>
-            <input type="email" class="form-control" id="user_name" placeholder="User name">
+                <input type="email" class="form-control" id="user_name" placeholder="User name">
               </div>
-
+  
               <div class="form-group">
-            <!--<label for="user_gender">Tipo</label>
-            <select class="form-control custom-select" id="user_gender">
-              <option></option>
-              <option>Rescate</option>
-              <option>Vigilancia</option>
-            </select>-->
-          </div>
-          <form>
-            <div data-role="rangeslider" id="preciorango">
-                <label for="range-1a">Rangeslider:</label>
-                <input type="range" name="range-1a" id="range-1a" class="inputprecio" min="0" max="2000" value="0" data-popup-enabled="true" data-show-value="true">
-                <label for="range-1b">Rangeslider:</label>
-                <input type="range" name="range-1b" id="range-1b" class="inputprecio" min="0" max="2000" value="2000" data-popup-enabled="true" data-show-value="true">
-            </div>
-          </form>
-              <!--<div class="form-group">
-                <label for="user_sort">Precio</label>
-                <input class="range_precio" type="range" value="24" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
-                <output>24</output>
-              </div>-->
-                <!--<label for="user_age">Age</label>
-                <div id="user_age">
-                  <div id="user_age_handler_min" class="ui-slider-handle"></div>
-                  <div id="user_age_handler_max" class="ui-slider-handle"></div>
+                <!--<label for="user_gender">Tipo</label>
+                <select class="form-control custom-select" id="user_gender">
+                  <option></option>
+                  <option>Rescate</option>
+                  <option>Vigilancia</option>
+                </select>-->
+              </div>
+              <form>
+                <div data-role="rangeslider" id="preciorango">
+                  <label for="range-1a">Rangeslider:</label>
+                  <input type="range" name="range-1a" id="range-1a" class="inputprecio" min="0" max="2000" value="0"
+                    data-popup-enabled="true" data-show-value="true">
+                  <label for="range-1b">Rangeslider:</label>
+                  <input type="range" name="range-1b" id="range-1b" class="inputprecio" min="0" max="2000" value="2000"
+                    data-popup-enabled="true" data-show-value="true">
                 </div>
-              <imnput type="hidden" id="user_age_min" name="user_age_min"/>
-              <imnput type="hidden" id="user_age_max" name="user_age_max"/>-->
-              
-                <div class="form-group">
-            <label for="user_sort">Ordenar</label>
-            <select class="form-control custom-select" id="user_sort">
-              <option value="0">Elige un orden</option>
-              <option value="1">A-Z</option>
-              <option value="2">Z-A</option>
-            </select>
-          </div>
-                <div class="form-group">
-            <label for="user_filter">Tamaño</label>
-            <select class="form-control custom-select" id="user_filter">
-              <option value="0">Elige un orden</option>
-              <option>Pequeño</option>
-              <option>Mediano</option>
-              <option>Grande</option>
-            </select>
-          </div>
-                <!--<div class="form-group">
-            <label class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input">
-          <span class="custom-control-indicator"></span>
-          <span class="custom-control-description">With photo</span>
-        </label>
-          </div>
-                <div class="form-group">
-            <label class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input">
-          <span class="custom-control-indicator"></span>
-          <span class="custom-control-description">Online</span>
-        </label>
-          </div>-->
-                <!--<div class="form-group">
-                  <button type="submit" class="btn btn-block btn-primary">Submit</button>
-                </div>-->
+              </form>
+              <!--<div class="form-group">
+                    <label for="user_sort">Precio</label>
+                    <input class="range_precio" type="range" value="24" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+                    <output>24</output>
+                  </div>-->
+              <!--<label for="user_age">Age</label>
+                    <div id="user_age">
+                      <div id="user_age_handler_min" class="ui-slider-handle"></div>
+                      <div id="user_age_handler_max" class="ui-slider-handle"></div>
+                    </div>
+                  <imnput type="hidden" id="user_age_min" name="user_age_min"/>
+                  <imnput type="hidden" id="user_age_max" name="user_age_max"/>-->
+  
+              <div class="form-group">
+                <label for="user_sort">Ordenar</label>
+                <select class="form-control custom-select" id="user_sort">
+                  <option value="0">Elige un orden</option>
+                  <option value="1">A-Z</option>
+                  <option value="2">Z-A</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user_filter">Tamaño</label>
+                <select class="form-control custom-select" id="user_filter">
+                  <option value="0">Elige un orden</option>
+                  <option>Pequeño</option>
+                  <option>Mediano</option>
+                  <option>Grande</option>
+                </select>
+              </div>
+              <!--<div class="form-group">
+                <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">With photo</span>
+            </label>
+              </div>
+                    <div class="form-group">
+                <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Online</span>
+            </label>
+              </div>-->
+              <!--<div class="form-group">
+                      <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                    </div>-->
             </form>
           </div>
         </div>
+
+        
       </div>
-
-
-      <div id="relleno">
-
-      </div>      
-
+  
+      <div class="col-lg-8 col-md-6 px-sm-6 col-12 px-0" id="relleno">
+  
+      </div>
       
-  </div>
+  
+  
+    </div>
 
     
     
