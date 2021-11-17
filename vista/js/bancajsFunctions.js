@@ -88,15 +88,14 @@ function enseñarPorId() {
 
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
+
+    console.log("prestamos")
+
     console.log("hola")
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<div id="calculadora1"><fieldset><legend>Ingrese los datos aquí</legend><div style="float: left; padding: 10px;"><table><tbody><tr><td><input type="number" name="monto" id="input_monto" min="1" style="width: 100%"></td><td>Cantidad de cuotas<br><input type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%"></td></tr><tr><td>Tasa de interés<br><input type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%"></td></tr><tr><td>Tipo de tasa<br><select id="select_tasa_tipo" style="width: 100%"><option value="mensual">Mensual</option><option value="anual">Anual</option></select></td></tr><tr><td>Periodo de pago<br><select id="select_periodo" style="width: 100%"><option value="diario">Diario</option><option value="semanal">Semanal</option><option value="quincenal">Quincenal</option><option value="mensual" selected="">Mensual</option><option value="bimestral">Bimestral</option><option value="trimestral">Trimestral</option><option value="cuatrimestral">Cuatrimestral</option><option value="semestral">Semestral</option><option value="anual">Anual</option></td></tr><tr><th><input type="button" value="Calcular" onclick="calcular();"></th></tbody></table><div id="enseñarDatos"><table id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse"><tbody><tr><th>Número</th><th>Interés</th><th>Abono al capital</th><th>Valor de la cuota</th><th>Saldo al capital</th></tr></tbody><tbody id="tbody_1"></tbody></table></div>')
     $('#campoDinamico').css('display','block')
 
-    // console.log("insertar")
-    // $('#campoDinamico').html('')
-    // $('#campoDinamico').html('<form><div class="mb-3"><label for="exampleInputEmail1" class="form-label">Cantidad de Capital a Insertar</label><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" onclick="insertCorrecto()">Submit</button></form>')
-    // $('#campoDinamico').css('display','block')
 })
 
 
@@ -112,9 +111,7 @@ $('#leasing').click(function() {
 // Funcion para transferir capital de una cuenta a otra
 $('#transferir').click(function() {
     console.log("transferir")
-    $('#campoDinamico').html('')
-    $('#campoDinamico').html('<div id="calculadora1"><fieldset><legend>Ingrese los datos aquí</legend><div style="float: left; padding: 10px;"><table><tbody><tr><td><input type="number" name="monto" id="input_monto" min="1" style="width: 100%"></td><td>Cantidad de cuotas<br><input type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%"></td></tr><tr><td>Tasa de interés<br><input type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%"></td></tr><tr><td>Tipo de tasa<br><select id="select_tasa_tipo" style="width: 100%"><option value="mensual">Mensual</option><option value="anual">Anual</option></select></td></tr><tr><td>Periodo de pago<br><select id="select_periodo" style="width: 100%"><option value="diario">Diario</option><option value="semanal">Semanal</option><option value="quincenal">Quincenal</option><option value="mensual" selected="">Mensual</option><option value="bimestral">Bimestral</option><option value="trimestral">Trimestral</option><option value="cuatrimestral">Cuatrimestral</option><option value="semestral">Semestral</option><option value="anual">Anual</option></td></tr><tr><th><input type="button" value="Calcular" onclick="calcular();"></th></tbody></table><div id="enseñarDatos"><table id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse"><tbody><tr><th>Número</th><th>Interés</th><th>Abono al capital</th><th>Valor de la cuota</th><th>Saldo al capital</th></tr></tbody><tbody id="tbody_1"></tbody></table></div>')
-    $('#campoDinamico').css('display','block')
+    
 })
 
 // Funcion para insertar Capital a la cuenta bancaria
