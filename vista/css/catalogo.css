@@ -2,8 +2,8 @@
   display: none;
 }*/
 *{
-  padding: 0px !important;
-  margin: 0px !important;
+  /*padding: 0px !important;*/
+  /*margin: 0px !important;*/
   
 }
 #textNav{
@@ -80,7 +80,7 @@ img{
     width: 300px;
     height: 100vh;
     display: flex;
-    margin-right: 1%;
+    /*margin-right: 1%;*/
     background-color: white;
     /*justify-content: center;
     align-items: center;*/
@@ -133,7 +133,7 @@ img{
   margin-top: 70px;
   /*margin-left: 5px !important;*/
   width: 900px;
-  background-color: red;
+  /*background-color: red;//////////////////////////////////////////////////////////////////////*/
 }
 @media screen and (max-width: 1485px) and (min-width:300px) {
   #relleno{
@@ -163,7 +163,7 @@ img{
     width: 100%;
     height: auto;
     /*background-color: #ffcc33;*/
-    margin: auto;
+    /*margin: auto; //////////////////////////////////////////////////////////////////////////*/
     
 }
 #divcard {
@@ -216,7 +216,7 @@ img{
     margin-left: 20% !important;
   }
 }
-@media screen and (max-width: 700px) and (min-width:300px) {
+@media screen and (max-width: 760px) and (min-width:300px) {
   #relleno{
     margin-left: 10% !important;
   }
@@ -228,7 +228,7 @@ img{
 
 /*filtro rango precio*/
 #preciorango{
-  width: 200px;
+  width: 230px;
   font-size: 11px;
 }
 .inputprecio {
