@@ -4,7 +4,6 @@
     flex-direction: column;
     height: 100%;
     position: relative;
-    background-color: crimson;
 }
 
 /*Div donde va toda la informacion corta con la imagen*/
@@ -73,6 +72,7 @@
     height: 100%;
     width: 100%;
     border-radius: 20px 20px 20px 20px;
+    border: 2px black solid;
 }
 
 .texto{
@@ -83,7 +83,7 @@
     height: 200px;
     width: 100%;
     padding: 1%;
-    background-color: cadetblue;
+    background-color: rgb(195, 228, 230);
 }
 
 .nombre{
