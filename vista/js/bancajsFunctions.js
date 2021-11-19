@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event){
 })
 nirekontua="";
 idcuenta=0;
+var saldoActual="";
 function mostrar() {
         var url = "../../controlador/controller_banca.php";
         console.log("hola")
@@ -20,7 +21,7 @@ function mostrar() {
             var cuenta="";
             var cuenta = result.list;
             console.log(cuenta);
-            
+           
             for(var i = 0; i<cuenta.length; i++) {
 
              document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].tipoCuenta+"</option>";
@@ -29,11 +30,15 @@ function mostrar() {
             }
             
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
+ 
                 indexCuenta=document.getElementById("seleccionarCuenta").value;
+                saldoActual=cuenta[indexCuenta-1].saldo;
                 document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +cuenta[indexCuenta-1].saldo+"</h3>";
+                document.getElementById("btns").style.display="block";
+                document.getElementById("campoDinamico").style.display="block";
                 console.log("indexCuenta");
-                console.log(indexCuenta);
-                nirekontua=indexCuenta;
+                // console.log(indexCuenta);
+                // nirekontua=indexCuenta;
                 enseñarPorId();
                 
             });
@@ -110,14 +115,67 @@ $('#leasing').click(function() {
 $('#transferir').click(function() {
     console.log("transferir")
     $('#campoDinamico').html('')
-    $('#campoDinamico').html('')
+    $('#campoDinamico').html('<h2>Transferencia:</h2><br><form action=""><div class="container"><div class="col-5"><h2>Desde</h2><p>Cuenta de origen<select class="form-select" aria-label="Default select example" id="CuentaOrigen"><option selected value="1">Cuenta Corriente</option><option value="2">Cuenta de Credito</option></select></p></div><div class="col-1"></div><div class="col-5"><h2>Hacia</h2><p>Cuenta de destino<select class="form-select" aria-label="Default select example" id="CuentaDestino"><option selected value="1">Cuenta Corriente</option><option value="2">Cuenta de Credito</option></select></p></div></div><h2>Fecha</h2><p>Inserte la fecha con el siguiente formato (Dia/Mes/Año)<form><div class="mb-3"><input type="date" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"></form></p><h2>Datos de transferencia</h2>Cantidad<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">Concepto<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Confirmar transferencia</label><br><p><br><button class="btn btn-primary" id="trs">Transferir</button></p></form>');
     $('#campoDinamico').css('display','block')
+
+    $("#trs").click(function(){
+        
+         //alert(nirekontua);
+        transferirdinero(nirekontua);
+        
+    });
+
 })
+function transferirdinero(nirekontua) {
+    var desde = document.getElementById("CuentaOrigen").value;
+    console.log(desde)
+
+    nirekontua = desde;
+    console.log(nirekontua);
+
+    var destino = document.getElementById("CuentaDestino").value;
+    console.log(destino);
+
+    var capital = document.getElementById("exampleInputEmail1").value;
+    console.log(capital)
+
+
+    var url = "../../controlador/controlador_Tranferencia.php";
+    var miData= {'origen':nirekontua,  'destino': destino, 'capital':capital};
+    miData= JSON.stringify(miData);
+    console.log(miData)
+    console.log(saldoActual)
+    console.log(capital)
+    saldoActual=parseInt(saldoActual)-parseInt(capital);
+    console.log(saldoActual)
+            document.getElementById("saldo").innerHTML ="<h3 id='saldo'>Saldo:"+saldoActual+"</h3>";
+
+    fetch(url, {
+        method: 'POST', 
+        body: miData,
+        headers:{'Content-Type': 'application/json'}  // input data
+        })
+
+        .then(res => res.json()).then(result =>{
+        
+
+            console.log(result.error);
+            // alert(result.error);
+             //mostrar();
+            
+        })
+       
+}
+
+
+
+
+
+
 
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
-   
-    alert(nirekontua)
+    // alert(nirekontua)
     console.log("insertar")
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<form action=""><div class="mb-3"><label for="" class="form-label">Cantidad de Capital a Insertar</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" id="ins">Submit</button></form>')

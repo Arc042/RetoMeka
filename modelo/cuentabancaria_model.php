@@ -87,7 +87,23 @@ class cuentabancaria_model extends cuentabancaria_class{
 
         $result = $this->link->query($sql);
 
-    
+        
         $this->CloseConnect();
     }
+
+    public function TransferirSaldo($origen, $destino, $importe){
+        $this->OpenConnect();
+        echo($importe);
+        $sql = "CALL restarCapital('$origen',$importe)";
+echo($sql);
+        $result = $this->link->query($sql);
+
+        $sql = "CALL TransferirCapital('$destino',$importe)";
+        echo($sql);
+        $result = $this->link->query($sql);
+       
+        
+        $this->CloseConnect();
+    }
+    
 }

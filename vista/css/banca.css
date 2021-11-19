@@ -36,6 +36,7 @@
 .botones{
     text-align: center;
     padding: 10px;
+    display: none;
 }
     .botones button{
         margin: 5px;
@@ -85,7 +86,7 @@
     margin-top: 10px;
     border: 3px solid #2771C1;
     border-radius: 10px;
-    display: block;
+    display: none;
 }
 
 #tabla tr{

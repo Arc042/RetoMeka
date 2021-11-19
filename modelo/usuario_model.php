@@ -36,20 +36,22 @@ class usuario_model extends usuario_class {
         $sql="SELECT usuario.*  FROM usuario WHERE usuario.nombre='$nombre'";
         $result= $this->link->query($sql);
         
-        $userExists=false;
+        $valor=2;
         
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         { 
             if ($contrasena==$row['contrasena'])
             {
                 $this->tipo=$row['tipo'];
-                
-                $userExists=true;
+                $valor=1;
+            }else{
+                $valor=3;
             }
         }
-        return $userExists;
+        
         mysqli_free_result($result);
         $this->CloseConnect();
+        return $valor;
     }
   
 }
