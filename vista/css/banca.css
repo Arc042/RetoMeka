@@ -88,6 +88,7 @@
     display: block;
 }
 
+/*Tabla de prestamo*/
 #tabla tr{
     border: 2px solid black;
 }
@@ -112,3 +113,4 @@ fieldset{
 legend{
     text-align: center;
 }
+/*Fin tabla de prestamo*/

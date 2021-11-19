@@ -117,16 +117,13 @@ $('#transferir').click(function() {
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
    
-    alert(nirekontua)
     console.log("insertar")
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<form action=""><div class="mb-3"><label for="" class="form-label">Cantidad de Capital a Insertar</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" id="ins">Submit</button></form>')
     $('#campoDinamico').css('display','block')
 
     $("#ins").click(function(){
-        // alert("HOLA");
         insertarSaldo(nirekontua);
-        
      
     });
 });      
@@ -135,13 +132,11 @@ $('#insertar').click(function(){
 function insertarSaldo(nirekontua) {
     var saldo = document.getElementById("exampleInputEmail1").value;
         console.log(nirekontua);
-// alert(valor)
         var url = "../../controlador/controlador_insertarSaldo.php";
         console.log("HEMEN")
         var miData= {'idCuentaBancaria':nirekontua, 'saldo':saldo};
         console.log(document.getElementById("exampleInputEmail1").value)
         miData= JSON.stringify(miData);
-// console.log(miData)
         fetch(url, {
             method: 'POST', 
             body: miData,
@@ -151,8 +146,6 @@ function insertarSaldo(nirekontua) {
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
                 alert(result.error);
-                // mostrar();
-
             })
 }
 
