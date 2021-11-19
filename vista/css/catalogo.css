@@ -48,12 +48,12 @@ img{
     transition: 0.5s;
   }
   
-  .nav-link:active,
+  /* .nav-link:active,
   .nav-link:focus,
   .nav-link:hover {
     background-color: #ffffff26;
     /*background-color: red;*/
-  }
+  /* } */ */
   
   .my-container {
     transition: 0.4s;
