@@ -32,7 +32,7 @@ class movimientos_model extends movimientos_class{
     public function mostrar($idCuentaBancaria) {
         $this->OpenConnect();
 
-        $sql = "SELECT * FROM movimientos WHERE idCuentaBancaria = '$idCuentaBancaria'";
+        $sql = "SELECT * FROM movimientos WHERE idCuentaBancaria = '$idCuentaBancaria' ORDER BY fecha ASC";
 
         $result = $this->link->query($sql);
 
