@@ -168,7 +168,7 @@ function ordenarAZ() {
                            + '<li>'+ordenarAZ[i].descripcion+'</li>'
                           +'</ul>'
                           +'<ul class="list-group list-group-flush">'
-                            +'<li class="list-group-item">'+ordenarAZ[i].precio+'</li>'
+                            +'<li class="list-group-item">'+ordenarAZ[i].precio+'€</li>'
                          + '</ul>'
                        + '</div>'
                       +'</div>'
@@ -208,7 +208,7 @@ function ordenarAZ() {
                            + '<li>'+ordenarAZ[i+1].descripcion+'</li>'
                           +'</ul>'
                           +'<ul class="list-group list-group-flush">'
-                            +'<li class="list-group-item">'+ordenarAZ[i+1].precio+'</li>'
+                            +'<li class="list-group-item">'+ordenarAZ[i+1].precio+'€</li>'
                          + '</ul>'
                        + '</div>'
                       +'</div>'
@@ -262,7 +262,7 @@ function mostrarZA() {
                          + '<li>'+ordenarZA[i].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i].precio+'</li>'
+                          +'<li class="list-group-item">'+ordenarZA[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -302,7 +302,7 @@ function mostrarZA() {
                          + '<li>'+ordenarZA[i+1].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+ordenarZA[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -373,7 +373,7 @@ function ordenarTipo(tipo) {
                          + '<li>'+ordenarZA[i].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i].precio+'</li>'
+                          +'<li class="list-group-item">'+ordenarZA[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -413,7 +413,7 @@ function ordenarTipo(tipo) {
                          + '<li>'+ordenarZA[i+1].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+ordenarZA[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -480,7 +480,7 @@ function buscarNombre(nombre) {
                          + '<li>'+producto[i].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -520,7 +520,7 @@ function buscarNombre(nombre) {
                          + '<li>'+producto[i+1].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -538,20 +538,6 @@ function buscarNombre(nombre) {
     })
     .catch(error => console.log('Error status:', error));
 }
-
-/*var formprecio = document.getElementById("formprecio");
-
-formprecio.addEventListener("change", function(){
-
-  console.log(document.getElementById("range-1a").value);
-  console.log(document.getElementById("range-1b").value);
-  var min = document.getElementById("user_name").value;
-  var max = document.getElementById("user_name").value;
-
-    document.getElementById("relleno").innerHTML = "";
-    filtroPrecio(min,max)
-  
-})*/
 
 document.getElementById("preciorango").addEventListener("click", function(){
 
@@ -603,7 +589,7 @@ function filtroPrecio(min,max) {
                          + '<li>'+producto[i].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
@@ -643,7 +629,7 @@ function filtroPrecio(min,max) {
                          + '<li>'+producto[i+1].descripcion+'</li>'
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
