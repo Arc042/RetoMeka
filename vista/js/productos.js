@@ -462,7 +462,7 @@ function buscarNombre(nombre) {
         document.getElementById("relleno").innerHTML = "";
 
         if (producto.length == 0) {
-          document.getElementById("relleno").innerHTML = '<h1>No se a encontrado el producto</h1>'
+          document.getElementById("relleno").innerHTML = '<h1>No se ha encontrado el producto</h1>'
         }
 
         for(var i = 0; i<=producto.length-1; i++) {
@@ -571,7 +571,7 @@ function filtroPrecio(min,max) {
         document.getElementById("relleno").innerHTML = "";
 
         if (producto.length == 0) {
-          document.getElementById("relleno").innerHTML = '<h1>No se a encontrado el producto</h1>'
+          document.getElementById("relleno").innerHTML = '<h1>No se ha encontrado el producto</h1>'
         }
 
         for(var i = 0; i<=producto.length-1; i++) {

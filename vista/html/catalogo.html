@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="stylesheet" href="../css/catalogo.css">
+    <link rel="stylesheet" href="../css/cssHeader.css">
 
 
     <!--prueba-->
@@ -13,6 +14,10 @@
     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
     <!--prueba-->
+
+    <script>
+      
+    </script>
 
 </head>
 <body >
@@ -38,14 +43,24 @@
                   <option>Vigilancia</option>
                 </select>-->
               </div>
+              <!-- ///////////////////////////////////////////////////////////////////////////////////////////////// -->
               <form>
-                <div data-role="rangeslider" id="preciorango">
+                <!-- <div data-role="rangeslider" id="preciorango">
                   <label for="range-1a">Rangeslider:</label>
                   <input type="range" name="range-1a" id="range-1a" class="inputprecio" min="0" max="2000" value="0"
                     data-popup-enabled="true" data-show-value="true">
                   <label for="range-1b">Rangeslider:</label>
                   <input type="range" name="range-1b" id="range-1b" class="inputprecio" min="0" max="2000" value="2000"
                     data-popup-enabled="true" data-show-value="true">
+                </div> -->
+                <div class="l-row">
+                  <div class="l-column">
+                    <div class="results push-bottom">
+                      <h5 class="results__title push-right">Results</h5>
+                      <p>Min Value: <span id="min-result" class="result"></span></p>
+                      <p>Max Value: <span id="max-result" class="result"></span></p>
+                    </div>
+                  </div>
                 </div>
               </form>
               <!--<div class="form-group">
