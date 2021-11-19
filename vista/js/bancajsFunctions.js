@@ -67,7 +67,7 @@ function enseñarPorId() {
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
 
-                var variable = "<table id='tabla'><tr><td>Id</td><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
+                var variable = "<table id='tabla'><tr><td>Id</td><td>fecha</td><td>Concepto</td><td>Precio</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
                 for(var i = 0; i<result.list.length; i++) {
 
