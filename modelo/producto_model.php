@@ -139,4 +139,58 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+
+    public function buscarNombre($nombre) {
+        $this->OpenConnect();
+
+        $sql = "SELECT * FROM producto WHERE `nombre` LIKE '%$nombre%';";
+        $result = $this->link->query($sql);
+
+        $list = array();
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+            $producto = new producto_model();
+
+            $producto->idProducto=$row['idProducto'];
+            $producto->nombre=$row['nombre'];
+            $producto->tipo=$row['tipo'];
+            $producto->descripcion=$row['descripcion'];
+            $producto->precio=$row['precio'];
+            $producto->stock=$row['stock'];
+            $producto->img=$row['img'];
+
+            array_push($list, $producto);
+        }
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return $list;
+    }
+
+    public function filtroPrecio($min,$max) {
+        $this->OpenConnect();
+
+        $sql = "SELECT * FROM `producto` WHERE `precio`>=$min AND `precio`<=$max;";
+        $result = $this->link->query($sql);
+
+        $list = array();
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+            $producto = new producto_model();
+
+            $producto->idProducto=$row['idProducto'];
+            $producto->nombre=$row['nombre'];
+            $producto->tipo=$row['tipo'];
+            $producto->descripcion=$row['descripcion'];
+            $producto->precio=$row['precio'];
+            $producto->stock=$row['stock'];
+            $producto->img=$row['img'];
+
+            array_push($list, $producto);
+        }
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return $list;
+    }
 }

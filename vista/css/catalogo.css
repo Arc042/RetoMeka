@@ -6,6 +6,9 @@
   /*margin: 0px !important;*/
   
 }
+h1{
+  overflow-y: hidden;
+}
 #textNav{
   color: #191337 !important;
   text-decoration: none;
@@ -48,12 +51,6 @@ img{
     transition: 0.5s;
   }
   
-  /* .nav-link:active,
-  .nav-link:focus,
-  .nav-link:hover {
-    background-color: #ffffff26;
-    /*background-color: red;*/
-  /* } */ */
   
   .my-container {
     transition: 0.4s;
@@ -126,6 +123,12 @@ img{
 .range_precio{
   width: 100%;
 }
+#range-1a {
+  display: none;
+}
+#range-1b {
+  display: none;
+}
   
   /*Fin Filter*/
   
@@ -134,6 +137,7 @@ img{
   /*margin-left: 5px !important;*/
   width: 900px;
   /*background-color: red;//////////////////////////////////////////////////////////////////////*/
+  
 }
 @media screen and (max-width: 1485px) and (min-width:300px) {
   #relleno{
@@ -228,8 +232,9 @@ img{
 
 /*filtro rango precio*/
 #preciorango{
-  width: 230px;
-  font-size: 11px;
+  width: 340px;
+  margin-left: -53px;
+  font-size: 12px;
 }
 .inputprecio {
   font-size: 12px !important;
