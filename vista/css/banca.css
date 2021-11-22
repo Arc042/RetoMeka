@@ -89,6 +89,7 @@
     display: none;
 }
 
+/*Tabla de prestamo*/
 #tabla tr{
     border: 2px solid black;
 }
