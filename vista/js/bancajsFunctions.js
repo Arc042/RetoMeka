@@ -71,7 +71,6 @@ function enseñarPorId() {
  
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
- 
                 var variable = "<table id='tabla'><tr><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
                 for(var i = 0; i<result.list.length; i++) {
@@ -321,7 +320,7 @@ function insertarSaldo(nirekontua) {
                 console.log(result.list);
                 alert(result.error);
                 // mostrar();
-               
+                
             })
 }
  
