@@ -164,7 +164,7 @@ $('#transferir').click(function() {
     $('#campoDinamico').html()
     $('#campoDinamico').html('<h2>Transferencia:</h2>'+
     '<br>'+
-    '<form>'+
+    '<form action="">'+
         
         '<div class="container">'+
             '<!-- cuenta desde la que se va a transferir el dinero -->'+
@@ -172,9 +172,9 @@ $('#transferir').click(function() {
                 '<h2>Desde</h2>'+
                 '<p>'+
                     'Cuenta de origen'+
-                    '<select class="form-select" aria-label="Default select example" id="seleccionarCuenta">'+
-                        '<option selected value="Corriente">Cuenta Corriente</option>'+
-                        '<option value="Credito">Cuenta de Credito</option>'+
+                    '<select class="form-select" aria-label="Default select example" id="CuentaOrigen">'+
+                        '<option selected value="1">Cuenta Corriente</option>'+
+                        '<option value="2">Cuenta de Credito</option>'+
                     '</select>    '+
                 '</p>'+
             '</div>'+
@@ -184,9 +184,9 @@ $('#transferir').click(function() {
                 '<h2>Hacia</h2>'+
                 '<p>'+
                     'Cuenta de destino'+
-                    '<select class="form-select" aria-label="Default select example" id="seleccionarCuenta">'+
-                        '<option selected value="Corriente">Cuenta Corriente</option>'+
-                        '<option value="Credito">Cuenta de Credito</option>'+
+                    '<select class="form-select" aria-label="Default select example" id="CuentaDestino">'+
+                        '<option selected value="1">Cuenta Corriente</option>'+
+                        '<option value="2">Cuenta de Credito</option>'+
                     '</select> '+
                 '</p>'+
             '</div>'+
@@ -196,18 +196,18 @@ $('#transferir').click(function() {
         '<p>'+
             'Inserte la fecha actual'+
             '<form><div class="mb-3">'+
-               ' <input type="date" class="form-control" id="fecha" >'+
+               ' <input type="date" class="form-control" id="exampleInputEmail2" >'+
           '  </form>'+
         '</p>'+
 
         '<h2>Datos de transferencia</h2>'+
         '<!-- cantidad que se quiere transferir -->'+
         'Cantidad'+
-        '<input type="text" class="form-control" id="Cantidad" aria-describedby="emailHelp">'+
+        '<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">'+
             
         '<!-- concepto/descripcion del movimiento -->'+
             'Concepto'+
-        '<input type="text" class="form-control" id="concepto">'+
+        '<input type="text" class="form-control" id="exampleInputEmail3">'+
         '<br> '+
         '<!-- recuadro para confirmar que deseas hacer la transferencia -->'+
         '<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">'+
@@ -218,7 +218,7 @@ $('#transferir').click(function() {
        '<p>'+
             '<br>'+
             '<!-- boton para hacer la transferencia -->'+
-            '<button type="button" class="btn btn-primary" onclick="insertCorrecto()">Transferir</button>'+
+            '<button type="button" class="btn btn-primary" id="trs">Transferir</button>'+
         '</p>'+
     '</form> ')
     $('#campoDinamico').css('display','block')
