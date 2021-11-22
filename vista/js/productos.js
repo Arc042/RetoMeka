@@ -539,12 +539,12 @@ function buscarNombre(nombre) {
     .catch(error => console.log('Error status:', error));
 }
 
-document.getElementById("preciorango").addEventListener("click", function(){
+document.getElementById("slider-target").addEventListener("click", function(){
 
-  console.log(document.getElementById("range-1a").value);
-  console.log(document.getElementById("range-1b").value);
-  var min = document.getElementById("range-1a").value;
-  var max = document.getElementById("range-1b").value;
+  console.log(document.getElementById("min-result").value);
+  console.log(document.getElementById("max-result").value);
+  var min = document.getElementById("min-result").value;
+  var max = document.getElementById("max-result").value;
 
     document.getElementById("relleno").innerHTML = "";
     filtroPrecio(min,max)
@@ -647,3 +647,4 @@ function filtroPrecio(min,max) {
     })
     .catch(error => console.log('Error status:', error));
 }
+

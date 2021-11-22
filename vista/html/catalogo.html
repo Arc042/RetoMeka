@@ -13,12 +13,164 @@
     <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
-    <!--prueba-->
+    <!--prueba-->  
 
+    <style>
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+body{
+    height: 100vh;
+    display: -ms-grid;
+    display: grid;
+    background-color: #3264fe;
+    place-items: center;
+}
+.wrapper{
+    position: relative;
+    width: 95vmin;
+    background-color: #ffffff;
+    padding: 50px 40px 20px 40px;
+    border-radius: 10px;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+}
+input[type="range"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+.slider-track{
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    height: 5px;
+}
+input[type="range"]::-moz-range-track{
+    -moz-appearance: none;
+    height: 5px;
+}
+input[type="range"]::-ms-track{
+    appearance: none;
+    height: 5px;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    background-color: #3264fe;
+    cursor: pointer;
+    margin-top: -9px;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb{
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3264fe;
+    pointer-events: auto;
+}
+input[type="range"]::-ms-thumb{
+    appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3264fe;
+    pointer-events: auto;
+}
+input[type="range"]:active::-webkit-slider-thumb{
+    background-color: #ffffff;
+    border: 3px solid #3264fe;
+}
+.values{
+    background-color: #3264fe;
+    width: 32%;
+    position: relative;
+    margin: auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    color: #ffffff;
+}
+.values:before{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 15px solid #3264fe;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    margin: auto;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+}
+    </style>
     <script>
-      
-    </script>
+      window.onload = function(){
+  slideOne();
+  slideTwo();
+}
 
+let sliderOne = document.getElementById("slider-1");
+let sliderTwo = document.getElementById("slider-2");
+let displayValOne = document.getElementById("range1");
+let displayValTwo = document.getElementById("range2");
+let minGap = 0;
+let sliderTrack = document.querySelector(".slider-track");
+let sliderMaxValue = document.getElementById("slider-1").max;
+
+function slideOne(){
+  if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+      sliderOne.value = parseInt(sliderTwo.value) - minGap;
+  }
+  displayValOne.textContent = sliderOne.value;
+  fillColor();
+}
+function slideTwo(){
+  if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+      sliderTwo.value = parseInt(sliderOne.value) + minGap;
+  }
+  displayValTwo.textContent = sliderTwo.value;
+  fillColor();
+}
+function fillColor(){
+  percent1 = (sliderOne.value / sliderMaxValue) * 100;
+  percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+  sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3264fe ${percent1}% , #3264fe ${percent2}%, #dadae5 ${percent2}%)`;
+}
+    </script>
+    
 </head>
 <body >
     
@@ -55,14 +207,40 @@
                 </div> -->
                 <div class="l-row">
                   <div class="l-column">
+                    <label for="user_sort">Precio</label>
+                    
+                    <div id="slider" class="push-bottom ">
+                      <select name="slider-min" id="slider-min-control" class="slider-min-control ocultar">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                      
+                      <select name="slider-max" id="slider-max-control" class="slider-max-control ocultar">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                      
+                      <div id="slider-target"></div>
+                    </div>
+                    
                     <div class="results push-bottom">
-                      <h5 class="results__title push-right">Results</h5>
-                      <p>Min Value: <span id="min-result" class="result"></span></p>
-                      <p>Max Value: <span id="max-result" class="result"></span></p>
+                      <!-- <h5 class="results__title push-right">Results</h5><br> -->
+                      <p>Min: <span id="min-result" class="result"></span></p>
+                      <p>Max: <span id="max-result" class="result"></span></p>
+                    </div>
+                    
+                    <div class="messages ocultar">
+                      <h5 class="push-half-bottom rule">Messages <span class="milli weight-normal c-g30 message-count"></span></h5>
+                      <div class="message-container"></div>
                     </div>
                   </div>
                 </div>
               </form>
+              
               <!--<div class="form-group">
                     <label for="user_sort">Precio</label>
                     <input class="range_precio" type="range" value="24" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
@@ -117,6 +295,23 @@
         
       </div>
   
+      <div class="wrapper">
+        <div class="values">
+            <span id="range1">
+                0
+            </span>
+            <span> &dash; </span>
+            <span id="range2">
+                100
+            </span>
+        </div>
+        <div class="container">
+            <div class="slider-track"></div>
+            <input type="range" min="0" max="100" value="30" id="slider-1" oninput="slideOne()">
+            <input type="range" min="0" max="100" value="70" id="slider-2" oninput="slideTwo()">
+        </div>
+    </div>
+      
       <div class="col-lg-8 col-md-6 px-sm-6 col-12 px-0" id="relleno">
   
       </div>
@@ -146,86 +341,3 @@
   <div id="footer"></div>
 </footer>
 </html>
-
-
-<!--<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-          <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-5 d-none d-sm-inline">Menu</span>
-          </a>
-          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-            <li class="nav-item">
-              <a href="#" class="nav-link align-middle px-0">
-                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-              <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                <li class="w-100">
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-            </li>
-            <li>
-              <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-              <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                <li class="w-100">
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-              <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                <li class="w-100">
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-            </li>
-          </ul>
-          <hr>
-          <div class="dropdown pb-4">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-              id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-              <span class="d-none d-sm-inline mx-1">loser</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>-->
-        <!--</div>
-      </div>-->
