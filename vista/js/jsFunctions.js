@@ -51,8 +51,8 @@ function sessionVarsView() {
 
 			// console.log(result);
 
-			if (result.error == "no error") {
-
+			if (result.error == "logged") {
+				alert("Your login is " + result.user.nombre);
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
 				} else if (result.user.tipo == "AdminFinanzas") {
@@ -63,7 +63,8 @@ function sessionVarsView() {
 				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
 			} else {
-				document.getElementById("msg").innerHTML = result.error;
+				
+				//document.getElementById("msg").innerHTML = result.error;
 			}
 		})
 		.catch(error => console.error('Error status:', error));
@@ -108,7 +109,6 @@ function login() {
 				// document.getElementById("divUser").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
 			} else {
-				alert(result.error)
 				// document.getElementById("msg").innerHTML = result.error;
 			}
 		})

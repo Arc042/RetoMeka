@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", function (event){
 })
 nirekontua="";
 idcuenta=0;
+var saldoActual="";
 function mostrar() {
         var url = "../../controlador/controller_banca.php";
-        console.log("hola")
+        //console.log("hola")
         fetch(url, {
               method: 'GET', 
               headers:{'Content-Type': 'application/json'}  // input data
@@ -20,7 +21,7 @@ function mostrar() {
             var cuenta="";
             var cuenta = result.list;
             console.log(cuenta);
-            
+           
             for(var i = 0; i<cuenta.length; i++) {
 
              document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].tipoCuenta+"</option>";
@@ -29,11 +30,15 @@ function mostrar() {
             }
             
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
+ 
                 indexCuenta=document.getElementById("seleccionarCuenta").value;
+                saldoActual=cuenta[indexCuenta-1].saldo;
                 document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +cuenta[indexCuenta-1].saldo+"</h3>";
+                document.getElementById("btns").style.display="block";
+                document.getElementById("campoDinamico").style.display="block";
                 console.log("indexCuenta");
-                console.log(indexCuenta);
-                nirekontua=indexCuenta;
+                // console.log(indexCuenta);
+                 nirekontua=indexCuenta;
                 enseñarPorId();
                 
             });
@@ -67,13 +72,12 @@ function enseñarPorId() {
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
 
-                var variable = "<table id='tabla'><tr><td>Id</td><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
+                var variable = "<table id='tabla'><tr><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
                 for(var i = 0; i<result.list.length; i++) {
 
                      variable += 
                     '<tr>'
-                    +'<td>'+result.list[i].idMovimientos+'</td>'
                     +'<td>'+result.list[i].fecha+'</td>'
                     +'<td>'+result.list[i].concepto+'</td>'
                     +'<td>'+result.list[i].cantidad+'</td>'
@@ -218,19 +222,78 @@ $('#transferir').click(function() {
         '</p>'+
     '</form> ')
     $('#campoDinamico').css('display','block')
+
+    $("#trs").click(function(){
+        
+         //alert(nirekontua);
+        transferirdinero(nirekontua);
+        
+    });
+
 })
+function transferirdinero(nirekontua) {
+    var desde = document.getElementById("CuentaOrigen").value;
+    console.log(desde)
+
+    nirekontua = desde;
+    console.log(nirekontua);
+
+    var destino = document.getElementById("CuentaDestino").value;
+    console.log(destino);
+
+    var capital = document.getElementById("exampleInputEmail1").value;
+    console.log(capital)
+    
+    var fecha = document.getElementById("exampleInputEmail2").value;
+    console.log(fecha)
+    
+    var concepto = document.getElementById("exampleInputEmail3").value;
+    console.log(concepto)
+
+    
+    var url = "../../controlador/controlador_Tranferencia.php";
+    var miData= {'origen':nirekontua,  'destino': destino, 'capital':capital};
+    miData= JSON.stringify(miData);
+    console.log(miData)
+    console.log(saldoActual)
+    console.log(capital)
+    saldoActual=parseInt(saldoActual)-parseInt(capital);
+    console.log(saldoActual)
+            document.getElementById("saldo").innerHTML ="<h3 id='saldo'>Saldo:"+saldoActual+"</h3>";
+
+    fetch(url, {
+        method: 'POST', 
+        body: miData,
+        headers:{'Content-Type': 'application/json'}  // input data
+        })
+
+        .then(res => res.json()).then(result =>{
+        
+
+            console.log(result.error);
+            // alert(result.error);
+             //mostrar();
+            
+        })
+       
+}
+
+
+
+
+
+
 
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
-   
-    alert(nirekontua)
+    //alert(nirekontua)
     console.log("insertar")
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<form action=""><div class="mb-3"><label for="" class="form-label">Cantidad de Capital a Insertar</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" id="ins">Submit</button></form>')
     $('#campoDinamico').css('display','block')
 
     $("#ins").click(function(){
-        // alert("HOLA");
+        //alert("HOLA");
         insertarSaldo(nirekontua);
         
      
@@ -247,6 +310,7 @@ function insertarSaldo(nirekontua) {
         var miData= {'idCuentaBancaria':nirekontua, 'saldo':saldo};
         console.log(document.getElementById("exampleInputEmail1").value)
         miData= JSON.stringify(miData);
+        alert("Ha ingresado "+saldo+"€ en la cuenta "+nirekontua)
 // console.log(miData)
         fetch(url, {
             method: 'POST', 
@@ -258,7 +322,7 @@ function insertarSaldo(nirekontua) {
                 console.log(result.list);
                 alert(result.error);
                 // mostrar();
-
+                
             })
 }
 
