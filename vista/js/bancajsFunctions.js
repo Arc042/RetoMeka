@@ -295,8 +295,7 @@ $('#insertar').click(function(){
     $("#ins").click(function(){
         //alert("HOLA");
         insertarSaldo(nirekontua);
-        
-     
+
     });
 });      
 

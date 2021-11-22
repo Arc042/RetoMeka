@@ -113,3 +113,15 @@ fieldset{
 legend{
     text-align: center;
 }
+
+/*mediaquery para tablet y para movil*/
+@media screen and (max-width: 1250px) and (min-width:0px){
+
+    .contenedorPrincipal{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        justify-content: none;
+    }
+
+}
