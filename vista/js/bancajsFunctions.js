@@ -92,7 +92,9 @@ function enseñarPorId() {
 
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
+
     console.log("prestamos")
+
     console.log("hola")
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<div id="calculadora1">'+
@@ -144,8 +146,7 @@ $('#prestamo').click(function() {
             '</tr></tbody>'+
     '<tbody id="tbody_1"></tbody></table></div>')
     $('#campoDinamico').css('display','block')
-    
-    //safoduishdias
+
 })
 
 
@@ -295,7 +296,6 @@ $('#insertar').click(function(){
     $("#ins").click(function(){
         //alert("HOLA");
         insertarSaldo(nirekontua);
-        
      
     });
 });      
@@ -304,7 +304,6 @@ $('#insertar').click(function(){
 function insertarSaldo(nirekontua) {
     var saldo = document.getElementById("exampleInputEmail1").value;
         console.log(nirekontua);
-// alert(valor)
         var url = "../../controlador/controlador_insertarSaldo.php";
         console.log("HEMEN")
         var miData= {'idCuentaBancaria':nirekontua, 'saldo':saldo};
