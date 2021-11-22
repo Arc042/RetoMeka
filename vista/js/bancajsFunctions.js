@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function (event){
     indexCuenta=0;
     mostrar();
-
+ 
 })
 nirekontua="";
 idcuenta=0;
@@ -11,24 +11,24 @@ function mostrar() {
         var url = "../../controlador/controller_banca.php";
         //console.log("hola")
         fetch(url, {
-              method: 'GET', 
+              method: 'GET',
               headers:{'Content-Type': 'application/json'}  // input data
               })
-    
+   
         .then(res => res.json()).then(result =>{
-    
+   
             // console.log('succes:',result.list);
             var cuenta="";
             var cuenta = result.list;
             console.log(cuenta);
            
             for(var i = 0; i<cuenta.length; i++) {
-
+ 
              document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].tipoCuenta+"</option>";
              console.log(cuenta[i].idCuentaBancaria);
              //nirekontua=cuenta[i].idCuentaBancaria;
             }
-            
+           
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
  
                 indexCuenta=document.getElementById("seleccionarCuenta").value;
@@ -40,56 +40,56 @@ function mostrar() {
                 // console.log(indexCuenta);
                  nirekontua=indexCuenta;
                 enseñarPorId();
-                
+               
             });
         })
         .catch(error => console.log('Error status:', error));
 }
-
+ 
 // document.getElementById("movimientos").addEventListener("click", function(){
-    
+   
 //     idcuenta=document.getElementById('seleccionarCuenta').value
 //     console.log(idcuenta);
 //     enseñarPorId(idcuenta);
-
+ 
 // })
-
+ 
 function enseñarPorId() {
     //console.log(cuenta[i].idCuentaBancaria)
-    
-        
-
+   
+       
+ 
         var url = "../../controlador/controlador_movimientos.php";
         var miData= {'idCuentaBancaria': indexCuenta};
         miData= JSON.stringify(miData);
-
+ 
         fetch(url, {
-            method: 'POST', 
+            method: 'POST',
             body: miData,
             headers:{'Content-Type': 'application/json'}  // input data
             })
-
+ 
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
-
+ 
                 var variable = "<table id='tabla'><tr><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
                 for(var i = 0; i<result.list.length; i++) {
-
-                     variable += 
+ 
+                     variable +=
                     '<tr>'
                     +'<td>'+result.list[i].fecha+'</td>'
                     +'<td>'+result.list[i].concepto+'</td>'
                     +'<td>'+result.list[i].cantidad+'</td>'
                     +'</tr>'
-                    
+                   
                 }
                 variable += "</table>"
                 document.getElementById("campoDinamico").innerHTML += variable;
             })
             .catch(error => console.log('Error status:', error));
 }
-
+ 
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
     console.log("prestamos")
@@ -128,7 +128,7 @@ $('#prestamo').click(function() {
                     '<option value="cuatrimestral">Cuatrimestral</option>'+
                     '<option value="semestral">Semestral</option>'+
                     '<option value="anual">Anual</option>'+
-        
+       
     '</td></tr><tr><th>'+
     '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">'+
     '</th></tbody></table>'+
@@ -144,11 +144,11 @@ $('#prestamo').click(function() {
             '</tr></tbody>'+
     '<tbody id="tbody_1"></tbody></table></div>')
     $('#campoDinamico').css('display','block')
-    
+   
     //safoduishdias
 })
-
-
+ 
+ 
 // Funcion que muestra la tabla de leasing
 $('#leasing').click(function() {
     console.log("leasing")
@@ -156,8 +156,8 @@ $('#leasing').click(function() {
     $('#campoDinamico').html()
     $('#campoDinamico').css('display','block')
 })
-
-
+ 
+ 
 // Funcion para transferir capital de una cuenta a otra
 $('#transferir').click(function() {
     console.log("transferir")
@@ -165,7 +165,7 @@ $('#transferir').click(function() {
     $('#campoDinamico').html('<h2>Transferencia:</h2>'+
     '<br>'+
     '<form>'+
-        
+       
         '<div class="container">'+
             '<!-- cuenta desde la que se va a transferir el dinero -->'+
             '<div class="col-5">'+
@@ -199,12 +199,12 @@ $('#transferir').click(function() {
                ' <input type="date" class="form-control" id="fecha" >'+
           '  </form>'+
         '</p>'+
-
+ 
         '<h2>Datos de transferencia</h2>'+
         '<!-- cantidad que se quiere transferir -->'+
         'Cantidad'+
         '<input type="text" class="form-control" id="Cantidad" aria-describedby="emailHelp">'+
-            
+           
         '<!-- concepto/descripcion del movimiento -->'+
             'Concepto'+
         '<input type="text" class="form-control" id="concepto">'+
@@ -222,35 +222,35 @@ $('#transferir').click(function() {
         '</p>'+
     '</form> ')
     $('#campoDinamico').css('display','block')
-
+ 
     $("#trs").click(function(){
-        
+       
          //alert(nirekontua);
         transferirdinero(nirekontua);
-        
+       
     });
-
+ 
 })
 function transferirdinero(nirekontua) {
     var desde = document.getElementById("CuentaOrigen").value;
     console.log(desde)
-
+ 
     nirekontua = desde;
     console.log(nirekontua);
-
+ 
     var destino = document.getElementById("CuentaDestino").value;
     console.log(destino);
-
+ 
     var capital = document.getElementById("exampleInputEmail1").value;
     console.log(capital)
-    
+   
     var fecha = document.getElementById("exampleInputEmail2").value;
     console.log(fecha)
-    
+   
     var concepto = document.getElementById("exampleInputEmail3").value;
     console.log(concepto)
-
-    
+ 
+   
     var url = "../../controlador/controlador_Tranferencia.php";
     var miData= {'origen':nirekontua,  'destino': destino, 'capital':capital};
     miData= JSON.stringify(miData);
@@ -260,30 +260,30 @@ function transferirdinero(nirekontua) {
     saldoActual=parseInt(saldoActual)-parseInt(capital);
     console.log(saldoActual)
             document.getElementById("saldo").innerHTML ="<h3 id='saldo'>Saldo:"+saldoActual+"</h3>";
-
+ 
     fetch(url, {
-        method: 'POST', 
+        method: 'POST',
         body: miData,
         headers:{'Content-Type': 'application/json'}  // input data
         })
-
+ 
         .then(res => res.json()).then(result =>{
-        
-
+       
+ 
             console.log(result.error);
             // alert(result.error);
              //mostrar();
-            
+           
         })
        
 }
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
     //alert(nirekontua)
@@ -291,16 +291,15 @@ $('#insertar').click(function(){
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<form action=""><div class="mb-3"><label for="" class="form-label">Cantidad de Capital a Insertar</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" id="ins">Submit</button></form>')
     $('#campoDinamico').css('display','block')
-
+ 
     $("#ins").click(function(){
         //alert("HOLA");
         insertarSaldo(nirekontua);
-        
-     
+ 
     });
 });      
-
-
+ 
+ 
 function insertarSaldo(nirekontua) {
     var saldo = document.getElementById("exampleInputEmail1").value;
         console.log(nirekontua);
@@ -313,20 +312,20 @@ function insertarSaldo(nirekontua) {
         alert("Ha ingresado "+saldo+"€ en la cuenta "+nirekontua)
 // console.log(miData)
         fetch(url, {
-            method: 'POST', 
+            method: 'POST',
             body: miData,
             headers:{'Content-Type': 'application/json'}  // input data
             })
-
+ 
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
                 alert(result.error);
                 // mostrar();
-                
+               
             })
 }
-
-
+ 
+ 
 // Funcion que muestra un mensaje al insertar capital
 function insertCorrecto() {
     Swal.fire(
