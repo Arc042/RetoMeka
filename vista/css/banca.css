@@ -87,3 +87,28 @@
     border-radius: 10px;
     display: block;
 }
+
+#tabla tr{
+    border: 2px solid black;
+}
+
+#tabla{
+    padding: 3%;
+    height: 100%;
+    width: 100%;
+    margin: 1%;
+    text-align: center;
+}
+
+#saldo{
+    margin-left: 2%;
+
+}
+
+fieldset{
+    margin-bottom: 10px;
+}
+
+legend{
+    text-align: center;
+}

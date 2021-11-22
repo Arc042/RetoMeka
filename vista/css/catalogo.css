@@ -2,6 +2,22 @@
   display: none;
 }*/
 *{
+  /*padding: 0px !important;*/
+  /*margin: 0px !important;*/
+  
+}
+h1{
+  overflow-y: hidden;
+}
+#textNav{
+  color: #191337 !important;
+  text-decoration: none;
+  font-weight: normal;
+}
+form input{
+  margin-bottom: 1%;
+}
+*{
   overflow-x: hidden;
 }
 img{
@@ -35,12 +51,12 @@ img{
     transition: 0.5s;
   }
   
-  .nav-link:active,
+  /*.nav-link:active,
   .nav-link:focus,
   .nav-link:hover {
     background-color: #ffffff26;
-    /*background-color: red;*/
-  }
+    
+  }*/
   
   .my-container {
     transition: 0.4s;
@@ -63,15 +79,18 @@ img{
 
   /*Filter*/
   .sidebar {
-    width: 100vw;
+    /*width: 100vw;*/
+    width: 300px;
     height: 100vh;
     display: flex;
+    /*margin-right: 1%;*/
+    background-color: white;
     /*justify-content: center;
     align-items: center;*/
  }
   .widget {
     padding: 0.75rem 1.25rem;
-    /*width: 278px;*/
+    width: 275px;
     color: rgba(0, 0, 0, 0.87);
     background-color: white;
     border-radius: 2px;
@@ -110,16 +129,52 @@ img{
 .range_precio{
   width: 100%;
 }
+#range-1a {
+  display: none;
+}
+#range-1b {
+  display: none;
+}
   
   /*Fin Filter*/
   
-
-  /**/
+#relleno{
+  margin-top: 70px;
+  /*margin-left: 5px !important;*/
+  width: 900px;
+  /*background-color: red;//////////////////////////////////////////////////////////////////////*/
+  
+}
+@media screen and (max-width: 1485px) and (min-width:300px) {
+  #relleno{
+    /*margin-left: 3%;*/
+    /*width: 80%;*/
+  }
+  .sidebar {
+   /* width: 300px;
+    height: 100vh;
+    display: flex;
+    margin-right: 10%;*/
+ }
+}
+@media screen and (max-width: 992px) and (min-width:300px) {
+  #relleno{
+    /*margin-left: 3%;*/
+    /*width: 80%;*/
+  }
+  .sidebar {
+   width: 250px;
+    
+ }
+}
+/*cards*/
   #container {
-    /*width: 300px;*/
+    /*width: 540px;*/
     width: 100%;
+    height: auto;
     /*background-color: #ffcc33;*/
-    margin: auto;
+    /*margin: auto; //////////////////////////////////////////////////////////////////////////*/
+    
 }
 #divcard {
     /*width: 100px;*/
@@ -139,15 +194,53 @@ img{
   width: 315px;
   height: auto;
 }
-/**/
-
-form  {
-  margin: 60px 0 0 0 !important;
+#cardbody{
+  width: 100%;
+}
+#cardimg{
+  width: 315px;
+  height: auto;
+  display: none;
 }
 
+@media screen and (max-width: 1285px) and (min-width:300px) {
+  #cardbody{
+    width: 60%;
+  }
+  #cardimg{
+    width: 170px;
+    display: block;
+  }
+  #divimg {
+    display: none;
+  }
+}
+@media screen and (max-width: 830px) and (min-width:300px) {
+  #sidebar{
+    display: none;
+  }
+  #cardbody{
+    width: 50%;
+  }
+  #relleno{
+    margin-left: 20% !important;
+  }
+}
+@media screen and (max-width: 760px) and (min-width:300px) {
+  #relleno{
+    margin-left: 10% !important;
+  }
+  #cardbody{
+    width: 40%;
+  }
+}
+/*cards*/
+
+/*filtro rango precio*/
 #preciorango{
-  width: 200px;
-  font-size: 11px;
+  width: 340px;
+  margin-left: -53px;
+  font-size: 12px;
 }
 .inputprecio {
   font-size: 12px !important;
@@ -170,3 +263,4 @@ form  {
   z-index: 100;
   opacity: 0.8;
 }
+/*filtro rango precio*/

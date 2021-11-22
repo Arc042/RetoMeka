@@ -24,6 +24,24 @@ function mostrar() {
 
         for(var i = 0; i<=producto.length-1; i++) {
 
+          const carc1 = producto[i].descripcion.split("-");
+          const carc2 = producto[i+1].descripcion.split("-");
+
+          var carc1text="";
+          for (let i = 0; i < carc1.length; i++) {
+
+            carc1text += '<li>'+carc1[i]+'</li>'
+            
+          }
+          console.log(carc1text);
+          var carc2text="";
+          for (let i = 0; i < carc2.length; i++) {
+
+            carc2text += '<li>'+carc2[i]+'</li>'
+            
+          }
+          console.log(carc2text);
+
           console.log(producto[i]);
 
           document.getElementById("relleno").innerHTML += '<div id="container">'
@@ -31,18 +49,18 @@ function mostrar() {
               +'<div class="card mb-3 cards" >'
                + '<div>'
                  +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
                        + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
                        + '<ul>'
-                         + '<li>'+producto[i].descripcion+'</li>'
+                         + carc1text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
@@ -71,18 +89,18 @@ function mostrar() {
               +'<div class="card mb-3 cards" >'
                + '<div>'
                  +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
                        + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
                        + '<ul>'
-                         + '<li>'+producto[i+1].descripcion+'</li>'
+                         + carc2text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
@@ -401,6 +419,236 @@ function ordenarTipo(tipo) {
                     +'</div>'
                     +'<div class="col-md-4">'
                       +'<img src="'+ordenarZA[i+1].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          i++
+        }
+    })
+    .catch(error => console.log('Error status:', error));
+}
+
+document.getElementById("user_name").addEventListener("keyup", function(){
+
+  //console.log(document.getElementById("user_name").value);
+  var nombre = document.getElementById("user_name").value;
+
+    document.getElementById("relleno").innerHTML = "";
+    buscarNombre(nombre)
+  
+})
+
+function buscarNombre(nombre) {
+  var url = "../../controlador/controlador_tienda3.php";
+  var miData= {'nombre': nombre};
+  miData= JSON.stringify(miData);
+
+  fetch(url, {
+      method: 'POST', 
+      body: miData,
+      headers:{'Content-Type': 'application/json'}  // input data
+      })
+
+    .then(res => res.json()).then(result =>{
+
+        // console.log('succes:',result.list);
+        var producto="";
+        var producto = result.list;
+        console.log(producto);
+        document.getElementById("relleno").innerHTML = "";
+
+        if (producto.length == 0) {
+          document.getElementById("relleno").innerHTML = '<h1>No se a encontrado el producto</h1>'
+        }
+
+        for(var i = 0; i<=producto.length-1; i++) {
+          
+
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+            +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                       + '<ul>'
+                         + '<li>'+producto[i].descripcion+'</li>'
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4">'
+                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+            +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+          +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'  
+          +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
+                       + '<ul>'
+                         + '<li>'+producto[i+1].descripcion+'</li>'
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4">'
+                      +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          i++
+        }
+    })
+    .catch(error => console.log('Error status:', error));
+}
+
+/*var formprecio = document.getElementById("formprecio");
+
+formprecio.addEventListener("change", function(){
+
+  console.log(document.getElementById("range-1a").value);
+  console.log(document.getElementById("range-1b").value);
+  var min = document.getElementById("user_name").value;
+  var max = document.getElementById("user_name").value;
+
+    document.getElementById("relleno").innerHTML = "";
+    filtroPrecio(min,max)
+  
+})*/
+
+document.getElementById("preciorango").addEventListener("click", function(){
+
+  console.log(document.getElementById("range-1a").value);
+  console.log(document.getElementById("range-1b").value);
+  var min = document.getElementById("range-1a").value;
+  var max = document.getElementById("range-1b").value;
+
+    document.getElementById("relleno").innerHTML = "";
+    filtroPrecio(min,max)
+  
+})
+
+function filtroPrecio(min,max) {
+  var url = "../../controlador/controlador_tienda4.php";
+  var miData= {'min': min,'max': max};
+  miData= JSON.stringify(miData);
+
+  fetch(url, {
+      method: 'POST', 
+      body: miData,
+      headers:{'Content-Type': 'application/json'}  // input data
+      })
+
+    .then(res => res.json()).then(result =>{
+
+        // console.log('succes:',result.list);
+        var producto="";
+        var producto = result.list;
+        console.log(producto);
+        document.getElementById("relleno").innerHTML = "";
+
+        if (producto.length == 0) {
+          document.getElementById("relleno").innerHTML = '<h1>No se a encontrado el producto</h1>'
+        }
+
+        for(var i = 0; i<=producto.length-1; i++) {
+          
+
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+            +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                       + '<ul>'
+                         + '<li>'+producto[i].descripcion+'</li>'
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4">'
+                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+            +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+          +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'  
+          +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
+                       + '<ul>'
+                         + '<li>'+producto[i+1].descripcion+'</li>'
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4">'
+                      +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
                   +'</div>'
