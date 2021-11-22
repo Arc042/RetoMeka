@@ -41,55 +41,9 @@
 
     <!-- Campo que se autogenera con el contenido seleccionado -->
     <div class="campoDinamico" id="campoDinamico">
-        <div id="calculadora1">
-            <fieldset>
-            <legend>Ingrese los datos aquí</legend>
-            <div style="float: left; padding: 10px;">
-            <table><tbody><tr><td>
-            <input type="number" name="monto" id="input_monto" min="1" style="width: 100%">
-            </td>
-            <td>Cantidad de cuotas<br>
-            <input type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">
-            </td></tr><tr>
-            <td>Tasa de interés<br>
-            <input type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%">
-            </td></tr><tr>
-            <td>Tipo de tasa<br>
-            
-            <div class="container">
-                <div class="col-5">
-                    <select class="seleccion" id="select_tasa_tipo" style="width: 100%">
-                        <option value="mensual">Mensual</option>
-                        <option value="anual">Anual</option>
-                    </select></td></tr><tr><td>Periodo de pago<br>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <select class="seleccion" id="select_periodo" style="width: 100%">
-                            <option value="diario">Diario</option>
-                            <option value="semanal">Semanal</option>
-                            <option value="quincenal">Quincenal</option>
-                            <option value="mensual" selected="">Mensual</option>
-                            <option value="bimestral">Bimestral</option>
-                            <option value="trimestral">Trimestral</option>
-                            <option value="cuatrimestral">Cuatrimestral</option>
-                            <option value="semestral">Semestral</option>
-                            <option value="anual">Anual</option>
-                </div>
-            </div>
-            </td></tr><tr><th>
-            <input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">
-            </th></tbody></table>
-            <div id="enseñarDatos">
-            <table class="table" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">
-                    <tbody><tr>
-                    <th >Número</th>
-                    <th>Interés</th>
-                    <th>Abono al capital</th>
-                    <th>Valor de la cuota</th>
-                    <th>Saldo al capital</th>
-                    </tr></tbody>
-            <tbody id="tbody_1"></tbody></table></div>
+
+
+        
         
 <!--         
         <h2>Transferencia:</h2>
@@ -98,7 +52,7 @@
             
             <div class="container">
                 <!-- cuenta desde la que se va a transferir el dinero -->
-                <div class="col-5">
+                <!-- <div class="col-5">
                     <h2>Desde</h2>
                     <p>
                         Cuenta de origen
@@ -108,9 +62,9 @@
                         </select>    
                     </p>
                 </div>
-                <div class="col-1"></div>
+                <div class="col-1"></div> -->
                 <!-- cuenta a la que se le va a transferir el dinero -->
-                <div class="col-5">
+                <!-- <div class="col-5">
                     <h2>Hacia</h2>
                     <p>
                         Cuenta de destino
@@ -120,9 +74,9 @@
                         </select> 
                     </p>
                 </div>
-            </div>
+            </div> -->
             <!-- fecha en la que se ha creado la transferencia -->
-            <h2>Fecha</h2>
+            <!-- <h2>Fecha</h2>
             <p>
                 Inserte la fecha actual
                 <form><div class="mb-3">
@@ -130,27 +84,27 @@
                 </form>
             </p>
 
-            <h2>Datos de transferencia</h2>
+            <h2>Datos de transferencia</h2> -->
             <!-- cantidad que se quiere transferir -->
-                Cantidad
+                <!-- Cantidad
             <input type="text" class="form-control" id="Cantidad" aria-describedby="emailHelp">
                 
             <!-- concepto/descripcion del movimiento -->
-                Concepto
+                <!-- Concepto
             <input type="text" class="form-control" id="concepto">
-            <br>
+            <br>  -->
             <!-- recuadro para confirmar que deseas hacer la transferencia -->
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
                 Confirmar transferencia
             </label>
             <br>
             <p>
-                <br>
+                <br> -->
                 <!-- boton para hacer la transferencia -->
-                <button type="button" class="btn btn-primary" onclick="insertCorrecto()">Transferir</button>
+                <!-- <button type="button" class="btn btn-primary" onclick="insertCorrecto()">Transferir</button>
             </p>
-        </form> -->
+        </form>  -->
         
     </div>
     <!-- fin del campo auogenerado -->
