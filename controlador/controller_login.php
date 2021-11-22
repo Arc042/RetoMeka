@@ -16,7 +16,9 @@ if (( $nombre !=null ) && ( $contrasena !=null )){
     $user->nombre=$nombre;
     $user->contrasena=$contrasena;
     
-    if ($user->findUserByUsername()) // si es correcto el userName y el password
+    $valor= $user->findUserByUsername();
+
+    if ($valor==1) // si es correcto el userName y el password
     {
         session_start();
         $_SESSION['nombre']=$nombre;
@@ -25,8 +27,10 @@ if (( $nombre !=null ) && ( $contrasena !=null )){
     
         $response['user']=$user; 
         $response['error']="no error";       
-    }  else {        
-        $response['error']="incorrect user"; // no correct user
+    }  else if($valor==2){        
+        $response['error']="incorrect username"; // no correct user
+    }else{
+        $response['error']="wrong password ";
     }
 }  else {
     

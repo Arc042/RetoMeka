@@ -13,10 +13,10 @@ if ((isset($_SESSION['nombre']))  && (isset($_SESSION['tipo']))){
     $user->tipo=$_SESSION['tipo'];
     
     $response['user']= $user;
-    $response['error']="no error";
+    $response['error']="logged";
     
 } else{  
-    $response['error']="";
+    $response['error']="not logged";
 }
 echo json_encode($response);
 
