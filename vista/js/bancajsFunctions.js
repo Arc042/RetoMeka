@@ -129,7 +129,7 @@ $('#prestamo').click(function() {
     '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">'+
     '</th></tbody></table>'+
     '<div id="enseñarDatos">'+
-
+    '<br>'+
     '<table class="table" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">'+
             '<tbody><tr>'+
             '<th scope="col">Número</th>'+
