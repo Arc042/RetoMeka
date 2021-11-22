@@ -9,6 +9,8 @@ $tranferir = new cuentabancaria_model();
  $origen=$data['origen'];
  $destino=$data['destino'];
  $importe=$data['capital'];
+ $fecha=$data['fecha'];
+ $concepto=$data['concepto'];
 
-$response['error']=$tranferir->TransferirSaldo($origen, $destino, $importe);
+$response['error']=$tranferir->TransferirSaldo($origen, $destino, $importe, $fecha, $concepto);
 echo json_encode($response);
