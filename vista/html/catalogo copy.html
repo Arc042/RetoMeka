@@ -9,387 +9,45 @@
 
 
     <!--prueba-->
-    <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
+    <!-- <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
-    <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script> -->
     <!--prueba-->
 
-    <style>
-      /* html, body {
-	 width: 100%;
-	 height: 100%;
-	 font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Lucida Grande, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-	 line-height: 1.6;
-}
- body {
-	 display: flex;
-	 justify-content: center;
-	 padding-top: 25%;
-	 max-width: 600px;
-	 margin: 0 auto;
-} */
- .messages .message__type {
-	 color: #d6d6d6;
-	 margin-right: 1ch;
-}
- .messages p {
-	 margin-bottom: 0;
-}
- .results {
-	 display: flex;
-	 align-items: baseline;
-	 padding: 16px;
-	 border: 1px solid #d6d6d6;
-	 border-radius: 4px;
-}
- .results__title {
-	 flex: 0;
-	 margin-bottom: 0;
-}
- .results p {
-	 flex: 1;
-	 margin-bottom: 0;
-}
- .slider {
-	 position: relative;
-	 width: 100%;
-	 height: 8px;
-	 background-color: #eee;
-	 border-radius: 16px;
-}
- .slider__bar {
-	 display: flex;
-	 align-items: center;
-	 background-color: #090;
-	 position: absolute;
-	 top: 0;
-	 bottom: 0;
-}
- .slider__ball {
-	 position: absolute;
-	 display: block;
-	 height: 12px;
-	 width: 12px;
-	 border-radius: 50%;
-	 background-color: #090;
-	 transform: scale(1);
-	 transition: transform 100ms ease-in-out;
-	 cursor: pointer;
-}
- .slider__ball#min {
-	 left: calc(0% - 6px);
-}
- .slider__ball#max {
-	 right: calc(0% - 6px);
-}
- .slider__ball:hover {
-	 transform: scale(1.2);
-}
- 
-    </style>
-    <script>
-      class MinMaxSlider {
-  constructor(element, { startingMin, startingMax, ResultsElement, MessageHandler } = {}) {
-    // Properties
-    this.values = [];
-    this.minValue = startingMin || 0;
-    this.maxValue = startingMax || 100;
-    this.slider = null;
-    this.sliderBar = null;
-    this.sliderBarStart = null;
-    this.sliderBarEnd = null;
-
-    // Event Properties
-    this.startX = 0;
-    this.currentX = 0;
-    this.targetX = 0;
-    this.target = null;
-    this.targetBCR = null;
-    this.sliderBCR = null;
-    this.sliderStartX = null;
-    this.sliderEndX = null;
-    this.draggingBall = false;
-    
-    // External Elements
-    this.ResultsElement = ResultsElement || false;
-    this.MessageHandler = MessageHandler || false;
-    
-    // Internal Elements
-    this.rootElement = element;
-    this.minControlElement = element.querySelector('#slider-min-control');
-    this.maxControlElement = element.querySelector('#slider-max-control');
-    this.sliderTarget = element.querySelector('#slider-target');
-    
-    // Bind methods
-    this.addEventListeners = this.addEventListeners.bind(this);
-    this.onStart = this.onStart.bind(this);
-    this.onMove = this.onMove.bind(this);
-    this.onEnd = this.onEnd.bind(this);
-    this.extractValues = this.extractValues.bind(this);
-    this.hideControlElements = this.hideControlElements.bind(this);
-    this.updateSliderValues = this.updateSliderValues.bind(this);
-    this.updateResults = this.updateResults.bind(this);
-
-    this.addEventListeners();
-    this.init();
-    
-    requestAnimationFrame(this.updateSliderValues);
-  }
-  
-  addEventListeners () {
-    document.addEventListener('touchstart', this.onStart);
-    document.addEventListener('touchmove', this.onMove);
-    document.addEventListener('touchend', this.onEnd);
-    
-    document.addEventListener('mousedown', this.onStart);
-    document.addEventListener('mousemove', this.onMove);
-    document.addEventListener('mouseup', this.onEnd);
-  }
-  
-  init () {
-    this.extractValues();
-    this.hideControlElements();
-    
-    this.slider = document.createElement('div');
-    this.sliderBar = document.createElement('div');
-    this.sliderBarStart = document.createElement('span');
-    this.sliderBarEnd = document.createElement('span');
-    
-    this.slider.classList.add('slider');
-    this.slider.dataset.min = "";
-    this.slider.dataset.max = "";
-    
-    this.sliderBar.classList.add('slider__bar');
-    this.sliderBarStart.classList.add('slider__ball');
-    this.sliderBarEnd.classList.add('slider__ball');
-    
-    this.sliderBarStart.id = "min";
-    this.sliderBarEnd.id = "max";
-    
-    this.sliderBar.appendChild(this.sliderBarStart);
-    this.sliderBar.appendChild(this.sliderBarEnd);
-    this.slider.appendChild(this.sliderBar);
-    
-    this.sliderTarget.appendChild(this.slider);
-    this.updateSliderValues(this.minValue, this.maxValue);
-  }
-  
-  onStart (evt) {
-    if (!evt.target.classList.contains('slider__ball')) {
-      return;
-    }
-    
-    this.target = evt.target;
-    this.sliderBCR = this.slider.getBoundingClientRect();
-    this.targetBCR = this.target.getBoundingClientRect();
-    
-    this.sliderStartX = this.sliderBCR.left;
-    this.sliderEndX = this.sliderBCR.right;
-
-    console.log(this.targetBCR, this.sliderBCR);
-    
-    this.startX = evt.pageX || evt.touches[0].pageX;
-    this.currentX = this.startX;
-    
-    this.draggingBall = true;
-    this.target
-    
-    this.MessageHandler.addMessage(`onStart`);
-    evt.preventDefault();
-  }
-  
-  onMove (evt) {
-    if (!this.draggingBall)
-      return;
-    
-    if (!this.target)
-      return;
-    
-    this.currentX = evt.pageX || evt.touches[0].pageX;
-    
-    if (this.currentX < this.sliderStartX || this.currentX > this.sliderEndX)
-      return;
-      
-    if (this.target === this.sliderBarStart)
-      this.minValue = this._calculatePercentage(this.currentX - this.sliderStartX);
-
-    if (this.target === this.sliderBarEnd)
-      this.maxValue = this._calculatePercentage(this.currentX - this.sliderStartX);
-    
-    this.MessageHandler.addMessage(
-      `sliderStart: ${this.sliderStartX}, start: ${this.startX}, current: ${this.currentX}`
-    );
-  }
-  
-  onEnd (evt) {
-    if (!this.draggingBall || !this.target)
-      return;
-
-    this.draggingBall = false;
-    this.MessageHandler.addMessage('onEnd');
-  }
-  
-  extractValues () {
-    let minOptions = Array.from(this.minControlElement.querySelectorAll('option'));
-    let maxOptions = Array.from(this.maxControlElement.querySelectorAll('option'));
-    
-    minOptions.forEach(el => this.values.push(el.value));
-    maxOptions.forEach(el => {
-      if(this.values.indexOf(el.value) < 0) {
-         this.values.push(el.value);
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
       }
     });
-    
-    this.valueCount = this.values.length;
-  }
-  
-  hideControlElements () {
-    this.minControlElement.classList.add('hidden');
-    this.maxControlElement.classList.add('hidden');
-  }
-  
-  updateSliderValues () {
-    requestAnimationFrame(this.updateSliderValues);
-    
-    this.minValue = Math.round(this.minValue);
-    this.maxValue = Math.round(this.maxValue);
-    
-    this.slider.dataset.min = this.minValue;
-    this.slider.dataset.max = this.maxValue;
-    
-    this.sliderBar.style.left = `${this.minValue}%`;
-    this.sliderBar.style.right = `${100 - this.maxValue}%`;
-    
-    this.updateResults(this.minValue, this.maxValue);
-  }
-  
-  updateResults (min, max) {
-    if (!this.ResultsElement) return;
-
-    const minResultEl = this.ResultsElement.querySelector('span#min-result');
-    const maxResultEl = this.ResultsElement.querySelector('span#max-result');
-
-    minResultEl.innerHTML = min;
-    maxResultEl.innerHTML = max;
-  }
-  
-  _calculatePercentage (positionInSlider) {
-    return positionInSlider / this.sliderBCR.width * 100;
-  }
-  
-  __logElements() {
-    console.log(this.rootElement);
-    console.log(this.slider);
-    console.log(this.ResultsElement);
-  }
-}
-
-class MessageHandler {
-  constructor(element, {messageLimit} = {}) {
-    this.element = element;
-    this.messageContainer = element.querySelector('.message-container');
-    this.messageCountEl = element.querySelector('.message-count')
-    this.messageCount = 0;
-    this.messageLimit = messageLimit || 10;
-  }
-  
-  addMessage(text, type = 'info') {
-    let messageWrapper = document.createElement('p');
-    messageWrapper.classList.add('message');
-    
-    let messageType = document.createElement('span');
-    let messageContent = document.createElement('span');
-    
-    messageType.classList.add('message__type');
-    messageType.innerText = `[ ${type} ]`;
-    messageContent.innerText = text;
-
-    messageWrapper.appendChild(messageType);
-    messageWrapper.appendChild(messageContent);
-    
-    this._addMessage(messageWrapper);
-  }
-  
-  _addMessage(Message) {
-    if (this._getMessageCount() >= this.messageLimit) {
-      let messageToRemove = this.messageContainer.querySelectorAll('.message')[0];
-      this.messageContainer.removeChild(messageToRemove);
-    }
-    
-    this.messageContainer.appendChild(Message);
-    this._updateMessageCount();
-  }
-  
-  _updateMessageCount() {
-    this.messageCount = this.messageContainer.querySelectorAll('.message').length;
-    this.messageCountEl.innerHTML = `( ${this.messageCount + ' ' + plural(this.messageCount, 'message')} )`
-  }
-  
-  _getMessageCount() {
-    return this.messageCount;
-  }
-}
-
-function plural(count, value) {
-  if (count < 2 && count !== 0) {
-    return value;
-  } 
-  
-  return value + 's';
-}
-
-window.addEventListener('load', () => {
-  const slider = new MinMaxSlider(
-    document.querySelector('#slider'), {
-      startingMin: 15,
-      startingMax: 75,
-      ResultsElement: document.querySelector('.results'),
-      MessageHandler: new MessageHandler(document.querySelector('.messages'))
-    }
-  );
-});
-    </script>
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+  </script>
     
 </head>
 <body >
     
   <div id="header"></div>
 
-  <div class="l-row">
-    <div class="l-column">
-      <h3>Simple Range Slider</h3>
-      
-      <div id="slider" class="push-bottom">
-        <select name="slider-min" id="slider-min-control" class="slider-min-control">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        
-        <select name="slider-max" id="slider-max-control" class="slider-max-control">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        
-        <div id="slider-target"></div>
-      </div>
-      
-      <div class="results push-bottom">
-        <h5 class="results__title push-right">Results</h5>
-        <p>Min Value: <span id="min-result" class="result"></span></p>
-        <p>Max Value: <span id="max-result" class="result"></span></p>
-      </div>
-      
-      <div class="messages">
-        <h5 class="push-half-bottom rule">Messages <span class="milli weight-normal c-g30 message-count"></span></h5>
-        <div class="message-container"></div>
-      </div>
-    </div>
-  </div>
 
+
+  
+<p>
+    <label for="amount">Price range:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+  </p>
+   
+  <div id="slider-range"></div>
 
   <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -414,7 +72,7 @@ window.addEventListener('load', () => {
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
       <script src="../js/jsFunctions.js"></script> 
       <script src="../js/productos.js"></script>
       <script src="../js/catalogo.js"></script>

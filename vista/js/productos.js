@@ -539,15 +539,21 @@ function buscarNombre(nombre) {
     .catch(error => console.log('Error status:', error));
 }
 
-document.getElementById("slider-target").addEventListener("click", function(){
+document.getElementById("slider-range").addEventListener("click", function(){
 
-  console.log(document.getElementById("min-result").value);
+  (document.getElementById("amount").value).split()
+  alert(document.getElementById("amount").value);
+  dividirCadena(document.getElementById("amount").value, "-");
+  alert(dividirCadena[0]);
+  alert(dividirCadena[1]);
+  console.log(document.getElementById("amount").value);
   console.log(document.getElementById("max-result").value);
   var min = document.getElementById("min-result").value;
   var max = document.getElementById("max-result").value;
 
     document.getElementById("relleno").innerHTML = "";
     filtroPrecio(min,max)
+    
   
 })
 
