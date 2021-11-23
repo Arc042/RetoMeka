@@ -92,32 +92,31 @@ function enseñarPorId() {
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
     console.log("prestamos")
-    console.log("hola")
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<div id="calculadora1">'+
    '<fieldset>'+
     '<legend>Ingrese los datos aquí</legend>'+
     '<div style="float: left; padding: 10px;">'+
-    '<table><tbody><tr>'+
-        '<td>'+
-            'cantidad de capital'+
-            '<input class="form-control" type="number" name="monto" id="input_monto" min="1" style="width: 100%">'+
-        '</td>'+
-        '<td>'+
-        'Cantidad de cuotas'+
-        '<input class="form-control" type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">'+
-        '</td></tr>'+
-    '<tr>'+
-        '<td>'+
-            'Tasa de interés<br>'+
-            '<input class="form-control" type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
-        '</td>'+
-    '<td>Tipo de tasa<br>'+
-        '<select class="form-select seleccion" id="select_tasa_tipo" style="width: 100%">'+
-            '<option value="mensual">Mensual</option>'+
-            '<option value="anual">Anual</option>'+
-        '</select></td></tr><tr><td>Periodo de pago<br>'+
-        '<select class="form-select seleccion" id="select_periodo" style="width: 100%">'+
+        '<table><tbody><tr>'+
+            '<td>'+
+                'cantidad de capital'+
+                '<input class="form-control" type="number" name="monto" id="input_monto" min="1" style="width: 100%">'+
+            '</td>'+
+            '<td>'+
+                'Cantidad de cuotas'+
+                '<input class="form-control" type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">'+
+            '</td></tr>'+
+        '<tr>'+
+            '<td>'+
+                'Tasa de interés<br>'+
+                '<input class="form-control" type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
+            '</td>'+
+        '<td>Tipo de tasa<br>'+
+            '<select class="form-select seleccion" id="select_tasa_tipo" style="width: 100%">'+
+                '<option value="mensual">Mensual</option>'+
+                '<option value="anual">Anual</option>'+
+            '</select></td></tr><tr><td>Periodo de pago<br>'+
+            '<select class="form-select seleccion" id="select_periodo" style="width: 100%">'+
                     '<option value="diario">Diario</option>'+
                     '<option value="semanal">Semanal</option>'+
                     '<option value="quincenal">Quincenal</option>'+
@@ -127,13 +126,13 @@ $('#prestamo').click(function() {
                     '<option value="cuatrimestral">Cuatrimestral</option>'+
                     '<option value="semestral">Semestral</option>'+
                     '<option value="anual">Anual</option>'+
-       
-    '</td></tr><tr><th>'+
-    '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">'+
-    '</th></tbody></table>'+
+        '</td></tr><tr><th>'+
+        '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">'+
+        '</th></tbody></table>'+
+    
     '<div id="enseñarDatos">'+
     '<br>'+
-    '<table class="table" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">'+
+    '<table class="table tablaprestamo" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">'+
             '<tbody><tr>'+
             '<th scope="col">Número</th>'+
             '<th scope="col">Interés</th>'+
@@ -277,18 +276,18 @@ function transferirdinero(nirekontua) {
        
 }
  
- 
- 
- 
- 
- 
- 
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
     //alert(nirekontua)
     console.log("insertar")
     $('#campoDinamico').html('')
-    $('#campoDinamico').html('<form action=""><div class="mb-3"><label for="" class="form-label">Cantidad de Capital a Insertar</label><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></div><button class="btn btn-primary" id="ins">Submit</button></form>')
+    $('#campoDinamico').html('<form action="">'+
+        '<div class="mb-3">'+
+            '<label for="" class="form-label">Cantidad de Capital a Insertar</label>'+
+            '<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">'+
+        '</div>'+
+            '<button class="btn btn-primary" id="ins">Submit</button>'+
+    '</form>')
     $('#campoDinamico').css('display','block')
  
     $("#ins").click(function(){

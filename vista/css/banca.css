@@ -126,3 +126,29 @@ legend{
     }
 
 }
+
+@media screen and (max-width: 700px) and (min-width:0px){
+
+    .campoDinamico{
+        width: 100%;
+        background-color: #ffffff;
+        height: auto;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        border-radius: none;
+        display: none;
+        margin-left: 0px;
+        margin-right: 0px;
+        justify-content: none;
+    }
+
+}
+
+@media screen and (max-width: 500px) and (min-width:0px){
+
+ .tablaprestamo{
+     margin-left: -10px;
+ }
+
+}
