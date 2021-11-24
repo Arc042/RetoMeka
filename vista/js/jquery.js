@@ -6,8 +6,6 @@ window.onload=function() {
     $("#footer").load("footer.html"); 
 
 
-  
-
   function funcionesHeader(){
 
     sessionVarsView();
