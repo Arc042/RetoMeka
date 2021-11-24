@@ -106,6 +106,9 @@ class cuentabancaria_model extends cuentabancaria_class{
          echo($sql);
         $result = $this->link->query($sql);
         
+        $sql = "INSERT INTO movimientos (movimientos.fecha, movimientos.concepto, movimientos.cantidad, movimientos.idCuentaBancaria) VALUES ('$fecha','$concepto',$importe,$destino)";
+         echo($sql);
+        $result = $this->link->query($sql);
         $this->CloseConnect();
     }
     
