@@ -2,8 +2,8 @@
 
 window.onload=function() {
 
-    $("#header").load("vista/html/header.html",funcionesHeader); 
-    $("#footer").load("vista/html/footer.html"); 
+    $("#header").load("header.html",funcionesHeader); 
+    $("#footer").load("footer.html"); 
 
 
   function funcionesHeader(){
