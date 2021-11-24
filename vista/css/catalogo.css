@@ -172,6 +172,8 @@ img{
     /*width: 540px;*/
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: stretch;
     /*background-color: #ffcc33;*/
     /*margin: auto; //////////////////////////////////////////////////////////////////////////*/
     
@@ -185,14 +187,17 @@ img{
 }
 #divimg {
     /*width: 200px;*/
-    width: 40%;
+    width: 290px;
     float: left;
-    height: 400px;
+    /* height: 400px; */
+    height: 290px;
+    /* height: auto; */
     /*background-color: green;*/
 }
 #divimg div img{
-  width: 315px;
-  height: auto;
+  width: 290px;
+  /* height: auto; */
+  height: 290px;
 }
 #cardbody{
   width: 100%;
