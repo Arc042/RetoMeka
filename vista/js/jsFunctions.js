@@ -59,6 +59,9 @@ function sessionVarsView() {
 					document.getElementById("banca").style.display = "inline-block";
 					document.getElementById("clientes").style.display = "inline-block";
 
+				}  else if (result.user.tipo == "Usuario"){
+					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("clientes").disabled = true;
 				}
 				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
@@ -105,6 +108,9 @@ function login() {
 					document.getElementById("banca").style.display = "inline-block";
 					document.getElementById("clientes").style.display = "inline-block";
 					document.getElementById("btnLogin").style.display = "none";
+				} else if (result.user.tipo == "Usuario"){
+					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("clientes").disabled = true;
 				}
 				// document.getElementById("divUser").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
