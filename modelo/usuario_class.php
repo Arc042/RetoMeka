@@ -2,6 +2,7 @@
 
 class usuario_class{
     public $idUsuario;
+    public $usuario;
     public $nombre;
     public $apellidos;
     public $contrasena;
@@ -145,6 +146,26 @@ class usuario_class{
     public function setDireccion($direccion)
     {
         $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuario
+     */ 
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * Set the value of usuario
+     *
+     * @return  self
+     */ 
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
 
         return $this;
     }

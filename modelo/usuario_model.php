@@ -30,10 +30,10 @@ class usuario_model extends usuario_class {
     {
         $this->OpenConnect();
         
-        $nombre=$this->nombre;
+        $usuario=$this->usuario;
         $contrasena=$this->contrasena;
         
-        $sql="SELECT usuario.*  FROM usuario WHERE usuario.nombre='$nombre'";
+        $sql="SELECT usuario.*  FROM usuario WHERE usuario.usuario='$usuario'";
         $result= $this->link->query($sql);
         
         $valor=2;
