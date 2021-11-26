@@ -49,14 +49,6 @@ function mostrar() {
         .catch(error => console.log('Error status:', error));
 }
  
-// document.getElementById("movimientos").addEventListener("click", function(){
-   
-//     idcuenta=document.getElementById('seleccionarCuenta').value
-//     console.log(idcuenta);
-//     enseñarPorId(idcuenta);
- 
-// })
-
 function mostrarPorId() {
     //console.log(cuenta[i].idCuentaBancaria)
         
@@ -428,9 +420,5 @@ function insertCorrecto() {
         'Insertado Correctamente',
         'ok'
     )
-    // Swal.fire(
-    //     'Error!',
-    //     'Campos Sin rellenar o erroneos',
-    //     'ok'
-    // )
+
 }
