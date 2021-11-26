@@ -57,6 +57,7 @@ function login() {
 
 				if (result.user.tipo == "AdminInformatico") {
 					document.getElementById("btnLogin").style.display = "none";
+					document.getElementById("administrador").style.display = "inline-block";
 
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";

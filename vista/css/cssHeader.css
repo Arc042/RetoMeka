@@ -64,7 +64,7 @@ header{
     text-align: right;
     padding-right:60px;
 }
-#logout,#banca,#clientes{
+#logout,#banca,#clientes,#administrador{
 	display:none;
    
 }
