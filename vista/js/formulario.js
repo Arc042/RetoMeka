@@ -20,8 +20,8 @@ function soloLetras(e) {
   /*Fin solo valores alfabeticos*/
 
   document.getElementById("btnFormulario").onclick = function Hola() {
-      
-    if (document.getElementById("name").value == "") {
+
+    if (document.getElementById("nombre").value == "") {
         alert("*Campo incompleto: Nombre*");
       } else {
         var name = true;
@@ -60,7 +60,7 @@ function soloLetras(e) {
     )
 
     insert();
-    document.getElementById("name").value = "";
+    document.getElementById("nombre").value = "";
     document.getElementById("email").value = "";
     document.getElementById("mensaje").value = "";
  
@@ -71,10 +71,10 @@ function soloLetras(e) {
 
 
 function insert() {
-
-  var nombre = document.getElementById("name").value;
+  var nombre = document.getElementById("nombre").value;
   var correo = document.getElementById("email").value;
   var texto = document.getElementById("mensaje").value;
+  
 
   var url = "../../controlador/controlador_reclamaciones.php";
   var data = {'nombre':nombre, 'correo':correo, 'texto':texto };
@@ -88,7 +88,7 @@ function insert() {
     .then(res => res.json()).then(result => {
       
       console.log(result)
-      document.getElementById("name").value="";
+      document.getElementById("nombre").value="";
       document.getElementById("email").value="";
       document.getElementById("mensaje").value="";
 
