@@ -10,7 +10,7 @@ function sessionVarsView() {
 			// console.log(result);
 
 			if (result.error == "logged") {
-				alert("Your login is " + result.user.username);
+				// alert("Your login is " + result.user.username);
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
 				} else if (result.user.tipo == "AdminFinanzas") {
