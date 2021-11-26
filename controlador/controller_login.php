@@ -4,16 +4,16 @@ require_once '../modelo/usuario_model.php';
 
 $data=json_decode(file_get_contents("php://input"),true);
 
-$nombre=$data['nombre'];
+$username=$data['username'];
 $contrasena=$data['contrasena'];
 
 
 $response=array();
 
-if (( $nombre !=null ) && ( $contrasena !=null )){
+if (( $username !=null ) && ( $contrasena !=null )){
  
     $user=new usuario_model();
-    $user->nombre=$nombre;
+    $user->username=$username;
     $user->contrasena=$contrasena;
     
     $valor= $user->findUserByUsername();
@@ -21,7 +21,7 @@ if (( $nombre !=null ) && ( $contrasena !=null )){
     if ($valor==1) // si es correcto el userName y el password
     {
         session_start();
-        $_SESSION['nombre']=$nombre;
+        $_SESSION['username']=$username;
         
         $_SESSION['tipo']=$user->tipo;
     
