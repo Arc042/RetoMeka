@@ -1,11 +1,3 @@
-/*::-webkit-scrollbar {
-  display: none;
-}*/
-*{
-  /*padding: 0px !important;*/
-  /*margin: 0px !important;*/
-  
-}
 h1{
   overflow-y: hidden;
 }
@@ -51,12 +43,6 @@ img{
     transition: 0.5s;
   }
   
-  /*.nav-link:active,
-  .nav-link:focus,
-  .nav-link:hover {
-    background-color: #ffffff26;
-    
-  }*/
   
   .my-container {
     transition: 0.4s;
@@ -140,28 +126,12 @@ img{
   
 #relleno{
   margin-top: 70px;
-  /*margin-left: 5px !important;*/
   width: 900px;
-  /*background-color: red;//////////////////////////////////////////////////////////////////////*/
   
 }
-@media screen and (max-width: 1485px) and (min-width:300px) {
-  #relleno{
-    /*margin-left: 3%;*/
-    /*width: 80%;*/
-  }
-  .sidebar {
-   /* width: 300px;
-    height: 100vh;
-    display: flex;
-    margin-right: 10%;*/
- }
-}
+
 @media screen and (max-width: 992px) and (min-width:300px) {
-  #relleno{
-    /*margin-left: 3%;*/
-    /*width: 80%;*/
-  }
+
   .sidebar {
    width: 250px;
     
@@ -169,23 +139,23 @@ img{
 }
 /*cards*/
   #container {
-    /*width: 540px;*/
     width: 100%;
     height: auto;
+
     display: flex;
     justify-content: stretch;
     /*background-color: #ffcc33;*/
     /*margin: auto; //////////////////////////////////////////////////////////////////////////*/
     
+
 }
 #divcard {
-    /*width: 100px;*/
     width: 60%;
     float: left;
     height: auto;
-       /* background-color: blue;*/
 }
 #divimg {
+
     /*width: 200px;*/
     width: 290px;
     float: left;
@@ -193,6 +163,11 @@ img{
     height: 290px;
     /* height: auto; */
     /*background-color: green;*/
+
+    width: 40%;
+    float: left;
+    height: 400px;
+
 }
 #divimg div img{
   width: 290px;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,167 +8,60 @@
     <title>Gestor Bancario</title>
     <link rel="stylesheet" href="../css/banca.css">
 </head>
-<body>
- 
-<div class="contenedorPrincipal">
-
-    <!-- titulo de la pagina -->
-    <h1 class="titulillo">GESTION BANCARIA</h1  >
-    
-
-    <!-- contenedor con informacion acerca de la cuenta bancaria -->
-    <div class="container">
-        <!-- selector para el tipo de cuenta -->
-        <div class="seleccion">
-            <select class="form-select" aria-label="Default select example" id="seleccionarCuenta">
-                <option disabled selected>Selecciona una opción</option>
-            </select>
-        </div>
-        <!-- saldo de la cuenta seleccionada -->
-        <div id="saldo">
-            <!-- <h3 class="saldo" id="saldo"> SALDO: 10 euro </h3> -->
-        </div>
-    </div>
 
 
-    <!-- menu con las opciones a realizar-->
-    <div class="botones">
-        <button id="prestamo">Prestamo</button>
-        <button id="leasing">Leasing</button>
-        <button id="transferir">Transferencias</button>
-        <button id="insertar">Insertar capital</button>
-    </div>
+    <div class="contenedorPrincipal">
 
+        <!-- titulo de la pagina -->
+        <h1 class="titulillo">GESTION BANCARIA</h1>
 
-    <!-- Campo que se autogenera con el contenido seleccionado -->
-    <div class="campoDinamico" id="campoDinamico">
-        <div id="calculadora1">
-            <fieldset>
-            <legend>Ingrese los datos aquí</legend>
-            <div style="float: left; padding: 10px;">
-            <table><tbody><tr><td>
-            <input type="number" name="monto" id="input_monto" min="1" style="width: 100%">
-            </td>
-            <td>Cantidad de cuotas<br>
-            <input type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">
-            </td></tr><tr>
-            <td>Tasa de interés<br>
-            <input type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%">
-            </td></tr><tr>
-            <td>Tipo de tasa<br>
-            
-            <div class="container">
-                <div class="col-5">
-                    <select class="seleccion" id="select_tasa_tipo" style="width: 100%">
-                        <option value="mensual">Mensual</option>
-                        <option value="anual">Anual</option>
-                    </select></td></tr><tr><td>Periodo de pago<br>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <select class="seleccion" id="select_periodo" style="width: 100%">
-                            <option value="diario">Diario</option>
-                            <option value="semanal">Semanal</option>
-                            <option value="quincenal">Quincenal</option>
-                            <option value="mensual" selected="">Mensual</option>
-                            <option value="bimestral">Bimestral</option>
-                            <option value="trimestral">Trimestral</option>
-                            <option value="cuatrimestral">Cuatrimestral</option>
-                            <option value="semestral">Semestral</option>
-                            <option value="anual">Anual</option>
-                </div>
+        <!-- contenedor con informacion acerca de la cuenta bancaria -->
+        <div class="container">
+            <!-- selector para el tipo de cuenta -->
+            <div class="seleccion">
+                <select class="form-select" aria-label="Default select example" id="seleccionarCuenta">
+                    <option disabled selected>Selecciona una opción</option>
+                </select>
             </div>
-            </td></tr><tr><th>
-            <input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">
-            </th></tbody></table>
-            <div id="enseñarDatos">
-            <table class="table" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">
-                    <tbody><tr>
-                    <th >Número</th>
-                    <th>Interés</th>
-                    <th>Abono al capital</th>
-                    <th>Valor de la cuota</th>
-                    <th>Saldo al capital</th>
-                    </tr></tbody>
-            <tbody id="tbody_1"></tbody></table></div>
-        
-<!--         
-        <h2>Transferencia:</h2>
-        <br>
-        <form>
-
-            <div class="container">
-                <div class="col-5">
-                    <h2>Desde</h2>
-                    <p>
-                        Cuenta de origen
-                        <select class="form-select" aria-label="Default select example" id="seleccionarCuenta">
-                            <option selected value="Corriente">Cuenta Corriente</option>
-                            <option value="Credito">Cuenta de Credito</option>
-                        </select>    
-                    </p>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <h2>Hacia</h2>
-                    <p>
-                        Cuenta de destino
-                        <select class="form-select" aria-label="Default select example" id="seleccionarCuenta">
-                            <option selected value="Corriente">Cuenta Corriente</option>
-                            <option value="Credito">Cuenta de Credito</option>
-                        </select> 
-                    </p>
-                </div>
+            <!-- saldo de la cuenta seleccionada -->
+            <div id="saldo">
+                <!-- <h3 class="saldo" id="saldo"> SALDO: 10 euro </h3> -->
             </div>
+        </div>
 
-            <h2>Fecha</h2>
-            <p>
-                Inserte la fecha con el siguiente formato (Dia/Mes/Año)
-                <form><div class="mb-3">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </form>
-            </p>
-            <h2>Datos de transferencia</h2>
-                Cantidad
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                Concepto
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <br>
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Confirmar transferencia
-            </label>
-            <br>
-            <p>
-                <br>
-                <button class="btn btn-primary" onclick="insertCorrecto()">Transferir</button>
-            </p>
-        </form> -->
-        
+        <!-- menu con las opciones a realizar-->
+        <div class="botones" id="btns">
+            <button id="prestamo">Prestamo</button>
+            <button id="leasing">Leasing</button>
+            <button id="transferir">Transferencias</button>
+            <button id="insertar">Insertar capital</button>
+        </div>
+
+        <!-- Campo que se autogenera con el contenido seleccionado -->
+        <div class="campoDinamico" id="campoDinamico">
+        </div>
+        <!-- fin del campo auogenerado -->
+
     </div>
-
-</div>
-<!-- Fin del contenedor principal -->
+    <!-- Fin del contenedor principal -->
 
 </body>
+
     <!-- scrip para la banca -->
-    
     <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="../js/bancajsFunctions.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/prestamos.js"></script>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
     <!--jQuery-->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-
-    <!--Links al js-->
-    <script src="../js/jquery.js"></script>
 
     <!--Links para fuentes y cosas varias-->
     <script src="https://kit.fontawesome.com/13ccb33514.js" crossorigin="anonymous"></script>

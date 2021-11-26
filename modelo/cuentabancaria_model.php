@@ -87,7 +87,29 @@ class cuentabancaria_model extends cuentabancaria_class{
 
         $result = $this->link->query($sql);
 
-    
+        
         $this->CloseConnect();
     }
+
+    public function TransferirSaldo($origen, $destino, $importe, $fecha, $concepto){
+        $this->OpenConnect();
+        echo($importe);
+        $sql = "UPDATE cuentabancaria SET saldo=saldo-$importe WHERE idCuentaBancaria=$origen";
+        echo($sql);
+        $result = $this->link->query($sql);
+
+        $sql = "UPDATE cuentabancaria SET saldo=saldo+$importe WHERE idCuentaBancaria=$destino";
+        echo($sql);
+        $result = $this->link->query($sql);
+       
+        $sql = "INSERT INTO movimientos (movimientos.fecha, movimientos.concepto, movimientos.cantidad, movimientos.idCuentaBancaria) VALUES ('$fecha','$concepto',$importe,$origen)";
+         echo($sql);
+        $result = $this->link->query($sql);
+        
+        $sql = "INSERT INTO movimientos (movimientos.fecha, movimientos.concepto, movimientos.cantidad, movimientos.idCuentaBancaria) VALUES ('$fecha','$concepto',$importe,$destino)";
+         echo($sql);
+        $result = $this->link->query($sql);
+        $this->CloseConnect();
+    }
+    
 }
