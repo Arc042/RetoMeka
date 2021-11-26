@@ -13,9 +13,10 @@ function sessionVarsView() {
 				// alert("Your login is " + result.user.username);
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
+					document.getElementById("administrador").style.display = "inline-block";
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";
-					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("administrador").style.display = "none";
 
 				}  else if (result.user.tipo == "Usuario"){
 					document.getElementById("clientes").style.display = "inline-block";
