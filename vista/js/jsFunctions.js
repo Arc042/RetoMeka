@@ -14,13 +14,18 @@ function sessionVarsView() {
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
 					document.getElementById("administrador").style.display = "inline-block";
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
+
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";
 					document.getElementById("administrador").style.display = "none";
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
 
 				}  else if (result.user.tipo == "Usuario"){
-					document.getElementById("clientes").style.display = "inline-block";
-					document.getElementById("clientes").disabled = true;
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
 				}
 				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
