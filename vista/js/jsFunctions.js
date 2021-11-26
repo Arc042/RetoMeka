@@ -11,6 +11,7 @@ function sessionVarsView() {
 
 			if (result.error == "logged") {
 				// alert("Your login is " + result.user.username);
+				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				document.getElementById("usuario").innerHTML = result.user.username;
 				if (result.user.tipo == "AdminInformatico") {
 					document.getElementById("administrador").style.display = "inline-block";
@@ -26,7 +27,6 @@ function sessionVarsView() {
 				}  else if (result.user.tipo == "Usuario"){
 					document.getElementById("usuario").style.display = "inline-block";
 					document.getElementById("usuario").disabled = true;
-					document.getElementById("comprar").style.display = "inline-block";
 				}
 				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
