@@ -367,11 +367,11 @@ document.getElementById("user_filter").addEventListener("change", function(){
 
 function ordenarTipo(tipo) {
   var url = "../../controlador/controlador_tienda2.php";
-  console.log("hjdhde")
+  
   console.log(tipo)
   var miData= {'tipo': tipo};
   miData= JSON.stringify(miData);
-  console.log("prueba")
+  
   fetch(url, {
       method: 'POST', 
       body: miData,
@@ -384,11 +384,11 @@ function ordenarTipo(tipo) {
       var producto = result.list;
       console.log(producto);
 
-      for(var i = 0; i<=producto.length-2; i++) {
+      for(var i = 0; i<=producto.length-1; i++) {
         console.log(i);
 
         const carc1 = producto[i].descripcion.split("-");
-        const carc2 = producto[i+1].descripcion.split("-");
+        
 
         var carc1text="";
         for (let i = 0; i < carc1.length; i++) {
@@ -398,6 +398,7 @@ function ordenarTipo(tipo) {
         }
         console.log(carc1text);
         if (producto[i+1]!=null) {
+          const carc2 = producto[i+1].descripcion.split("-");
         var carc2text="";
         for (let i = 0; i < carc2.length; i++) {
 
@@ -506,6 +507,9 @@ function buscarNombre(nombre) {
       var producto="";
       var producto = result.list;
       console.log(producto);
+      if (producto.length == 0) {
+        document.getElementById("relleno").innerHTML = '<h1>No se ha encontrado el producto</h1>'
+      }
 
       for(var i = 0; i<=producto.length-1; i++) {
           console.log(i);
@@ -648,6 +652,10 @@ function filtroPrecio(min,max) {
       var producto="";
       var producto = result.list;
       console.log(producto);
+
+      if (producto.length == 0) {
+        document.getElementById("relleno").innerHTML = '<h1>No se ha encontrado el producto</h1>'
+      }
 
       for(var i = 0; i<=producto.length-1; i++) {
           console.log(i);
