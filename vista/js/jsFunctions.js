@@ -10,7 +10,7 @@ function sessionVarsView() {
 			// console.log(result);
 
 			if (result.error == "logged") {
-				alert("Your login is " + result.user.usuario);
+				alert("Your login is " + result.user.username);
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
 				if (result.user.tipo == "AdminInformatico") {
 				} else if (result.user.tipo == "AdminFinanzas") {
@@ -32,17 +32,13 @@ function sessionVarsView() {
 }
 
 
-
-
-
-
 function login() {
 
-	var usuario = document.getElementById("name").value;
+	var username = document.getElementById("name").value;
 	var password = document.getElementById("password").value;
 
 	var url = "../../controlador/controller_login.php";
-	var data = { 'usuario': usuario, 'contrasena': password };
+	var data = { 'username': username, 'contrasena': password };
 
 	fetch(url, {
 		method: 'POST', // or 'POST'

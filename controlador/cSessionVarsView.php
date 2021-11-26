@@ -5,11 +5,11 @@ $response=array();
 
 session_start();
 
-if ((isset($_SESSION['nombre']))  && (isset($_SESSION['tipo']))){
+if ((isset($_SESSION['username']))  && (isset($_SESSION['tipo']))){
     
     $user= new usuario_model();
     
-    $user->nombre=$_SESSION['nombre'];
+    $user->username=$_SESSION['username'];
     $user->tipo=$_SESSION['tipo'];
     
     $response['user']= $user;

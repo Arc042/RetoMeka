@@ -2,7 +2,7 @@
 
 class usuario_class{
     public $idUsuario;
-    public $usuario;
+    public $username;
     public $nombre;
     public $apellidos;
     public $contrasena;
@@ -155,7 +155,7 @@ class usuario_class{
      */ 
     public function getUsuario()
     {
-        return $this->usuario;
+        return $this->username;
     }
 
     /**
@@ -163,9 +163,9 @@ class usuario_class{
      *
      * @return  self
      */ 
-    public function setUsuario($usuario)
+    public function setUsuario($username)
     {
-        $this->usuario = $usuario;
+        $this->username = $username;
 
         return $this;
     }
