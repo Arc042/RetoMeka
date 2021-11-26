@@ -365,7 +365,13 @@ $('#insertar').click(function(){
     //alert(nirekontua)
     console.log("insertar")
     $('#campoDinamico').html('')
-    $('#campoDinamico').html('<form action=""><div class="mb-3"><label for="" class="form-label">Cantidad de Capital a Insertar</label><input type="text" class="form-control" id="cantidad" aria-describedby="emailHelp"></div><button class="btn btn-primary" id="ins">Submit</button></form>')
+    $('#campoDinamico').html('<form action="">'+
+        '<div class="mb-3">'+
+            '<label for="" class="form-label">Cantidad de Capital a Insertar</label>'+
+            '<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">'+
+        '</div>'+
+            '<button class="btn btn-primary" id="ins">Submit</button>'+
+    '</form>')
     $('#campoDinamico').css('display','block')
  
     $("#ins").click(function(){
