@@ -115,6 +115,8 @@ document.getElementById("user_sort").addEventListener("change", function(){
   console.log(document.getElementById("user_sort").value);
   
   if(document.getElementById("user_sort").value == 1) {
+    console.log("hohoho")
+    document.getElementById("relleno").innerHTML = "";
     ordenarAZ();
   }
 
@@ -131,7 +133,7 @@ document.getElementById("user_sort").addEventListener("change", function(){
 
 function ordenarAZ() {
     var url = "../../controlador/controlador_tienda.php";
-    console.log("prueba")
+    
     fetch(url, {
         method: 'GET', 
         headers:{'Content-Type': 'application/json'}  // input data
@@ -141,7 +143,7 @@ function ordenarAZ() {
   
         // console.log('succes:',result.list);
         var producto="";
-        var producto = result.list;
+        var producto = result.list2;
         console.log(producto);
 
         for(var i = 0; i<=producto.length-2; i++) {
@@ -242,7 +244,7 @@ function ordenarAZ() {
 
 function mostrarZA() {
   var url = "../../controlador/controlador_tienda.php";
-  console.log("prueba")
+
   fetch(url, {
       method: 'GET', 
       headers:{'Content-Type': 'application/json'}  // input data
@@ -252,7 +254,7 @@ function mostrarZA() {
 
         // console.log('succes:',result.list);
         var producto="";
-        var producto = result.list;
+        var producto = result.list3;
         console.log(producto);
 
         for(var i = 0; i<=producto.length-2; i++) {
