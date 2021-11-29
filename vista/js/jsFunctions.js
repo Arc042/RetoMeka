@@ -27,7 +27,7 @@ function sessionVarsView() {
 				}  else if (result.user.tipo == "Usuario"){
 					document.getElementById("usuario").style.display = "inline-block";
 					document.getElementById("usuario").disabled = true;
-					// document.getElementById("comprar").style.display = "inline-block";
+					//document.getElementById("comprar").style.display = "inline-block";
 				}
 				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
@@ -72,8 +72,8 @@ function login() {
 					document.getElementById("clientes").style.display = "inline-block";
 					document.getElementById("btnLogin").style.display = "none";
 				} else if (result.user.tipo == "Usuario"){
-					document.getElementById("clientes").style.display = "inline-block";
-					document.getElementById("clientes").disabled = true;
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
 				}
 				// document.getElementById("divUser").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
