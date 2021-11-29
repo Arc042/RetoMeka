@@ -8,9 +8,19 @@ window.onload=function() {
 
   function funcionesHeader(){
 
-    sessionVarsView();
+    // sessionVarsView();
  
+    if (window.location.href=="http://localhost/Reto%20Contacto/RetoMeka/vista/html/catalogo.html") {
+      sesion2();
+    } else {
+      sessionVarsView();
+    }
 
+    if (window.location.href=="http://localhost/Reto%20Contacto/RetoMeka/vista/html/catalogo.html?") {
+      sesion2();
+    } else {
+      sessionVarsView();
+    }
 
     $("#submit").on('click', login);
     $("#logout").on('click', logout);
