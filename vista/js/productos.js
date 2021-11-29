@@ -2,6 +2,39 @@
     mostrar();
   })
 
+function sesion2() {
+    var url = "../../controlador/cSessionVarsView.php";
+  
+    fetch(url, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }  // input data
+    })
+      .then(res => res.json()).then(result => {
+  
+        // console.log(result);
+  
+        if (result.error == "logged") {
+          // alert("Your login is " + result.user.username);
+          // document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
+          document.getElementById("usuario").innerHTML = result.user.username;
+          console.log(result.user.tipo);
+          if (result.user.tipo == "Usuario") {
+            
+            document.getElementById("usuario").style.display = "inline-block";
+            document.getElementById("usuario").disabled = true;
+            document.getElementById("comprar").style.display = "inline-block";
+          }
+          document.getElementById("btnLogin").style.display = "none";				
+          document.getElementById("logout").style.display = "inline-block";
+        } else {
+          
+          //document.getElementById("msg").innerHTML = result.error;
+        }
+      })
+      .catch(error => console.error('Error status:', error));
+  }
+
+
 function mostrar() {
 	var url = "../../controlador/controlador_tienda.php";
 	
