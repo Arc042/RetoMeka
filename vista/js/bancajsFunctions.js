@@ -121,16 +121,16 @@ $('#prestamo').click(function() {
         '<table><tbody><tr>'+
             '<td>'+
                 'cantidad de capital'+
-                '<input class="form-control" type="number" name="monto" id="input_monto" min="1" style="width: 100%">'+
+                '<input class="form-control" type="number" onkeypress="return solonumeros(event)" name="monto" id="input_monto" min="1" style="width: 100%">'+
             '</td>'+
             '<td>'+
                 'Cantidad de cuotas'+
-                '<input class="form-control" type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">'+
+                '<input class="form-control" type="number" onkeypress="return solonumeros(event)" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">'+
             '</td></tr>'+
         '<tr>'+
             '<td>'+
                 'Tasa de interés<br>'+
-                '<input class="form-control" type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
+                '<input class="form-control" type="number" onkeypress="return solonumeros(event)" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
             '</td>'+
         '<td>Tipo de tasa<br>'+
             '<select class="form-select seleccion" id="select_tasa_tipo" style="width: 100%">'+
@@ -382,7 +382,7 @@ $('#insertar').click(function(){
     $('#campoDinamico').html('<form action="">'+
         '<div class="mb-3">'+
             '<label for="" class="form-label">Cantidad de Capital a Insertar</label>'+
-            '<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">'+
+            '<input type="text" class="form-control" id="cantidad" onkeypress="return solonumeros(event)" aria-describedby="emailHelp">'+
         '</div>'+
             '<button class="btn btn-primary" id="ins">Submit</button>'+
     '</form>')
