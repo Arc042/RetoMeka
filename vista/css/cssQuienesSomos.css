@@ -7,35 +7,28 @@
 }
 
 /*Div donde va toda la informacion corta con la imagen*/
-/*Imagen parallax*/
 .divParallaxTexto{
+    position: relative;
     height:500px;
     text-align:center;
-    /* The image used */
     background-image: url("https://i.ytimg.com/vi/zavWwAovlCA/maxresdefault.jpg");
-  
-    /* Set a specific height */
     min-height: 500px;
-  
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
 }
-/*Fin de imagen parallax*/
-
 
 .divTexto{
     display: flex;
     flex-direction: column;
     height: 300px;
     width:500px;
-    position:relative;
-    /*margin-bottom: 8.8%;*/
-    bottom: -40%;
-    right: -60%;
-    padding: 2%;
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0;
     background-color:white;
 }
 
@@ -55,6 +48,7 @@
 .informacion{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     height: 1%;
     width: 80%;
     margin-top: 2%;
@@ -64,7 +58,8 @@
 
 .imagen{
     height: 300px;
-    width: 50%;
+    width: 30%;
+
     
 }
 
@@ -81,7 +76,7 @@
     border: 2px solid black;
     border-radius: 20px 0px 20px 0px;
     height: 200px;
-    width: 100%;
+    width: 70%;
     padding: 1%;
     background-color: rgb(195, 228, 230);
 }
@@ -137,3 +132,29 @@
 }
 /*Fin de la zona de informacion*/
 /*Fin del centro de la pagina*/
+
+@media screen and (max-width: 1250px) and (min-width:0px){
+    .imagen{
+
+    }
+    .texto{
+
+    }
+}
+
+@media screen and (max-width: 700px) and (min-width:0px){
+
+}
+
+@media screen and (max-width: 500px) and (min-width:0px){
+    .informacion{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .imagen{
+        width: 100%;
+    }
+    .texto{
+        width: 100%;
+    }
+}
