@@ -23,20 +23,10 @@
 	width: 500px;
 }
 
-/* .dronSalvar{
-    background-image: url(../imagenes/dronSalvar.jpg);
-    background-repeat: no-repeat;
-} */
-
 .card-body:hover{
     opacity: 0.4;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
+    filter: alpha(opacity=40);
 }
-/* 
-.dronCine{
-    background-image: url(../imagenes/dron.jpg);
-    background-repeat: no-repeat;
-} */
 
 .imagenCard{
 	height: 260px;
@@ -45,7 +35,7 @@
 
 .imagenCard:hover{
     opacity: 0.4;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
+    filter: alpha(opacity=40);
     display: block;
 }
 
@@ -66,13 +56,8 @@
 
 /*DIV con el fondo animado y el titulo*/
 .divParallaxTexto{
-    /* The image used */
     background-image: url("../imagenes/gifFondo.gif");
-  
-    /* Set a specific height */
     min-height: 300px;
-  
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -97,6 +82,7 @@
         margin-top: -130px;
         margin-left: -100px;
 }
-/*DIV con el fondo animado y el titulo*/
 
-/*Modal*/
+@media screen and (max-width: 700px) and (min-width:0px){
+
+}
