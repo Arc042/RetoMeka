@@ -9,6 +9,8 @@
     margin-top: 2%;
 	height: 300px;
 	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 2%;
 }
@@ -67,20 +69,20 @@
 .titulo{
     font-size: 50px;
     font-weight: bolder;
-    position: absolute;
+    /* position: absolute;
         top:50%;
         left: 50%;           
         margin-top: -130px;
-        margin-left: -200px;
+        margin-left: -200px; */
 }
 
 .subtitulo{
     font-size: 20px;
-    position: absolute;
+    /* position: absolute;
         top: 60%;
         left: 50%;           
         margin-top: -130px;
-        margin-left: -100px;
+        margin-left: -100px; */
 }
 
 @media screen and (max-width: 700px) and (min-width:0px){
