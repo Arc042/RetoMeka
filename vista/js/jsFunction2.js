@@ -1,19 +1,3 @@
-document.addEventListener("DOMContentLoaded",function (event) {
-    sessionVarsView();
-    //document.getElementById("submit").addEventListener('click', login);
-    //document.getElementById("logout").addEventListener('click', logout);
-    
-    // // LOGIN
-	// document.getElementById("btnLogin").addEventListener('click', function(){
-	// 	alert("HOLA");
-	// 	document.getElementById("divUser").style.data.target="divUser";
-	// });
-	// document.getElementById("btn-close").addEventListener('click', function(){
-	// 	console.log("hola")
-	// 	document.getElementById("divUser").style.display = "none";
-	// });
-})
-
 function sessionVarsView()
 {
 	var url = "../../controlador/cSessionVarsView.php";

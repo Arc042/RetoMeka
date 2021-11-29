@@ -1,8 +1,3 @@
-/*window.onload = function() {
-    mostrar();
-    console.log('fbidffiusbfivu')
-  };*/
-
   document.addEventListener("DOMContentLoaded", function (event){
     mostrar();
   })
@@ -22,7 +17,8 @@ function mostrar() {
         var producto = result.list;
         console.log(producto);
 
-        for(var i = 0; i<=producto.length-1; i++) {
+        for(var i = 0; i<=producto.length-2; i++) {
+          console.log(i);
 
           const carc1 = producto[i].descripcion.split("-");
           const carc2 = producto[i+1].descripcion.split("-");
@@ -64,6 +60,7 @@ function mostrar() {
                       +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
+                   +'<button id="comprar">Comprar</button>'
                   +'</div>'
                 +'</div>'
               +'</div>'
@@ -104,6 +101,7 @@ function mostrar() {
                       +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
+                   +'<button id="comprar">Comprar</button>'
                   +'</div>'
                 +'</div>'
               +'</div>'
@@ -119,6 +117,8 @@ document.getElementById("user_sort").addEventListener("change", function(){
   console.log(document.getElementById("user_sort").value);
   
   if(document.getElementById("user_sort").value == 1) {
+    console.log("hohoho")
+    document.getElementById("relleno").innerHTML = "";
     ordenarAZ();
   }
 
@@ -135,7 +135,7 @@ document.getElementById("user_sort").addEventListener("change", function(){
 
 function ordenarAZ() {
     var url = "../../controlador/controlador_tienda.php";
-    console.log("prueba")
+    
     fetch(url, {
         method: 'GET', 
         headers:{'Content-Type': 'application/json'}  // input data
@@ -143,93 +143,110 @@ function ordenarAZ() {
   
       .then(res => res.json()).then(result =>{
   
-          // console.log('succes:',result.list);
-          var ordenarAZ="";
-          var ordenarAZ = result.list2;
-          console.log(ordenarAZ);
-          document.getElementById("relleno").innerHTML = "";
-  
-          for(var i = 0; i<=ordenarAZ.length-1; i++) {
-  
-            console.log(ordenarAZ[i]);
-            console.log(i);
-            console.log(ordenarAZ[i].nombre);
+        // console.log('succes:',result.list);
+        var producto="";
+        var producto = result.list2;
+        console.log(producto);
+
+        for(var i = 0; i<=producto.length-2; i++) {
+          console.log(i);
+
+          const carc1 = producto[i].descripcion.split("-");
+          const carc2 = producto[i+1].descripcion.split("-");
+
+          var carc1text="";
+          for (let i = 0; i < carc1.length; i++) {
+
+            carc1text += '<li>'+carc1[i]+'</li>'
             
-  
-            document.getElementById("relleno").innerHTML += '<div id="container">'
-              +'<div id="divcard">'
-                +'<div class="card mb-3 cards" >'
-                 + '<div>'
-                   +' <div class="row g-0 cards">'
-                    +  '<div class="col-md-8">'
-                        +'<div class="card-body">'
-                         + '<h5 class="card-title">'+ordenarAZ[i].nombre+'</h5>'
-                         + '<ul>'
-                           + '<li>'+ordenarAZ[i].descripcion+'</li>'
-                          +'</ul>'
-                          +'<ul class="list-group list-group-flush">'
-                            +'<li class="list-group-item">'+ordenarAZ[i].precio+'</li>'
-                         + '</ul>'
-                       + '</div>'
-                      +'</div>'
-                      +'<div class="col-md-4">'
-                        +'<img src="'+ordenarAZ[i].img+'" class="img-fluid rounded-start"'
-                          +'alt="">'
-                     + '</div>'
-                    +'</div>'
-                  +'</div>'
-                +'</div>'
-              +'</div>'
-              +'<div id="divimg">'
-                +'<div>'
-              
-                  +'<img src="'+ordenarAZ[i].img+'" class="img-fluid rounded-start" alt="">'
-              
-                +'</div>'
-              +'</div>'
-            +'</div>'
-            
-            document.getElementById("relleno").innerHTML += '<div id="container">'
-            +'<div id="divimg">'
-                +'<div>'
-              
-                  +'<img src="'+ordenarAZ[i+1].img+'" class="img-fluid rounded-start" alt="">'
-              
-                +'</div>'
-              +'</div>'  
-            +'<div id="divcard">'
-                +'<div class="card mb-3 cards" >'
-                 + '<div>'
-                   +' <div class="row g-0 cards">'
-                    +  '<div class="col-md-8">'
-                        +'<div class="card-body">'
-                         + '<h5 class="card-title">'+ordenarAZ[i+1].nombre+'</h5>'
-                         + '<ul>'
-                           + '<li>'+ordenarAZ[i+1].descripcion+'</li>'
-                          +'</ul>'
-                          +'<ul class="list-group list-group-flush">'
-                            +'<li class="list-group-item">'+ordenarAZ[i+1].precio+'</li>'
-                         + '</ul>'
-                       + '</div>'
-                      +'</div>'
-                      +'<div class="col-md-4">'
-                        +'<img src="'+ordenarAZ[i+1].img+'" class="img-fluid rounded-start"'
-                          +'alt="">'
-                     + '</div>'
-                    +'</div>'
-                  +'</div>'
-                +'</div>'
-              +'</div>'
-            +'</div>'
-            i++
           }
+          console.log(carc1text);
+          if (producto[i+1]!=null) {
+          var carc2text="";
+          for (let i = 0; i < carc2.length; i++) {
+
+            carc2text += '<li>'+carc2[i]+'</li>'
+            
+          }
+          console.log(carc2text);
+          }
+
+          console.log(producto[i]);
+
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+            +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8" id="cardbody">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                       + '<ul>'
+                         + carc1text
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4" id="cardimg">'
+                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+            +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          if (producto[i+1]!=null) {
+          document.getElementById("relleno").innerHTML += '<div id="container">'
+          +'<div id="divimg">'
+              +'<div>'
+            
+                +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start" alt="">'
+            
+              +'</div>'
+            +'</div>'  
+          +'<div id="divcard">'
+              +'<div class="card mb-3 cards" >'
+               + '<div>'
+                 +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8" id="cardbody">'
+                      +'<div class="card-body">'
+                       + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
+                       + '<ul>'
+                         + carc2text
+                        +'</ul>'
+                        +'<ul class="list-group list-group-flush">'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
+                       + '</ul>'
+                     + '</div>'
+                    +'</div>'
+                    +'<div class="col-md-4" id="cardimg">'
+                      +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
+                        +'alt="">'
+                   + '</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'}
+          +'</div>'
+          i++
+        }
       })
       .catch(error => console.log('Error status:', error));
 }
 
 function mostrarZA() {
   var url = "../../controlador/controlador_tienda.php";
-  console.log("prueba")
+
   fetch(url, {
       method: 'GET', 
       headers:{'Content-Type': 'application/json'}  // input data
@@ -238,36 +255,53 @@ function mostrarZA() {
     .then(res => res.json()).then(result =>{
 
         // console.log('succes:',result.list);
-        var ordenarZA="";
-        var ordenarZA = result.list3;
-        console.log(ordenarZA);
-        document.getElementById("relleno").innerHTML = "";
+        var producto="";
+        var producto = result.list3;
+        console.log(producto);
 
-        for(var i = 0; i<=ordenarZA.length-1; i++) {
-
-          console.log(ordenarZA[i]);
+        for(var i = 0; i<=producto.length-2; i++) {
           console.log(i);
-          console.log(ordenarZA[i].nombre);
-          
+
+          const carc1 = producto[i].descripcion.split("-");
+          const carc2 = producto[i+1].descripcion.split("-");
+
+          var carc1text="";
+          for (let i = 0; i < carc1.length; i++) {
+
+            carc1text += '<li>'+carc1[i]+'</li>'
+            
+          }
+          console.log(carc1text);
+          if (producto[i+1]!=null) {
+          var carc2text="";
+          for (let i = 0; i < carc2.length; i++) {
+
+            carc2text += '<li>'+carc2[i]+'</li>'
+            
+          }
+          console.log(carc2text);
+          }
+
+          console.log(producto[i]);
 
           document.getElementById("relleno").innerHTML += '<div id="container">'
             +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
                + '<div>'
                  +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
-                       + '<h5 class="card-title">'+ordenarZA[i].nombre+'</h5>'
+                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
                        + '<ul>'
-                         + '<li>'+ordenarZA[i].descripcion+'</li>'
+                         + carc1text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
-                      +'<img src="'+ordenarZA[i].img+'" class="img-fluid rounded-start"'
+                    +'<div class="col-md-4" id="cardimg">'
+                      +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
                   +'</div>'
@@ -277,17 +311,17 @@ function mostrarZA() {
             +'<div id="divimg">'
               +'<div>'
             
-                +'<img src="'+ordenarZA[i].img+'" class="img-fluid rounded-start" alt="">'
+                +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
             
               +'</div>'
             +'</div>'
           +'</div>'
-          
+          if (producto[i+1]!=null) {
           document.getElementById("relleno").innerHTML += '<div id="container">'
           +'<div id="divimg">'
               +'<div>'
             
-                +'<img src="'+ordenarZA[i+1].img+'" class="img-fluid rounded-start" alt="">'
+                +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start" alt="">'
             
               +'</div>'
             +'</div>'  
@@ -295,25 +329,25 @@ function mostrarZA() {
               +'<div class="card mb-3 cards" >'
                + '<div>'
                  +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
-                       + '<h5 class="card-title">'+ordenarZA[i+1].nombre+'</h5>'
+                       + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
                        + '<ul>'
-                         + '<li>'+ordenarZA[i+1].descripcion+'</li>'
+                         + carc2text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i+1].precio+'</li>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
                        + '</ul>'
                      + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
-                      +'<img src="'+ordenarZA[i+1].img+'" class="img-fluid rounded-start"'
+                    +'<div class="col-md-4" id="cardimg">'
+                      +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
                    + '</div>'
                   +'</div>'
                 +'</div>'
               +'</div>'
-            +'</div>'
+            +'</div>'}
           +'</div>'
           i++
         }
@@ -335,11 +369,11 @@ document.getElementById("user_filter").addEventListener("change", function(){
 
 function ordenarTipo(tipo) {
   var url = "../../controlador/controlador_tienda2.php";
-  console.log("hjdhde")
+  
   console.log(tipo)
   var miData= {'tipo': tipo};
   miData= JSON.stringify(miData);
-  console.log("prueba")
+  
   fetch(url, {
       method: 'POST', 
       body: miData,
@@ -347,87 +381,104 @@ function ordenarTipo(tipo) {
       })
 
     .then(res => res.json()).then(result =>{
+      // console.log('succes:',result.list);
+      var producto="";
+      var producto = result.list;
+      console.log(producto);
 
-        // console.log('succes:',result.list);
-        var ordenarZA="";
-        var ordenarZA = result.list;
-        console.log(ordenarZA);
-        document.getElementById("relleno").innerHTML = "";
+      for(var i = 0; i<=producto.length-1; i++) {
+        console.log(i);
 
-        for(var i = 0; i<=ordenarZA.length-1; i++) {
+        const carc1 = producto[i].descripcion.split("-");
+        
 
-          console.log(ordenarZA[i]);
-          console.log(i);
-          console.log(ordenarZA[i].nombre);
+        var carc1text="";
+        for (let i = 0; i < carc1.length; i++) {
+
+          carc1text += '<li>'+carc1[i]+'</li>'
           
-
-          document.getElementById("relleno").innerHTML += '<div id="container">'
-            +'<div id="divcard">'
-              +'<div class="card mb-3 cards" >'
-               + '<div>'
-                 +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
-                      +'<div class="card-body">'
-                       + '<h5 class="card-title">'+ordenarZA[i].nombre+'</h5>'
-                       + '<ul>'
-                         + '<li>'+ordenarZA[i].descripcion+'</li>'
-                        +'</ul>'
-                        +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i].precio+'</li>'
-                       + '</ul>'
-                     + '</div>'
-                    +'</div>'
-                    +'<div class="col-md-4">'
-                      +'<img src="'+ordenarZA[i].img+'" class="img-fluid rounded-start"'
-                        +'alt="">'
-                   + '</div>'
-                  +'</div>'
-                +'</div>'
-              +'</div>'
-            +'</div>'
-            +'<div id="divimg">'
-              +'<div>'
-            
-                +'<img src="'+ordenarZA[i].img+'" class="img-fluid rounded-start" alt="">'
-            
-              +'</div>'
-            +'</div>'
-          +'</div>'
-          
-          document.getElementById("relleno").innerHTML += '<div id="container">'
-          +'<div id="divimg">'
-              +'<div>'
-            
-                +'<img src="'+ordenarZA[i+1].img+'" class="img-fluid rounded-start" alt="">'
-            
-              +'</div>'
-            +'</div>'  
-          +'<div id="divcard">'
-              +'<div class="card mb-3 cards" >'
-               + '<div>'
-                 +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
-                      +'<div class="card-body">'
-                       + '<h5 class="card-title">'+ordenarZA[i+1].nombre+'</h5>'
-                       + '<ul>'
-                         + '<li>'+ordenarZA[i+1].descripcion+'</li>'
-                        +'</ul>'
-                        +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+ordenarZA[i+1].precio+'</li>'
-                       + '</ul>'
-                     + '</div>'
-                    +'</div>'
-                    +'<div class="col-md-4">'
-                      +'<img src="'+ordenarZA[i+1].img+'" class="img-fluid rounded-start"'
-                        +'alt="">'
-                   + '</div>'
-                  +'</div>'
-                +'</div>'
-              +'</div>'
-            +'</div>'
-          +'</div>'
-          i++
         }
+        console.log(carc1text);
+        if (producto[i+1]!=null) {
+          const carc2 = producto[i+1].descripcion.split("-");
+        var carc2text="";
+        for (let i = 0; i < carc2.length; i++) {
+
+          carc2text += '<li>'+carc2[i]+'</li>'
+          
+        }
+        console.log(carc2text);
+      }
+
+        console.log(producto[i]);
+
+        document.getElementById("relleno").innerHTML += '<div id="container">'
+          +'<div id="divcard">'
+            +'<div class="card mb-3 cards" >'
+            + '<div>'
+              +' <div class="row g-0 cards">'
+                +  '<div class="col-md-8" id="cardbody">'
+                    +'<div class="card-body">'
+                    + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                    + '<ul>'
+                      + carc1text
+                      +'</ul>'
+                      +'<ul class="list-group list-group-flush">'
+                        +'<li class="list-group-item">'+producto[i].precio+'€</li>'
+                    + '</ul>'
+                  + '</div>'
+                  +'</div>'
+                  +'<div class="col-md-4" id="cardimg">'
+                    +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
+                      +'alt="">'
+                + '</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          +'<div id="divimg">'
+            +'<div>'
+          
+              +'<img src="'+producto[i].img+'" class="img-fluid rounded-start" alt="">'
+          
+            +'</div>'
+          +'</div>'
+        +'</div>'
+        if (producto[i+1]!=null) {
+        document.getElementById("relleno").innerHTML += '<div id="container">'
+        +'<div id="divimg">'
+            +'<div>'
+          
+              +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start" alt="">'
+          
+            +'</div>'
+          +'</div>'  
+        +'<div id="divcard">'
+            +'<div class="card mb-3 cards" >'
+            + '<div>'
+              +' <div class="row g-0 cards">'
+                +  '<div class="col-md-8" id="cardbody">'
+                    +'<div class="card-body">'
+                    + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
+                    + '<ul>'
+                      + carc2text
+                      +'</ul>'
+                      +'<ul class="list-group list-group-flush">'
+                        +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
+                    + '</ul>'
+                  + '</div>'
+                  +'</div>'
+                  +'<div class="col-md-4" id="cardimg">'
+                    +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
+                      +'alt="">'
+                + '</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+          +'</div>'}
+        +'</div>'
+        i++
+      }
     })
     .catch(error => console.log('Error status:', error));
 }
@@ -454,40 +505,65 @@ function buscarNombre(nombre) {
       })
 
     .then(res => res.json()).then(result =>{
+      // console.log('succes:',result.list);
+      var producto="";
+      var producto = result.list;
+      console.log(producto);
+      if (producto.length == 0) {
+        document.getElementById("relleno").innerHTML = '<h1>No se ha encontrado el producto</h1>'
+      }
 
-        // console.log('succes:',result.list);
-        var producto="";
-        var producto = result.list;
-        console.log(producto);
-        document.getElementById("relleno").innerHTML = "";
+      for(var i = 0; i<=producto.length-1; i++) {
+          console.log(i);
 
-        if (producto.length == 0) {
-          document.getElementById("relleno").innerHTML = '<h1>No se a encontrado el producto</h1>'
-        }
+          const carc1 = producto[i].descripcion.split("-");
 
-        for(var i = 0; i<=producto.length-1; i++) {
+          var carc1text="";
+          for (let i = 0; i < carc1.length; i++) {
+
+            carc1text += '<li>'+carc1[i]+'</li>'
+            
+          }
+          console.log(carc1text);
+
+          if (producto[i+1]!=null) {
+            
+            const carc2 = producto[i+1].descripcion.split("-");
+            
+            var carc2text="";
+          for (let i = 0; i < carc2.length; i++) {
+
+            carc2text += '<li>'+carc2[i]+'</li>'
+            
+          }
+          console.log(carc2text);
+          }
           
+          
+          
+
+          console.log(producto[i]);
 
           document.getElementById("relleno").innerHTML += '<div id="container">'
             +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
-               + '<div>'
-                 +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+              + '<div>'
+                +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
-                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
-                       + '<ul>'
-                         + '<li>'+producto[i].descripcion+'</li>'
+                      + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                      + '<ul>'
+                        + carc1text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
-                       + '</ul>'
-                     + '</div>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
+                      + '</ul>'
+                    + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
-                   + '</div>'
+                  + '</div>'
                   +'</div>'
                 +'</div>'
               +'</div>'
@@ -501,6 +577,7 @@ function buscarNombre(nombre) {
             +'</div>'
           +'</div>'
           
+          if (producto[i+1]!=null) {
           document.getElementById("relleno").innerHTML += '<div id="container">'
           +'<div id="divimg">'
               +'<div>'
@@ -511,27 +588,30 @@ function buscarNombre(nombre) {
             +'</div>'  
           +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
-               + '<div>'
-                 +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+              + '<div>'
+                +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
-                       + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
-                       + '<ul>'
-                         + '<li>'+producto[i+1].descripcion+'</li>'
+                      + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
+                      + '<ul>'
+                        + carc2text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
-                       + '</ul>'
-                     + '</div>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
+                      + '</ul>'
+                    + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
-                   + '</div>'
+                  + '</div>'
                   +'</div>'
                 +'</div>'
               +'</div>'
             +'</div>'
+          }
+            
+
           +'</div>'
           i++
         }
@@ -539,29 +619,17 @@ function buscarNombre(nombre) {
     .catch(error => console.log('Error status:', error));
 }
 
-/*var formprecio = document.getElementById("formprecio");
+document.getElementById("slider-range").addEventListener("click", function(){
 
-formprecio.addEventListener("change", function(){
-
-  console.log(document.getElementById("range-1a").value);
-  console.log(document.getElementById("range-1b").value);
-  var min = document.getElementById("user_name").value;
-  var max = document.getElementById("user_name").value;
-
-    document.getElementById("relleno").innerHTML = "";
-    filtroPrecio(min,max)
-  
-})*/
-
-document.getElementById("preciorango").addEventListener("click", function(){
-
-  console.log(document.getElementById("range-1a").value);
-  console.log(document.getElementById("range-1b").value);
-  var min = document.getElementById("range-1a").value;
-  var max = document.getElementById("range-1b").value;
+  var dividirCadena=document.getElementById("amount").value.split("-",2);
+  // alert(dividirCadena[0].replace('$', ''));
+  // alert(dividirCadena[1].replace('$', ''));
+  var min = dividirCadena[0].replace('$', '');
+  var max = dividirCadena[1].replace('$', '');
 
     document.getElementById("relleno").innerHTML = "";
     filtroPrecio(min,max)
+    
   
 })
 
@@ -577,40 +645,71 @@ function filtroPrecio(min,max) {
       })
 
     .then(res => res.json()).then(result =>{
+      if (result==null) {
+        document.getElementById("relleno").innerHTML = ""
+        document.getElementById("relleno").innerHTML += "No se ha encontrado ningun resultado"
+      }
 
         // console.log('succes:',result.list);
-        var producto="";
-        var producto = result.list;
-        console.log(producto);
-        document.getElementById("relleno").innerHTML = "";
+      var producto="";
+      var producto = result.list;
+      console.log(producto);
 
-        if (producto.length == 0) {
-          document.getElementById("relleno").innerHTML = '<h1>No se a encontrado el producto</h1>'
-        }
+      if (producto.length == 0) {
+        document.getElementById("relleno").innerHTML = '<h1>No se ha encontrado el producto</h1>'
+      }
 
-        for(var i = 0; i<=producto.length-1; i++) {
+      for(var i = 0; i<=producto.length-1; i++) {
+          console.log(i);
+
+          const carc1 = producto[i].descripcion.split("-");
+
+          var carc1text="";
+          for (let i = 0; i < carc1.length; i++) {
+
+            carc1text += '<li>'+carc1[i]+'</li>'
+            
+          }
+          console.log(carc1text);
+
+          if (producto[i+1]!=null) {
+            
+            const carc2 = producto[i+1].descripcion.split("-");
+            
+            var carc2text="";
+          for (let i = 0; i < carc2.length; i++) {
+
+            carc2text += '<li>'+carc2[i]+'</li>'
+            
+          }
+          console.log(carc2text);
+          }
           
+          
+          
+
+          console.log(producto[i]);
 
           document.getElementById("relleno").innerHTML += '<div id="container">'
             +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
-               + '<div>'
-                 +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+              + '<div>'
+                +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
-                       + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
-                       + '<ul>'
-                         + '<li>'+producto[i].descripcion+'</li>'
+                      + '<h5 class="card-title">'+producto[i].nombre+'</h5>'
+                      + '<ul>'
+                        + carc1text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i].precio+'</li>'
-                       + '</ul>'
-                     + '</div>'
+                          +'<li class="list-group-item">'+producto[i].precio+'€</li>'
+                      + '</ul>'
+                    + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
-                   + '</div>'
+                  + '</div>'
                   +'</div>'
                 +'</div>'
               +'</div>'
@@ -624,6 +723,7 @@ function filtroPrecio(min,max) {
             +'</div>'
           +'</div>'
           
+          if (producto[i+1]!=null) {
           document.getElementById("relleno").innerHTML += '<div id="container">'
           +'<div id="divimg">'
               +'<div>'
@@ -634,30 +734,34 @@ function filtroPrecio(min,max) {
             +'</div>'  
           +'<div id="divcard">'
               +'<div class="card mb-3 cards" >'
-               + '<div>'
-                 +' <div class="row g-0 cards">'
-                  +  '<div class="col-md-8">'
+              + '<div>'
+                +' <div class="row g-0 cards">'
+                  +  '<div class="col-md-8" id="cardbody">'
                       +'<div class="card-body">'
-                       + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
-                       + '<ul>'
-                         + '<li>'+producto[i+1].descripcion+'</li>'
+                      + '<h5 class="card-title">'+producto[i+1].nombre+'</h5>'
+                      + '<ul>'
+                        + carc2text
                         +'</ul>'
                         +'<ul class="list-group list-group-flush">'
-                          +'<li class="list-group-item">'+producto[i+1].precio+'</li>'
-                       + '</ul>'
-                     + '</div>'
+                          +'<li class="list-group-item">'+producto[i+1].precio+'€</li>'
+                      + '</ul>'
+                    + '</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-4" id="cardimg">'
                       +'<img src="'+producto[i+1].img+'" class="img-fluid rounded-start"'
                         +'alt="">'
-                   + '</div>'
+                  + '</div>'
                   +'</div>'
                 +'</div>'
               +'</div>'
             +'</div>'
+          }
+            
+
           +'</div>'
           i++
         }
     })
     .catch(error => console.log('Error status:', error));
 }
+

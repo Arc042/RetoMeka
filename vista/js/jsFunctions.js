@@ -1,45 +1,3 @@
-var Imagenes = ["../imagenes/IMGINDEX/3005287.jpg", 
-"../imagenes/IMGINDEX/Ave.webp", "../imagenes/IMGINDEX/dron-cofepasa-blog.jpg", "../imagenes/IMGINDEX/DroneQuadcopter.webp", "../imagenes/IMGINDEX/f608x342-340279_370002_13.jpg", "../imagenes/IMGINDEX/Hacedorentaller.webp", "../imagenes/IMGINDEX/Masca.webp", "../imagenes/IMGINDEX/reunióndenegocios.webp", "../imagenes/IMGINDEX/taller-1.jpg", "../imagenes/IMGINDEX/Volarunaviónnotripulado.webp"]
-
-
-var textoarray1 = ["HOLA", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni expedita vitae officia tempora eius dolor quaerat. Facere suscipit ullam officiis?."];
-var textoarray2 = ["ADIOS", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Consequuntur saepe a	voluptatibus numquam tempora ea odit ab reprehenderit voluptatum quis? Culpa, sint eos."];
-
-
-document.addEventListener("DOMContentLoaded", function (event) {
-
-	// sessionVarsView();
-	
-	// document.getElementById("submit").addEventListener('click', login);
-	// document.getElementById("logout").addEventListener('click', logout);
-
-	// document.getElementById("btnLogin").addEventListener('click', function () {
-	// 	alert("hola")
-	// 	modal = document.getElementById("modalForm");
-	// 	modal.style.display = "block";
-	// 	modal.style.transition = "0,5s";
-	// 	modal.style.opacity = "1";
-	// 	modal.style.backgroundColor = "#00000066";
-
-
-	// 	exit = document.getElementById("exit");
-	// 	exit.addEventListener('click', function () {
-	// 		removeElement(modal);
-
-	// 	});
-	// 	function removeElement(modal) {
-
-	// 		modal.style.cssText = " opacity: -=1; transition: 300; display: none";
-	// 	}
-	// });
-	// LOGIN
-	// document.getElementById("btnLogin").addEventListener('click', function(){
-
-	// 	document.getElementById("divUser").style.display="block";
-	// });
-
-})
-
 function sessionVarsView() {
 	var url = "../../controlador/cSessionVarsView.php";
 
@@ -52,13 +10,24 @@ function sessionVarsView() {
 			// console.log(result);
 
 			if (result.error == "logged") {
-				alert("Your login is " + result.user.nombre);
+				// alert("Your login is " + result.user.username);
 				// document.getElementById("msg").innerHTML = "You are " + result.user.nombre + " and type : " + result.user.tipo;
+				document.getElementById("usuario").innerHTML = result.user.username;
 				if (result.user.tipo == "AdminInformatico") {
+					document.getElementById("administrador").style.display = "inline-block";
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
+
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";
-					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("administrador").style.display = "none";
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
 
+				}  else if (result.user.tipo == "Usuario"){
+					document.getElementById("usuario").style.display = "inline-block";
+					document.getElementById("usuario").disabled = true;
+					document.getElementById("comprar").style.display="inline-block";
 				}
 				document.getElementById("btnLogin").style.display = "none";				
 				document.getElementById("logout").style.display = "inline-block";
@@ -71,17 +40,13 @@ function sessionVarsView() {
 }
 
 
-
-
-
-
 function login() {
 
-	var name = document.getElementById("name").value;
+	var username = document.getElementById("name").value;
 	var password = document.getElementById("password").value;
 
 	var url = "../../controlador/controller_login.php";
-	var data = { 'nombre': name, 'contrasena': password };
+	var data = { 'username': username, 'contrasena': password };
 
 	fetch(url, {
 		method: 'POST', // or 'POST'
@@ -100,11 +65,15 @@ function login() {
 
 				if (result.user.tipo == "AdminInformatico") {
 					document.getElementById("btnLogin").style.display = "none";
+					document.getElementById("administrador").style.display = "inline-block";
 
 				} else if (result.user.tipo == "AdminFinanzas") {
 					document.getElementById("banca").style.display = "inline-block";
 					document.getElementById("clientes").style.display = "inline-block";
 					document.getElementById("btnLogin").style.display = "none";
+				} else if (result.user.tipo == "Usuario"){
+					document.getElementById("clientes").style.display = "inline-block";
+					document.getElementById("clientes").disabled = true;
 				}
 				// document.getElementById("divUser").style.display="none";
 				document.getElementById("logout").style.display = "inline-block";
