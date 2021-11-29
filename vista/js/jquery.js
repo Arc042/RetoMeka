@@ -14,7 +14,7 @@ window.onload=function() {
 
     $("#submit").on('click', login);
     $("#logout").on('click', logout);
-    
+    $("#comprar").css('display','inline-block');
 
     var target = $("#modalForm");
     $("#exit").on('click', function(){

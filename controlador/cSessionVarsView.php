@@ -12,7 +12,7 @@ if ((isset($_SESSION['username']))  && (isset($_SESSION['tipo']))){
     $user->username=$_SESSION['username'];
     $user->tipo=$_SESSION['tipo'];
     
-    $response['user']= $user;
+    $response['user']=$user;
     $response['error']="logged";
     
 } else{  
