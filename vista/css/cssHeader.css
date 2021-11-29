@@ -64,9 +64,8 @@ header{
     text-align: right;
     padding-right:60px;
 }
-#logout,#banca,#clientes{
+#logout,#banca,#administrador,#usuario{
 	display:none;
-   
 }
 
 #modalForm{

@@ -8,6 +8,7 @@ nirekontua="";
 idcuenta=0;
 var saldoActual="";
 cuentas="";
+canti="";
 function mostrar() {
         var url = "../../controlador/controller_banca.php";
         //console.log("hola")
@@ -49,14 +50,6 @@ function mostrar() {
         .catch(error => console.log('Error status:', error));
 }
  
-// document.getElementById("movimientos").addEventListener("click", function(){
-   
-//     idcuenta=document.getElementById('seleccionarCuenta').value
-//     console.log(idcuenta);
-//     enseñarPorId(idcuenta);
- 
-// })
-
 function mostrarPorId() {
     //console.log(cuenta[i].idCuentaBancaria)
         
@@ -73,21 +66,45 @@ function mostrarPorId() {
  
             .then(res => res.json()).then(result =>{
                 console.log(result.list);
-                var variable = "<table id='tabla'><tr><td>fecha</td><td>Concepto</td><td>Cantidad</td></tr>"
+            
+                var variable = "<table id='tabla'><tr><td>Fecha</td><td>Concepto</td><td>Precio</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
                 for(var i = 0; i<result.list.length; i++) {
- 
+                
                      variable +=
                     '<tr>'
                     +'<td>'+result.list[i].fecha+'</td>'
                     +'<td>'+result.list[i].concepto+'</td>'
-                    +'<td>'+result.list[i].cantidad+'</td>'
+                    +'<td class="price">'+result.list[i].cantidad+'</td>'
                     +'</tr>'
-                   
+                 
+
                 }
-                variable += "</table>"
-                document.getElementById("campoDinamico").innerHTML += variable;
                 
+                variable += "</table>"
+              
+                document.getElementById("campoDinamico").innerHTML += variable;
+                canti= document.getElementsByClassName("price");
+             for (let i = 0; i < canti.length; i++) {
+              console.log(i);
+              console.log(document.getElementsByClassName("price")[i].innerHTML);
+             if(parseInt(canti[i].innerHTML)<0){
+                 canti[i].style.color="red";
+
+             }else{
+                canti[i].style.color="green";
+
+             
+             }
+            } 
+                // if(canti<0){
+                //  document.getElementsByClassName("price").style.color="red";
+                // }else{
+                //     document.getElementsByClassName("price").style.color="green";
+
+                // }
+              
+                 
 
             })
             .catch(error => console.log('Error status:', error));
@@ -208,7 +225,7 @@ $('#transferir').click(function() {
         '<h2>Datos de transferencia</h2>'+
         '<!-- cantidad que se quiere transferir -->'+
         'Cantidad'+
-        '<input type="text" class="form-control" id="dinero" aria-describedby="emailHelp">'+
+        '<input type="text" class="form-control" id="dinero" aria-describedby="emailHelp" onkeypress="return solonumeros(event)">'+
             
         '<!-- concepto/descripcion del movimiento -->'+
             'Concepto'+
@@ -337,27 +354,24 @@ function transferirdinero(nirekontua) {
              //mostrar();
            
         })
-        .catch(error => console.error('Error status:', error));
 
-            document.getElementById("CuentaOrigen").value="";
+        document.getElementById("CuentaOrigen").value="";
             
         
-            document.getElementById("CuentaDestino").value="";
-            
+        document.getElementById("CuentaDestino").value="";
         
-            document.getElementById("dinero").value="";
-            
-            
-            document.getElementById("data").value="";
-            
-            
-            document.getElementById("conc").value="";
+    
+        document.getElementById("dinero").value="";
+        
+        
+        document.getElementById("data").value="";
+        
+        
+        document.getElementById("conc").value="";
 
-            mostrar();
-            mostrarPorId();
-            document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +saldoActual.toFixed(2)+"</h3>";
-             
-            
+        mostrar();
+        mostrarPorId();
+        document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +saldoActual.toFixed(2)+"</h3>";
 }
  
 // Funcion para insertar Capital a la cuenta bancaria
@@ -428,9 +442,18 @@ function insertCorrecto() {
         'Insertado Correctamente',
         'ok'
     )
-    // Swal.fire(
-    //     'Error!',
-    //     'Campos Sin rellenar o erroneos',
-    //     'ok'
-    // )
+
 }
+
+  
+function solonumeros(e){
+    console.log(e.key); 
+  
+    if ((e.key<"0") || (e.key>"9")){
+      return false;
+      
+    }else{
+      return true;
+      
+    }
+  }

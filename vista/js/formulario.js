@@ -20,13 +20,12 @@ function soloLetras(e) {
   /*Fin solo valores alfabeticos*/
 
   document.getElementById("btnFormulario").onclick = function Hola() {
-      console.log(document.getElementById('email').value); 
 
-    // if (document.getElementById("name").value == "") {
-    //     alert("*Campo incompleto: Nombre*");
-    //   } else {
-    //     var name = true;
-    //     console.log(name);
+    if (document.getElementById("nombre").value == "") {
+        alert("*Campo incompleto: Nombre*");
+      } else {
+        var name = true;
+        console.log(name);
         
     // }
 
@@ -61,7 +60,7 @@ function soloLetras(e) {
     )
 
     insert();
-    document.getElementById("name").value = "";
+    document.getElementById("nombre").value = "";
     document.getElementById("email").value = "";
     document.getElementById("mensaje").value = "";
  
@@ -72,8 +71,7 @@ function soloLetras(e) {
 
 
 function insert() {
-
-  var nombre = document.getElementById("name").value;
+  var nombre = document.getElementById("nombre").value;
   var correo = document.getElementById("email").value;
   var texto = document.getElementById("mensaje").value;ç
   alert(nombre);
@@ -90,11 +88,11 @@ function insert() {
     .then(res => res.json()).then(result => {
       
       console.log(result)
-      document.getElementById("name").value="";
+      document.getElementById("nombre").value="";
       document.getElementById("email").value="";
       document.getElementById("mensaje").value="";
 
 })
 .catch(error => console.error('Error status:', error));	
 };
-  
+}
