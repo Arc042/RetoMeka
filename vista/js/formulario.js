@@ -68,13 +68,11 @@ function soloLetras(e) {
 }
 
 
-
-
 function insert() {
   var nombre = document.getElementById("nombre").value;
   var correo = document.getElementById("email").value;
   var texto = document.getElementById("mensaje").value;
-  alert(nombre);
+
 
   var url = "../../controlador/controlador_reclamaciones.php";
   var data = {'nombre':nombre, 'correo':correo, 'texto':texto };
