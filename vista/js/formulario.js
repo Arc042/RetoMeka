@@ -20,14 +20,15 @@ function soloLetras(e) {
   /*Fin solo valores alfabeticos*/
 
   document.getElementById("btnFormulario").onclick = function Hola() {
-      
-    if (document.getElementById("name").value == "") {
-        alert("*Campo incompleto: Nombre*");
-      } else {
-        var name = true;
-        console.log(name);
+      console.log(document.getElementById('email').value); 
+
+    // if (document.getElementById("name").value == "") {
+    //     alert("*Campo incompleto: Nombre*");
+    //   } else {
+    //     var name = true;
+    //     console.log(name);
         
-    }
+    // }
 
     emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
     
@@ -74,7 +75,8 @@ function insert() {
 
   var nombre = document.getElementById("name").value;
   var correo = document.getElementById("email").value;
-  var texto = document.getElementById("mensaje").value;
+  var texto = document.getElementById("mensaje").value;ç
+  alert(nombre);
 
   var url = "../../controlador/controlador_reclamaciones.php";
   var data = {'nombre':nombre, 'correo':correo, 'texto':texto };
