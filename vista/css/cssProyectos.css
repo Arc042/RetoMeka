@@ -23,10 +23,10 @@
 	width: 500px;
 }
 
-.card-body:hover{
+/* .card-body:hover{
     opacity: 0.4;
     filter: alpha(opacity=40);
-}
+} */
 
 .imagenCard{
 	height: 260px;
