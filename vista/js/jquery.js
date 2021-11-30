@@ -10,13 +10,13 @@ window.onload=function() {
 
     // sessionVarsView();
  
-    if (window.location.href=="http://localhost/Reto%20Contacto/RetoMeka/vista/html/catalogo.html") {
+    if (window.location.href=="http://localhost/RetoMeka/vista/html/catalogo.html?") {
       sesion2();
     } else {
       sessionVarsView();
     }
 
-    if (window.location.href=="http://localhost/Reto%20Contacto/RetoMeka/vista/html/catalogo.html?") {
+    if (window.location.href=="http://localhost/RetoMeka/vista/html/catalogo.html?") {
       sesion2();
     } else {
       sessionVarsView();
