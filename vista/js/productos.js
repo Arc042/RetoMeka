@@ -19,9 +19,11 @@ function sesion2() {
           document.getElementById("usuario").innerHTML = result.user.username;
           console.log(result.user.tipo);
           if (result.user.tipo == "Usuario") {
+            alert("usuario logueado");
             
             document.getElementById("usuario").style.display = "inline-block";
             document.getElementById("usuario").disabled = true;
+            alert("aa");
             document.getElementById("comprar").style.display = "inline-block";
           }
           document.getElementById("btnLogin").style.display = "none";				
