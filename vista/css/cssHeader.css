@@ -1,8 +1,3 @@
-
-
-
-/*Header de nuestra pagina web*/
-
 /*Seccion del logo + logo*/
 
 .logo{
@@ -34,9 +29,6 @@ header{
     color: rgb(0, 0, 0);
 }
 
-/* #divUser{
-	display:none;
-} */
 .f-1{
     display: flex;
     flex-direction: row;
