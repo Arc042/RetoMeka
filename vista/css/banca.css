@@ -114,6 +114,20 @@ legend{
     text-align: center;
 }
 
+.volver{
+    text-decoration: none;
+    color: white;
+}
+.volver:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.volverIndex{
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
 /*mediaquery para tablet y para movil*/
 @media screen and (max-width: 1250px) and (min-width:0px){
 
