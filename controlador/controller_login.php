@@ -34,7 +34,7 @@ if (( $username !=null ) && ( $contrasena !=null )){
     }
 }  else {
     
-    $response['error']="username or password not filled";     // not filled user or password
+    $response['error']="username or password not filled";     // los campos usuario o contraseña no estan rellenados
 }
 
 echo json_encode($response);

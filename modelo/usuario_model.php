@@ -1,5 +1,5 @@
 <?php
-include_once ("connect_data.php");  // klase honetan gordetzen dira datu basearen datuak. erabiltzailea...
+include_once ("connect_data.php");  
 include_once("usuario_class.php");
 
 class usuario_model extends usuario_class {
@@ -11,15 +11,13 @@ class usuario_model extends usuario_class {
         try
         {
             $this->link=new mysqli($konDat->host,$konDat->userbbdd,$konDat->passbbdd,$konDat->ddbbname);
-            // mysqli klaseko link objetua sortzen da dagokion konexio datuekin
-            // se crea un nuevo objeto llamado link de la clase mysqli con los datos de conexión.
+            
         }
         catch(Exception $e)
         {
             echo $e->getMessage();
         }
-        $this->link->set_charset("utf8"); // honek behartu egiten du aplikazio eta
-        //                  //databasearen artean UTF -8 erabiltzera datuak trukatzeko
+        $this->link->set_charset("utf8"); 
     }
     
     public function CloseConnect()
@@ -52,6 +50,29 @@ class usuario_model extends usuario_class {
         mysqli_free_result($result);
         $this->CloseConnect();
         return $valor;
+    }
+
+    public function register($username,$nombre,$apellidos,$contrasena)
+    {
+        $this->OpenConnect();
+        
+        $sql="INSERT INTO `usuario`(`username`, `nombre`, `apellidos`, `contrasena`) VALUES ('$username','$nombre','$apellidos','$contrasena')";
+        $result= $this->link->query($sql);
+        
+        $valor=false;
+        
+        /*if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        { 
+            
+            if ($row!=null)
+            {
+                $valor=true;
+            }
+        }*/
+        
+        //mysqli_free_result($result);
+        $this->CloseConnect();
+        //return $valor;
     }
   
 }

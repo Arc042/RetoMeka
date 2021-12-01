@@ -9,27 +9,28 @@ idcuenta=0;
 var saldoActual="";
 cuentas="";
 canti="";
+
+// funcion para rellenar el dropdown de las cuentas
 function mostrar() {
         var url = "../../controlador/controller_banca.php";
-        //console.log("hola")
+        
         fetch(url, {
               method: 'GET',
-              headers:{'Content-Type': 'application/json'}  // input data
+              headers:{'Content-Type': 'application/json'} 
               })
    
         .then(res => res.json()).then(result =>{
    
-            // console.log('succes:',result.list);
             var cuenta="";
             var cuenta = result.list;
-            console.log(cuenta);
+            
             cuentas=cuenta;
             document.getElementById("seleccionarCuenta").innerHTML=" <option disabled selected>Selecciona una opción</option>";
             for(var i = 0; i<cuenta.length; i++) {
                 
              document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].tipoCuenta+"</option>";
-             console.log(cuenta[i].idCuentaBancaria);
-             //nirekontua=cuenta[i].idCuentaBancaria;
+             
+            
             }
            
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
@@ -39,8 +40,8 @@ function mostrar() {
                 document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +cuenta[indexCuenta-1].saldo+"</h3>";
                 document.getElementById("btns").style.display="block";
                 document.getElementById("campoDinamico").style.display="block";
-                console.log("indexCuenta");
-                // console.log(indexCuenta);
+               
+                
                  nirekontua=indexCuenta;
                  
                  mostrarPorId();
@@ -51,7 +52,7 @@ function mostrar() {
 }
  
 function mostrarPorId() {
-    //console.log(cuenta[i].idCuentaBancaria)
+    
         
 
         var url = "../../controlador/controlador_movimientos.php";
@@ -65,7 +66,7 @@ function mostrarPorId() {
             })
  
             .then(res => res.json()).then(result =>{
-                console.log(result.list);
+                
             
                 var variable = "<table id='tabla'><tr><td>Fecha</td><td>Concepto</td><td>Precio</td></tr>"
                 document.getElementById("campoDinamico").innerHTML="";
@@ -86,8 +87,7 @@ function mostrarPorId() {
                 document.getElementById("campoDinamico").innerHTML += variable;
                 canti= document.getElementsByClassName("price");
              for (let i = 0; i < canti.length; i++) {
-              console.log(i);
-              console.log(document.getElementsByClassName("price")[i].innerHTML);
+              
              if(parseInt(canti[i].innerHTML)<0){
                  canti[i].style.color="red";
 
@@ -97,13 +97,7 @@ function mostrarPorId() {
              
              }
             } 
-                // if(canti<0){
-                //  document.getElementsByClassName("price").style.color="red";
-                // }else{
-                //     document.getElementsByClassName("price").style.color="green";
-
-                // }
-              
+               
                  
 
             })
@@ -112,7 +106,7 @@ function mostrarPorId() {
  
 // Funcion que muestra la tabla de prestamos
 $('#prestamo').click(function() {
-    console.log("prestamos")
+    
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<div id="calculadora1">'+
    '<fieldset>'+
@@ -164,13 +158,13 @@ $('#prestamo').click(function() {
     '<tbody id="tbody_1"></tbody></table></div>')
     $('#campoDinamico').css('display','block')
    
-    //safoduishdias
+    
 })
  
  
 // Funcion que muestra la tabla de leasing
 $('#leasing').click(function() {
-    console.log("leasing")
+   
     $('#campoDinamico').html('')
     $('#campoDinamico').html()
     $('#campoDinamico').css('display','block')
@@ -250,7 +244,7 @@ $('#transferir').click(function() {
         var combo=document.getElementById("seleccionarCuenta");
         var selected=combo.options[combo.selectedIndex].value;
          selected=selected-1;
-        console.log(selected);
+        
 
         var newRow="";
         newRow +="Cuenta de origen:";
@@ -273,9 +267,6 @@ $('#transferir').click(function() {
            
         }
         document.getElementById("CuentaDestino").innerHTML=newRow;
-        //document.getElementById("CuentaOrigen")=nirekontua;
-        console.log(document.querySelectorAll("#CuentaDestino option"))
-        //console.log($( "#CuentaOrigen option:nth-child(2)" ).val());
         
         
         var check= document.getElementById("flexCheckDefault").checked;
@@ -291,11 +282,11 @@ $('#transferir').click(function() {
         }else{
             fecha=true;
             concepto=true;
-            console.log(fecha)
+            
            
         }
         if(check==false){
-    alert("no se ha confirmado la transferencia")
+             alert("no se ha confirmado la transferencia")
             }
 
 
@@ -305,7 +296,7 @@ $('#transferir').click(function() {
             transferirdinero(nirekontua);
         }
         
-         //alert(nirekontua);
+       
         
         
     });
@@ -313,45 +304,44 @@ $('#transferir').click(function() {
 })
 function transferirdinero(nirekontua) {
     var desde = document.getElementById("CuentaOrigen").value;
-    console.log(desde)
+    
  
     nirekontua = desde;
-    console.log(nirekontua);
+    
  
     var destino = document.getElementById("CuentaDestino").value;
-    console.log(destino);
+    
 
     var capital = document.getElementById("dinero").value;
-    console.log(capital)
+    
     
     var fecha = document.getElementById("data").value;
-    console.log(fecha)
+    
     
     var concepto = document.getElementById("conc").value;
-    console.log(concepto)
+    
  
    
     var url = "../../controlador/controlador_Tranferencia.php";
     var miData= {'origen':nirekontua,  'destino': destino, 'capital':capital, 'fecha':fecha, 'concepto':concepto};
     miData= JSON.stringify(miData);
-    alert("Ha ingresado "+capital+"€ en la cuenta "+destino)
-    console.log(miData)
-    console.log(capital)
+    alert("itransferencia realizada con exito")
+   
     saldoActual=saldoActual-capital;
-    console.log(saldoActual)
+    
     document.getElementById("saldo").innerHTML ="<h3 id='saldo'>Saldo:"+saldoActual.toFixed(2)+"</h3>";
 
 
     fetch(url, {
         method: 'POST',
         body: miData,
-        headers:{'Content-Type': 'application/json'}  // input data
+        headers:{'Content-Type': 'application/json'}  
         })
  
         .then(res => res.json()).then(result =>{
            
              alert(result.error);
-             //mostrar();
+            
            
         })
 
@@ -376,15 +366,14 @@ function transferirdinero(nirekontua) {
  
 // Funcion para insertar Capital a la cuenta bancaria
 $('#insertar').click(function(){  
-    //alert(nirekontua)
-    console.log("insertar")
+   
     $('#campoDinamico').html('')
     $('#campoDinamico').html('<form action="">'+
         '<div class="mb-3">'+
             '<label for="" class="form-label">Cantidad de Capital a Insertar</label>'+
             '<input type="text" class="form-control" id="cantidad" onkeypress="return solonumeros(event)" aria-describedby="emailHelp">'+
         '</div>'+
-            '<button class="btn btn-primary" id="ins">Submit</button>'+
+            '<button class="btn btn-primary" id="ins">ingresar</button>'+
     '</form>')
     $('#campoDinamico').css('display','block')
  
@@ -401,7 +390,6 @@ $('#insertar').click(function(){
            
             insertarSaldo(nirekontua);
         }
-        //alert("HOLA");
        
         
      
@@ -411,15 +399,13 @@ $('#insertar').click(function(){
  
 function insertarSaldo(nirekontua) {
     var saldo = document.getElementById("cantidad").value;
-        console.log(nirekontua);
-// alert(valor)
+       
         var url = "../../controlador/controlador_insertarSaldo.php";
-        console.log("HEMEN")
+        
         var miData= {'idCuentaBancaria':nirekontua, 'saldo':saldo};
-        console.log(document.getElementById("cantidad").value)
+       
         miData= JSON.stringify(miData);
-        alert("Ha ingresado "+saldo+"€ en la cuenta "+nirekontua)
-// console.log(miData)
+        alert("ingreso realizado con exito")
         fetch(url, {
             method: 'POST',
             body: miData,
@@ -427,9 +413,9 @@ function insertarSaldo(nirekontua) {
             })
  
             .then(res => res.json()).then(result =>{
-                console.log(result.list);
+                
                 alert(result.error);
-                // mostrar();
+                
                 
             })
 }

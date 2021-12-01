@@ -13,15 +13,13 @@ class cuentabancaria_model extends cuentabancaria_class{
         try
         {
             $this->link=new mysqli($konDat->host,$konDat->userbbdd,$konDat->passbbdd,$konDat->ddbbname);
-            // mysqli klaseko link objetua sortzen da dagokion konexio datuekin
-            // se crea un nuevo objeto llamado link de la clase mysqli con los datos de conexiÃ³n.
+          
         }
         catch(Exception $e)
         {
             echo $e->getMessage();
         }
-        $this->link->set_charset("utf8"); // honek behartu egiten du aplikazio eta
-        //                  //databasearen artean UTF -8 erabiltzera datuak trukatzeko
+        $this->link->set_charset("utf8");
     }
     
     public function CloseConnect()
@@ -53,29 +51,6 @@ class cuentabancaria_model extends cuentabancaria_class{
         return $list;
     }
 
-    // public function insertarSaldo($idCuentaBancaria, $saldo){
-    //     $this->OpenConnect();
-
-    //     $sql = "UPDATE cuentabancaria SET saldo=saldo+'$saldo' WHERE idCuentaBancaria = '$idCuentaBancaria'";
-
-    //     $result = $this->link->query($sql);
-
-    //     $list = array();
-    //     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-
-    //         $insertarSaldo = new cuentabancaria_model();
-
-    //         $insertarSaldo->idCuentaBancaria=$row['idCuentaBancaria'];
-    //         $insertarSaldo->tipoCuenta=$row['tipoCuenta'];
-    //         $insertarSaldo->saldo=$row['saldo'];
-
-    //         array_push($list, $insertarSaldo);
-    //     }
-
-    //     mysqli_free_result($result);
-    //     $this->CloseConnect();
-    //     return $list;
-    // }
 
 
     public function updateSaldo(){

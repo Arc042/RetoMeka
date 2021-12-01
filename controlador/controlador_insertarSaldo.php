@@ -13,7 +13,6 @@ $insertarSaldo->setIdCuentaBancaria($idCuentaBancaria );
 
 $response=array();
 $insertarSaldo->idCuentaBancaria=$data['idCuentaBancaria'];
-// $insertarSaldo->tipoCuenta=$data['tipoCuenta'];
 $insertarSaldo->saldo=$data['saldo'];
 echo($insertarSaldo->idCuentaBancaria);
 echo($insertarSaldo->saldo);
