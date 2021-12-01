@@ -14,6 +14,7 @@ window.onload=function() {
 
     $("#submit").on('click', login);
     $("#logout").on('click', logout);
+    $("#submitregister").on('click', register);
     $("#comprar").css('display','inline-block');
 
     var target = $("#modalForm");
@@ -27,6 +28,21 @@ window.onload=function() {
       }, 300, function() {
         // target.remove();
         $('#modalForm').css('display', 'none');
+      });
+     
+    }
+
+    var target2 = $("#modalFormRegister");
+    $("#exit2").on('click', function(){
+      removeElement(target2);
+    });
+
+    function removeElement(target2) {
+      target.animate({
+        opacity: "-=1"
+      }, 300, function() {
+        // target.remove();
+        $('#modalFormRegister').css('display', 'none');
       });
      
     }
@@ -50,6 +66,17 @@ window.onload=function() {
       });
       
  
+      });
+
+      $("#btnregistrarmodal").click(function(){
+        
+        // alert("modal mostrada")
+        $("#modalForm").css('display', 'none');
+        $("#modalFormRegister").css('display', 'block');
+        $("#modalFormRegister").css("transition","0,5s");
+        // $("#myModal").addClass("modal fade in");
+        $("#modalFormRegister").css("opacity","1");
+        $("#modalFormRegister").css("background-color","#00000066");
       });
   }
  

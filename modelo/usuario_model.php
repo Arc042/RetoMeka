@@ -53,6 +53,29 @@ class usuario_model extends usuario_class {
         $this->CloseConnect();
         return $valor;
     }
+
+    public function register($username,$nombre,$apellidos,$contrasena)
+    {
+        $this->OpenConnect();
+        
+        $sql="INSERT INTO `usuario`(`username`, `nombre`, `apellidos`, `contrasena`) VALUES ('$username','$nombre','$apellidos','$contrasena')";
+        $result= $this->link->query($sql);
+        
+        $valor=false;
+        
+        /*if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        { 
+            
+            if ($row!=null)
+            {
+                $valor=true;
+            }
+        }*/
+        
+        //mysqli_free_result($result);
+        $this->CloseConnect();
+        //return $valor;
+    }
   
 }
 ?>
