@@ -9,7 +9,7 @@
 /*Div donde va toda la informacion corta con la imagen*/
 .divParallaxTexto{
     position: relative;
-    height:500px;
+    height:auto;
     text-align:center;
     background-image: url("https://i.ytimg.com/vi/zavWwAovlCA/maxresdefault.jpg");
     min-height: 500px;
@@ -24,7 +24,7 @@
 .divTexto{
     display: flex;
     flex-direction: column;
-    height: 330px;
+    height: 360px;
     width:500px;
     position:absolute;
     bottom: 0;
@@ -39,6 +39,7 @@
 }
 
 .relleno{
+    padding: 20px;
     font-size: 13px;
     margin-top: 1.5%;
     text-align: left;
