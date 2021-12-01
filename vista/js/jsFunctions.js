@@ -109,3 +109,39 @@ function logout() {
 		.catch(error => console.error('Error status:', error));
 }
 
+function register() {
+	
+	var username = document.getElementById("username").value;
+	var nombre = document.getElementById("nombre").value;
+	var apellidos = document.getElementById("apellidos").value;
+	var password = document.getElementById("contrasena").value;
+	// alert(username);
+	// alert(nombre);
+	// alert(apellidos);
+	// alert(password);
+
+	var url = "../../controlador/controller_register.php";
+	var data = { 'username': username, 'nombre': nombre, 'apellidos': apellidos, 'contrasena': password};
+
+	fetch(url, {
+		method: 'POST', // or 'POST'
+		body: JSON.stringify(data), // data can be `string` or {object}!
+		headers: { 'Content-Type': 'application/json' }  // input data
+	})
+		.then(res => res.json()).then(result => {
+			
+			
+			alert(result.error);
+			
+			if (result.error=="Se ha insertado correctamente") {
+				$("#modalFormRegister").css('display', 'none');
+        		$("#modalFormRegister").css("transition","0,5s");
+				document.getElementById("username").value="";
+				document.getElementById("nombre").value="";
+				document.getElementById("apellidos").value="";
+				document.getElementById("contrasena").value="";
+			}
+		
+		})
+		.catch(error => console.error('Error status:', error));
+}
