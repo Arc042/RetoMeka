@@ -73,14 +73,10 @@ img{
 
   /*Filter*/
   .sidebar {
-    /*width: 100vw;*/
     width: 300px;
     height: 100%;
     display: flex;
-    /*margin-right: 1%;*/
     background-color: white;
-    /*justify-content: center;
-    align-items: center;*/
  }
   .widget {
     padding: 0.75rem 1.25rem;
@@ -149,13 +145,8 @@ img{
   #container {
     width: 100%;
     height: auto;
-
     display: flex;
     justify-content: stretch;
-    /*background-color: #ffcc33;*/
-    /*margin: auto; //////////////////////////////////////////////////////////////////////////*/
-    
-
 }
 #divcard {
     width: 60%;
@@ -163,15 +154,9 @@ img{
     height: auto;
 }
 #divimg {
-
-    /*width: 200px;*/
     width: 290px;
     float: left;
-    /* height: 400px; */
     height: 290px;
-    /* height: auto; */
-    /*background-color: green;*/
-
     width: 40%;
     float: left;
     height: 400px;

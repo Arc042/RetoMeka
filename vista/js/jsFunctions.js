@@ -104,6 +104,7 @@ function logout() {
 			}
 			document.getElementById("btnLogin").style.display = "block";
 			document.getElementById("submit").style.display = "inline-block";
+			document.getElementById("comprar").style.display = "none";
 		})
 		.catch(error => console.error('Error status:', error));
 }

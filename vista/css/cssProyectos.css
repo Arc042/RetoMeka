@@ -6,31 +6,24 @@
 
 /*CSS del fondo detras de los cards*/
 .fondo{
-    margin-top: 2%;
-	height: 300px;
+	height: auto;
 	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 	justify-content: center;
-	margin-bottom: 2%;
 }
 /*Fin CSS detras cards*/
 
 /*Los cards para mostrar y ocultar*/
 .cardArriba{
-	display: flex;
-	flex-direction: column;
 	background-color: white;
-	height: 300px;
-	width: 500px;
-}
-
-.card-body:hover{
-    opacity: 0.4;
-    filter: alpha(opacity=40);
+	height: auto;
+	width: auto;
 }
 
 .imagenCard{
-	height: 260px;
-	width: 460px;
+	height: 250px;
+	width: auto;
 }
 
 .imagenCard:hover{
@@ -41,10 +34,7 @@
 
 .card-body{
 	text-align: center;
-}
-
-.espacio{
-	width: 50px;
+    justify-content: center;
 }
 
 .texto{
@@ -62,27 +52,25 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
 }
 
 .titulo{
+    padding-top: 60px;
     font-size: 50px;
     font-weight: bolder;
-    position: absolute;
-        top:50%;
-        left: 50%;           
-        margin-top: -130px;
-        margin-left: -200px;
 }
 
 .subtitulo{
     font-size: 20px;
-    position: absolute;
-        top: 60%;
-        left: 50%;           
-        margin-top: -130px;
-        margin-left: -100px;
 }
 
-@media screen and (max-width: 700px) and (min-width:0px){
-
+/* media query para movil */
+@media screen and (max-width: 500px) and (min-width:0px){
+    .imagenCard{
+        height: 200px;
+        width: auto;
+    }
 }

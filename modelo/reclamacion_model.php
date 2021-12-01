@@ -5,8 +5,8 @@ include_once ("reclamacion_class.php");
 
 class reclamacion_model extends reclamacion_class
 {
-    public $link;  // datu basera lotura - enlace a la bbdd
-    public $objEditorial;  //editorialaren datuak gordeko dira hemen objetu bezala
+    public $link;  
+    
          
    
  public function getObjEditorial() 
@@ -20,33 +20,30 @@ class reclamacion_model extends reclamacion_class
     try
     {
          $this->link=new mysqli($konDat->host,$konDat->userbbdd,$konDat->passbbdd,$konDat->ddbbname);
-         // mysqli klaseko link objetua sortzen da dagokion konexio datuekin
-         // se crea un nuevo objeto llamado link de la clase mysqli con los datos de conexión. 
+         
     }
     catch(Exception $e)
     {
     echo $e->getMessage();
     }
-        $this->link->set_charset("utf8"); // honek behartu egiten du aplikazio eta 
-        //                  //databasearen artean UTF -8 erabiltzera datuak trukatzeko
+        $this->link->set_charset("utf8"); 
     }                   
  
  public function CloseConnect()
  {
-     //mysqli_close ($this->link);
+     
      $this->link->close();
  }
  
  public function insert()
  {
      
-      $this->OpenConnect();  // konexio zabaldu  - abrir conexión   
+      $this->OpenConnect();  
       $nombre= $this->nombre;
       $correo= $this->correo;
       $texto= $this->texto;
       $sql="INSERT INTO reclamaciones (reclamaciones.nombre, reclamaciones.correo, reclamaciones.texto) VALUES ('$nombre','$correo','$texto')";
-    //   $sql = "INSERT INTO reclamaciones '$nombre', '$correo', '$texto' VALUES reclamaciones.nombre ='$nombre', reclamaciones.correo = '$correo', reclamaciones.texto= '$texto'";
-      
+
       $this->link->query($sql);
       
       if ($this->link->affected_rows == 1)

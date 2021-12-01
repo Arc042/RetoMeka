@@ -9,7 +9,7 @@
 /*Div donde va toda la informacion corta con la imagen*/
 .divParallaxTexto{
     position: relative;
-    height:500px;
+    height:auto;
     text-align:center;
     background-image: url("https://i.ytimg.com/vi/zavWwAovlCA/maxresdefault.jpg");
     min-height: 500px;
@@ -18,12 +18,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    vertical-align: bottom;
 }
 
 .divTexto{
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 360px;
     width:500px;
     position:absolute;
     bottom: 0;
@@ -38,6 +39,7 @@
 }
 
 .relleno{
+    padding: 20px;
     font-size: 13px;
     margin-top: 1.5%;
     text-align: left;
@@ -57,10 +59,8 @@
 }
 
 .imagen{
-    height: 300px;
-    width: 30%;
-
-    
+    height: 250px;
+    width: auto;
 }
 
 #foto{
@@ -133,17 +133,18 @@
 /*Fin de la zona de informacion*/
 /*Fin del centro de la pagina*/
 
+/* media Query para distintos dispositivos y tamaños de pantalla */
 @media screen and (max-width: 1250px) and (min-width:0px){
     .imagen{
-
-    }
-    .texto{
-
+        height: 200px;
+        width: auto;
     }
 }
 
-@media screen and (max-width: 700px) and (min-width:0px){
-
+@media screen and (max-width: 900px) and (min-width:0px){
+    .texto{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 500px) and (min-width:0px){
@@ -151,10 +152,16 @@
         width: 100%;
         margin-left: 0px;
     }
-    .imagen{
-        width: 100%;
-    }
     .texto{
         width: 100%;
+    }
+    .imagen{
+        height: 200px;
+        width: auto;
+    }
+    .divTexto{
+        width: 100%;
+        justify-content: center;
+        /* position: relative; */
     }
 }

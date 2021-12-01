@@ -81,7 +81,6 @@
     margin-left: 15%;
     margin-right: 15%;
     height: auto;
-    /* height: 600px; */
     padding: 10px;
     margin-top: 10px;
     border: 3px solid #2771C1;
@@ -113,6 +112,20 @@ fieldset{
 
 legend{
     text-align: center;
+}
+
+.volver{
+    text-decoration: none;
+    color: white;
+}
+.volver:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.volverIndex{
+    margin-left: 5%;
+    margin-top: 50px;
 }
 
 /*mediaquery para tablet y para movil*/
