@@ -27,9 +27,10 @@ var DIARIO = "diario";
             tasa = getTasa(tasa, tasa_tipo, periodo);
             valor = monto *( (tasa * Math.pow(1 + tasa, cuotas)) / (Math.pow(1 + tasa, cuotas) - 1) );
             return valor.toFixed(2);
+          
         }
         
-        function getAmortizacion(monto, tasa, cuotas, periodo, tasa_tipo) {
+        function getAmortizacionPrestamo(monto, tasa, cuotas, periodo, tasa_tipo) {
             var valor_de_cuota = getValorDeCuotaFija(monto, tasa, cuotas, periodo, tasa_tipo);
             var saldo_al_capital = monto;
             var items = new Array();
@@ -66,8 +67,7 @@ var DIARIO = "diario";
         
         
         
-        
-        
+            
                 function calcular() {
                     var monto = document.getElementById("input_monto").value;
                     var cuotas = document.getElementById("input_cuotas").value;
@@ -92,16 +92,19 @@ var DIARIO = "diario";
                     periodo = select_periodo.options[select_periodo.selectedIndex].value;
                     var select_tasa_tipo = document.getElementById("select_tasa_tipo");
                     tasa_tipo = select_tasa_tipo.options[select_tasa_tipo.selectedIndex].value;
-                    var items = getAmortizacion(monto, tasa, cuotas, periodo, tasa_tipo);
+                    var items = getAmortizacionPrestamo(monto, tasa, cuotas, periodo, tasa_tipo);
+                    //var items2 = getAmortizacion(monto1, tasa1, cuotas1, periodo2, tasa_tipo2);
                     var tbody = document.getElementById("tbody_1");
                     tbody.innerHTML = "";
-          
+                    
+                
         
         if (parseInt(cuotas) > 3000) { alert("Ha indicado una cantidad excesiva de cuotas, porfavor reduzcala a menos de 3000"); return; }
         
         
         
                     for (i = 0; i < items.length; i++) {
+                        console.log(items[i])
                         item = items[i];
                         tr = document.createElement("tr");
                         for (e = 0; e < item.length; e++) {
@@ -114,10 +117,14 @@ var DIARIO = "diario";
                         }
                         tbody.appendChild(tr);
                     }
-                    var div1 = document.getElementById("div-valor-cuota");
-        
+                    // var div1 = document.getElementById("div-valor-cuota");
+                    // console.log("hau da div1")
+                    // console.log(div1)
+                    // console.log("hemen")
+                    // console.log(document.getElementById("div-valor-cuota"))
+                    // console.log(items[0][3])
                     valor = setMoneda(items[0][3]);
-                    div1.innerHTML = valor;
+                    // div1.innerHTML = valor;
                     var msg = "";
                     if (periodo == "diario") { 
             msg = "Usted estará pagando " + valor + ", todos los dias durante " + items.length + " dias.";
@@ -146,7 +153,7 @@ var DIARIO = "diario";
            if (periodo == "anual") {
             msg = "Usted pagará " + valor + ", anualmente por un periodo de " + items.length + " años";
            }
-           var div2 = document.getElementById("div-comentario");
-           div2.innerHTML = msg;
+        //    var div2 = document.getElementById("div-comentario");
+        //    div2.innerHTML = msg;
                 }
                 

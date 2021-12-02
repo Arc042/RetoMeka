@@ -27,10 +27,11 @@ function mostrar() {
             cuentas=cuenta;
             document.getElementById("seleccionarCuenta").innerHTML=" <option disabled selected>Selecciona una opción</option>";
             for(var i = 0; i<cuenta.length; i++) {
-                
-             document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].tipoCuenta+"</option>";
-             
-            
+              
+             document.getElementById("seleccionarCuenta").innerHTML += "<option class='optcuenta' value='"+cuenta[i].idCuentaBancaria+"'>"+cuenta[i].numCuenta+"</option>";
+             console.log(cuenta[i].idCuentaBancaria);
+             console.log(cuenta[i].numCuenta)
+             //nirekontua=cuenta[i].idCuentaBancaria;
             }
            
             document.getElementById("seleccionarCuenta").addEventListener("change", function(){
@@ -111,27 +112,27 @@ $('#prestamo').click(function() {
     $('#campoDinamico').html('<div id="calculadora1">'+
    '<fieldset>'+
     '<legend>Ingrese los datos aquí</legend>'+
-    '<div style="float: left; padding: 10px;">'+
+    '<div id="div1">'+
         '<table><tbody><tr>'+
             '<td>'+
                 'cantidad de capital'+
-                '<input class="form-control" type="number" onkeypress="return solonumeros(event)" name="monto" id="input_monto" min="1" style="width: 100%">'+
+                '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="monto" id="input_monto" min="1" style="width: 100%">'+
             '</td>'+
             '<td>'+
                 'Cantidad de cuotas'+
-                '<input class="form-control" type="number" onkeypress="return solonumeros(event)" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">'+
+                '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">'+
             '</td></tr>'+
         '<tr>'+
             '<td>'+
                 'Tasa de interés<br>'+
-                '<input class="form-control" type="number" onkeypress="return solonumeros(event)" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
+                '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
             '</td>'+
         '<td>Tipo de tasa<br>'+
-            '<select class="form-select seleccion" id="select_tasa_tipo" style="width: 100%">'+
+            '<select class="form-select seleccion" id="select_tasa_tipo">'+
                 '<option value="mensual">Mensual</option>'+
                 '<option value="anual">Anual</option>'+
             '</select></td></tr><tr><td>Periodo de pago<br>'+
-            '<select class="form-select seleccion" id="select_periodo" style="width: 100%">'+
+            '<select class="form-select seleccion" id="select_periodo">'+
                     '<option value="diario">Diario</option>'+
                     '<option value="semanal">Semanal</option>'+
                     '<option value="quincenal">Quincenal</option>'+
@@ -142,12 +143,12 @@ $('#prestamo').click(function() {
                     '<option value="semestral">Semestral</option>'+
                     '<option value="anual">Anual</option>'+
         '</td></tr><tr><th>'+
-        '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();">'+
+        '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcular();" >'+
         '</th></tbody></table>'+
     
     '<div id="enseñarDatos">'+
     '<br>'+
-    '<table class="table tablaprestamo" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">'+
+    '<table class="table tablaprestamo" id="table-2">'+
             '<tbody><tr>'+
             '<th scope="col">Número</th>'+
             '<th scope="col">Interés</th>'+
@@ -166,11 +167,60 @@ $('#prestamo').click(function() {
 $('#leasing').click(function() {
    
     $('#campoDinamico').html('')
-    $('#campoDinamico').html()
+    $('#campoDinamico').html('<div id="calculadora2">'+
+    '<fieldset>'+
+     '<legend>Ingrese los datos aquí</legend>'+
+     '<div id="div2">'+
+         '<table><tbody><tr>'+
+             '<td>'+
+                 'cantidad de capital'+
+                 '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="monto" id="input_monto1" min="1" style="width: 100%">'+
+             '</td>'+
+             '<td>'+
+                 'Cantidad de cuotas'+
+                 '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="cuotas" id="input_cuotas1" min="1" max="1000" style="width: 100%">'+
+             '</td></tr>'+
+         '<tr>'+
+             '<td>'+
+                 'Tasa de interés<br>'+
+                 '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="tasa" id="input_tasa1" min="0.1" style="width: 100%">'+
+             '</td>'+
+         '<td>Tipo de tasa<br>'+
+             '<select class="form-select seleccion" id="select_tasa_tipo2"'+
+                 '<option value="mensual">Mensual</option>'+
+                 '<option value="anual">Anual</option>'+
+             '</select></td></tr><tr><td>Periodo de pago<br>'+
+             '<select class="form-select seleccion" id="select_periodo2">'+
+                     '<option value="diario">Diario</option>'+
+                     '<option value="semanal">Semanal</option>'+
+                     '<option value="quincenal">Quincenal</option>'+
+                     '<option value="mensual" selected="">Mensual</option>'+
+                     '<option value="bimestral">Bimestral</option>'+
+                     '<option value="trimestral">Trimestral</option>'+
+                     '<option value="cuatrimestral">Cuatrimestral</option>'+
+                     '<option value="semestral">Semestral</option>'+
+                     '<option value="anual">Anual</option>'+
+         '</td></tr><tr><th>'+
+         '<input class="btn btn-primary" type="button" value="Calcular" onclick="calcularLeasing();">'+
+         '</th></tbody></table>'+
+     
+     '<div id="enseñarDatos2">'+
+     '<br>'+
+     '<table class="table tablaleasing" id="table-3">'+
+             '<tbody><tr>'+
+             '<th scope="col">Número</th>'+
+             '<th scope="col">valor de la cuota</th>'+
+            '<th scope="col">IVA</th>'+
+            '<th scope="col">Cuota total</th>'+
+            '<th scope="col">Interés</th>'+
+            '<th scope="col">Amortización</th>'+
+            '<th scope="col">Deuda</th>'+
+             '</tr></tbody>'+
+     '<tbody id="tbody_2"></tbody></table></div>')
     $('#campoDinamico').css('display','block')
 })
  
- 
+
 // Funcion para transferir capital de una cuenta a otra
 $('#transferir').click(function() {
    
