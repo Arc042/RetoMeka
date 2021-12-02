@@ -70,7 +70,6 @@ var DIARIO = "diario";
         
             
                 function calcular() {
-                    alert("ADIOS");
                     var monto = document.getElementById("input_monto").value;
                     var cuotas = document.getElementById("input_cuotas").value;
                     var tasa = document.getElementById("input_tasa").value;
