@@ -89,6 +89,22 @@
 }
 
 /*Tabla de prestamo*/
+#div1{
+    float: left; 
+    padding: 10px;
+}
+#select_tasa_tipo{
+    width: 100%;
+}
+#select_periodo{
+    width: 100%;
+}
+.tablaprestamo{
+    width: 100%; 
+    text-align: right; 
+    border: 1px gray solid; 
+    border-collapse: collapse;
+}
 #tabla tr{
     border: 2px solid black;
 }
@@ -100,12 +116,27 @@
     margin: 1%;
     text-align: center;
 }
-
+/*Tabla de leasing*/
+#div2{
+    float: left; 
+    padding: 10px; 
+}
 #saldo{
     margin-left: 2%;
 
 }
-
+#select_tasa_tipo2{
+    width: 100%;
+}
+#select_periodo2{
+    width: 100%;
+}
+.tablaleasing{
+    width: 100%; 
+    text-align: right; 
+    border: 1px gray solid; 
+    border-collapse: collapse;
+}
 fieldset{
     margin-bottom: 10px;
 }
