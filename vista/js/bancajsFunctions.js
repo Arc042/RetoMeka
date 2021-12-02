@@ -112,7 +112,7 @@ $('#prestamo').click(function() {
     $('#campoDinamico').html('<div id="calculadora1">'+
    '<fieldset>'+
     '<legend>Ingrese los datos aquí</legend>'+
-    '<div style="float: left; padding: 10px;">'+
+    '<div id="div1">'+
         '<table><tbody><tr>'+
             '<td>'+
                 'cantidad de capital'+
@@ -128,11 +128,11 @@ $('#prestamo').click(function() {
                 '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="tasa" id="input_tasa" min="0.1" style="width: 100%">'+
             '</td>'+
         '<td>Tipo de tasa<br>'+
-            '<select class="form-select seleccion" id="select_tasa_tipo" style="width: 100%">'+
+            '<select class="form-select seleccion" id="select_tasa_tipo">'+
                 '<option value="mensual">Mensual</option>'+
                 '<option value="anual">Anual</option>'+
             '</select></td></tr><tr><td>Periodo de pago<br>'+
-            '<select class="form-select seleccion" id="select_periodo" style="width: 100%">'+
+            '<select class="form-select seleccion" id="select_periodo">'+
                     '<option value="diario">Diario</option>'+
                     '<option value="semanal">Semanal</option>'+
                     '<option value="quincenal">Quincenal</option>'+
@@ -148,7 +148,7 @@ $('#prestamo').click(function() {
     
     '<div id="enseñarDatos">'+
     '<br>'+
-    '<table class="table tablaprestamo" id="table-2" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">'+
+    '<table class="table tablaprestamo" id="table-2">'+
             '<tbody><tr>'+
             '<th scope="col">Número</th>'+
             '<th scope="col">Interés</th>'+
@@ -170,7 +170,7 @@ $('#leasing').click(function() {
     $('#campoDinamico').html('<div id="calculadora2">'+
     '<fieldset>'+
      '<legend>Ingrese los datos aquí</legend>'+
-     '<div style="float: left; padding: 10px;">'+
+     '<div id="div2">'+
          '<table><tbody><tr>'+
              '<td>'+
                  'cantidad de capital'+
@@ -186,11 +186,11 @@ $('#leasing').click(function() {
                  '<input class="form-control" type="text" onkeypress="return solonumeros(event)" name="tasa" id="input_tasa1" min="0.1" style="width: 100%">'+
              '</td>'+
          '<td>Tipo de tasa<br>'+
-             '<select class="form-select seleccion" id="select_tasa_tipo2" style="width: 100%">'+
+             '<select class="form-select seleccion" id="select_tasa_tipo2"'+
                  '<option value="mensual">Mensual</option>'+
                  '<option value="anual">Anual</option>'+
              '</select></td></tr><tr><td>Periodo de pago<br>'+
-             '<select class="form-select seleccion" id="select_periodo2" style="width: 100%">'+
+             '<select class="form-select seleccion" id="select_periodo2">'+
                      '<option value="diario">Diario</option>'+
                      '<option value="semanal">Semanal</option>'+
                      '<option value="quincenal">Quincenal</option>'+
@@ -206,7 +206,7 @@ $('#leasing').click(function() {
      
      '<div id="enseñarDatos2">'+
      '<br>'+
-     '<table class="table tablaleasing" id="table-3" style="width: 100%; text-align: right; border: 1px gray solid; border-collapse: collapse">'+
+     '<table class="table tablaleasing" id="table-3">'+
              '<tbody><tr>'+
              '<th scope="col">Número</th>'+
              '<th scope="col">valor de la cuota</th>'+
@@ -375,7 +375,7 @@ function transferirdinero(nirekontua) {
     var url = "../../controlador/controlador_Tranferencia.php";
     var miData= {'origen':nirekontua,  'destino': destino, 'capital':capital, 'fecha':fecha, 'concepto':concepto};
     miData= JSON.stringify(miData);
-    alert("itransferencia realizada con exito")
+    alert("transferencia realizada con exito")
    
     saldoActual=saldoActual-capital;
     
@@ -390,7 +390,7 @@ function transferirdinero(nirekontua) {
  
         .then(res => res.json()).then(result =>{
            
-             alert(result.error);
+            //  alert(result.error);
             
            
         })
