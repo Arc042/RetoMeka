@@ -2,10 +2,10 @@
 
 Para este reto se nos encargó hacer una [web](https://hiru.zerbitzaria.net) para una empresa que fabrica drones, aparte de la web de la empresa, también necesitan una pagina para manejar las finanzas de la empresa.
 
-## Despliege:
+## Despliege⚙️
 > Para poder acceder a la codigo vas a necesitar el uso de las herramientas mencionadas abajo, ademas de que para ver la funcionalidad de la pagina hay que ejecutarla con apache(mediante Xampp).
 
-### Contenido de la web:
+### Contenido de la web🖥️
 > La página dispone de los siguientes apartados:
 * Una página de inicio.
 * Una página con información de los participantes de la empresa.
@@ -26,7 +26,7 @@ Para este reto se nos encargó hacer una [web](https://hiru.zerbitzaria.net) par
   * Filtrar por nombre.
 * Distintos modal con información.
 
-### Contenido de la Banca:
+### Contenido de la Banca💳
 > Estos son los las opciones de la banca:
 * Seleccionar la cuenta bancaria que se quiere manipular.
 * Mostrar el saldo de la cuenta.
@@ -36,7 +36,7 @@ Para este reto se nos encargó hacer una [web](https://hiru.zerbitzaria.net) par
 * Transferir dinero de la cuenta a otra cuenta.
 * Ingresar dinero.
 
-### Organización de carpetas y sus funciones:
+### Organización de carpetas y sus funciones🗄️
 
 * **Controlador**
   > En este apartado encontraremos los distintos controladores **_PHP_** que se usarán para las distintas funciones tanto de la banca como de la página.
@@ -48,7 +48,7 @@ Para este reto se nos encargó hacer una [web](https://hiru.zerbitzaria.net) par
   > Este index simplemente redirecciona al index de la carpeta html.
 
 
-### Herramientas usadas:
+### Herramientas usadas🔧
 * Visual Studio Code
 * XAMPP
 * MySQL
