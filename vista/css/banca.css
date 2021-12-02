@@ -136,6 +136,7 @@
     text-align: right; 
     border: 1px gray solid; 
     border-collapse: collapse;
+    font-size: 15px;
 }
 fieldset{
     margin-bottom: 10px;
