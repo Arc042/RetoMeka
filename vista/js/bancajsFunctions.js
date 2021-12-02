@@ -375,7 +375,7 @@ function transferirdinero(nirekontua) {
     var url = "../../controlador/controlador_Tranferencia.php";
     var miData= {'origen':nirekontua,  'destino': destino, 'capital':capital, 'fecha':fecha, 'concepto':concepto};
     miData= JSON.stringify(miData);
-    alert("itransferencia realizada con exito")
+    alert("transferencia realizada con exito")
    
     saldoActual=saldoActual-capital;
     
@@ -390,7 +390,7 @@ function transferirdinero(nirekontua) {
  
         .then(res => res.json()).then(result =>{
            
-             alert(result.error);
+            //  alert(result.error);
             
            
         })
