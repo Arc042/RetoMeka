@@ -1,6 +1,8 @@
+/*Llamada para cargar los productos*/
   document.addEventListener("DOMContentLoaded", function (event){
     mostrar();
   })
+/*Fin llamada para cargar los productos*/
 
 function sesion2() {
     var url = "../../controlador/cSessionVarsView.php";
@@ -34,7 +36,7 @@ function sesion2() {
       .catch(error => console.error('Error status:', error));
   }
 
-
+/*Funcion para que al cargar aparezcan los productos*/
 function mostrar() {
 	var url = "../../controlador/controlador_tienda.php";
 	
@@ -145,7 +147,9 @@ function mostrar() {
     })
     .catch(error => console.log('Error status:', error));
 }
+/*Fin funcion para que al cargar aparezcan los productos*/
 
+/*Llamada y funcion para el filtro por orden alfabetico*/
 document.getElementById("user_sort").addEventListener("change", function(){
   console.log(document.getElementById("user_sort").value);
   
@@ -387,7 +391,9 @@ function mostrarZA() {
     })
     .catch(error => console.log('Error status:', error));
 }
+/*Fin llamada y funcion para el filtro por orden alfabetico*/
 
+/*Llamada y funcion para el filtro por tipo*/
 document.getElementById("user_filter").addEventListener("change", function(){
 
   if(document.getElementById("user_filter").value == 0) {
@@ -515,7 +521,9 @@ function ordenarTipo(tipo) {
     })
     .catch(error => console.log('Error status:', error));
 }
+/*Fin llamada y funcion para el filtro por tipo*/
 
+/*Llamada y funcion para el filtro por nombre*/
 document.getElementById("user_name").addEventListener("keyup", function(){
 
   //console.log(document.getElementById("user_name").value);
@@ -651,8 +659,24 @@ function buscarNombre(nombre) {
     })
     .catch(error => console.log('Error status:', error));
 }
+/*Fin llamada y funcion para el filtro por nombre*/
 
+/*Llamada y funcion para el filtro por precio*/
 document.getElementById("slider-range").addEventListener("click", function(){
+
+  var dividirCadena=document.getElementById("amount").value.split("-",2);
+  // alert(dividirCadena[0].replace('$', ''));
+  // alert(dividirCadena[1].replace('$', ''));
+  var min = dividirCadena[0].replace('$', '');
+  var max = dividirCadena[1].replace('$', '');
+
+    document.getElementById("relleno").innerHTML = "";
+    filtroPrecio(min,max)
+    
+  
+})
+
+document.getElementById("slider-range").addEventListener("mouseleave", function(){
 
   var dividirCadena=document.getElementById("amount").value.split("-",2);
   // alert(dividirCadena[0].replace('$', ''));
@@ -797,4 +821,20 @@ function filtroPrecio(min,max) {
     })
     .catch(error => console.log('Error status:', error));
 }
+/*Fin llamada y funcion para el filtro por precio*/
 
+/*Funcion para que funcione el filtro por precio */
+$( function() {
+  $( "#slider-range" ).slider({
+    range: true,
+    min: 0,
+    max: 2000,
+    values: [ 0, 2000 ],
+    slide: function( event, ui ) {
+      $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+    }
+  });
+  $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+    " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+} );
+/*Fin funcion para que funcione el filtro por precio */

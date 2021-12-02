@@ -12,23 +12,6 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    
-    
-    <script>
-    $( function() {
-      $( "#slider-range" ).slider({
-        range: true,
-        min: 0,
-        max: 2000,
-        values: [ 0, 2000 ],
-        slide: function( event, ui ) {
-          $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-        }
-      });
-      $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-        " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-    } );
-    </script>
 
 </head>
 <body >
@@ -58,7 +41,10 @@
                   <input type="text" id="amount" readonly style="border:0; color:rgba(0, 0, 0, 0.87);">
                 </p>
                  
-                <div id="slider-range"></div>
+                <div id="slider-range-container">
+                  <div id="slider-range"></div>
+                </div>
+                
               </form>
 
               <div class="form-group">
@@ -106,7 +92,6 @@
       
       <script src="../js/productos.js"></script>
       <script src="../js/jsFunctions.js"></script> 
-      <script src="../js/catalogo.js"></script>
       <script src="../js/jquery.js"></script>
 </body>
 <footer>

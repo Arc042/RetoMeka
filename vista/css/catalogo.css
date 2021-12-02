@@ -208,6 +208,16 @@ img{
   }
 }
 /*cards*/
+#slider-range-container{
+  width: 280px;
+  height: 30px;
+  margin-left: -20px;
+}
+#slider-range{
+  width: 240px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
 
 /*filtro rango precio*/
 #preciorango{
