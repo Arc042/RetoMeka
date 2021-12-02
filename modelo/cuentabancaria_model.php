@@ -42,6 +42,7 @@ class cuentabancaria_model extends cuentabancaria_class{
             $cuentaBancaria = new cuentabancaria_model();
 
             $cuentaBancaria->idCuentaBancaria=$row['idCuentaBancaria'];
+            $cuentaBancaria->numCuenta=$row['numCuenta'];
             $cuentaBancaria->tipoCuenta=$row['tipoCuenta'];
             $cuentaBancaria->saldo=$row['saldo'];
 
