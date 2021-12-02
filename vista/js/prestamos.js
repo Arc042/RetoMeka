@@ -26,7 +26,6 @@ var DIARIO = "diario";
         function getValorDeCuotaFija(monto, tasa, cuotas, periodo, tasa_tipo) {
             tasa = getTasa(tasa, tasa_tipo, periodo);
             valor = monto *( (tasa * Math.pow(1 + tasa, cuotas)) / (Math.pow(1 + tasa, cuotas) - 1) );
-            alert(valor)
             return valor.toFixed(2);
           
         }
