@@ -1,3 +1,4 @@
+/*Funcion para saber si estas logeado y que tipo de usuario eres*/
 function sessionVarsView() {
 	var url = "../../controlador/cSessionVarsView.php";
 
@@ -38,8 +39,9 @@ function sessionVarsView() {
 		})
 		.catch(error => console.error('Error status:', error));
 }
+/*Fin funcion para saber si estas logeado y que tipo de usuario eres*/
 
-
+/*Funcion para logearte*/
 function login() {
 
 	var username = document.getElementById("name").value;
@@ -83,7 +85,9 @@ function login() {
 		})
 		.catch(error => console.error('Error status:', error));
 }
+/*Fin funcion para logearte*/
 
+/*Funcion para deslogearte*/
 function logout() {
 
 	var url = "../../controlador/controller_logout.php";
@@ -108,7 +112,9 @@ function logout() {
 		})
 		.catch(error => console.error('Error status:', error));
 }
+/*Fin funcion para deslogearte*/
 
+/*Funcion para registrar usuarios*/
 function register() {
 	
 	var username = document.getElementById("username").value;
@@ -145,3 +151,4 @@ function register() {
 		})
 		.catch(error => console.error('Error status:', error));
 }
+/*Fin funcion para registrar usuarios*/
