@@ -2,6 +2,7 @@
 
     class cuentabancaria_class{
         public $idCuentaBancaria;
+        public $numCuenta;
         public $tipoCuenta;
         public $saldo;
 
@@ -61,6 +62,26 @@
         public function setIdCuentaBancaria($idCuentaBancaria)
         {
                 $this->idCuentaBancaria = $idCuentaBancaria;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of numCuenta
+         */ 
+        public function getNumCuenta()
+        {
+                return $this->numCuenta;
+        }
+
+        /**
+         * Set the value of numCuenta
+         *
+         * @return  self
+         */ 
+        public function setNumCuenta($numCuenta)
+        {
+                $this->numCuenta = $numCuenta;
 
                 return $this;
         }
