@@ -121,10 +121,7 @@ function register() {
 	var nombre = document.getElementById("nombre").value;
 	var apellidos = document.getElementById("apellidos").value;
 	var password = document.getElementById("contrasena").value;
-	// alert(username);
-	// alert(nombre);
-	// alert(apellidos);
-	// alert(password);
+	
 
 	var url = "../../controlador/controller_register.php";
 	var data = { 'username': username, 'nombre': nombre, 'apellidos': apellidos, 'contrasena': password};
