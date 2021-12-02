@@ -57,7 +57,7 @@ window.onload=function() {
      
     }
 
-
+/*Modal login*/
     $("#btnLogin").click(function(){
       // alert("hola");
       $("#btnLogin").data("target","#modalForm");
@@ -77,7 +77,9 @@ window.onload=function() {
       
  
       });
+/*Fin modal login*/
 
+/*Modal registro*/
       $("#btnregistrarmodal").click(function(){
         
         // alert("modal mostrada")
@@ -88,6 +90,7 @@ window.onload=function() {
         $("#modalFormRegister").css("opacity","1");
         $("#modalFormRegister").css("background-color","#00000066");
       });
+ /*Fin modal registro*/
   }
  
  
