@@ -26,7 +26,7 @@ class producto_model extends producto_class{
     {
         mysqli_close ($this->link);
     }
-
+/*Funcion para cargar todos los productos*/
     public function mostrar() {
         $this->OpenConnect();
 
@@ -54,7 +54,9 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+/*FIn funcion para cargar todos los productos*/    
 
+/*Funcion para cargar los productos ordenados ascendentemente*/
     public function ordenarAZ() {
         $this->OpenConnect();
 
@@ -82,7 +84,9 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+/*Fin funcion para cargar los productos ordenados ascendentemente*/
 
+/*Funcion para cargar los productos ordenados descendentemente*/
      public function mostrarZA() {
         $this->OpenConnect();
 
@@ -110,7 +114,9 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+/*Fin funcion para cargar los productos ordenados descendentemente*/
 
+/*Funcion para cargar los productos segun su tipo*/
     public function ordenarTipo($tipo) {
         $this->OpenConnect();
 
@@ -137,7 +143,9 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+/*Fin funcion para cargar los productos segun su tipo*/
 
+/*Funcion para cargar los productos segun su nombre*/
     public function buscarNombre($nombre) {
         $this->OpenConnect();
 
@@ -164,7 +172,9 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+/*Fin funcion para cargar los productos segun su nombre*/
 
+/*Funcion para cargar los productos segun su precio*/
     public function filtroPrecio($min,$max) {
         $this->OpenConnect();
 
@@ -191,4 +201,5 @@ class producto_model extends producto_class{
         $this->CloseConnect();
         return $list;
     }
+/*Fin funcion para cargar los productos segun su precio*/
 }
