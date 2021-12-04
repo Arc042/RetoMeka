@@ -1,5 +1,5 @@
 <?php
-
+//Controlador para los movimientos de las transferencias entre cuentas
 include_once '../modelo/movimientos_model.php';
 
 $movimientos = new movimientos_model();

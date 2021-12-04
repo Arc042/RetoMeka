@@ -1,5 +1,5 @@
 <?php
-
+//Controlador para nuestro filtro de precios para la seccion de la tienda
 include_once '../modelo/producto_model.php';
 
 $newProducto = new producto_model();

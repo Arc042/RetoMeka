@@ -1,5 +1,5 @@
 <?php
-
+//Controlador para el logout
 session_start();
 session_destroy();
 setcookie("PHPSESSID", "", time() - 1600);

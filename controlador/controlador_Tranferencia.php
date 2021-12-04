@@ -1,5 +1,5 @@
 <?php
-
+//Controlador para las transferencias entre cuentas
 include_once ('../modelo/cuentabancaria_model.php');
 
 $data=json_decode(file_get_contents("php://input"), true);

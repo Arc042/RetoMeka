@@ -1,5 +1,5 @@
 <?php
-
+//Controlador mediante el cual insertamos saldo en las cuentas
 include_once ('../modelo/cuentabancaria_model.php');
 
 $data=json_decode(file_get_contents("php://input"), true);
