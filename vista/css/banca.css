@@ -132,7 +132,7 @@
     width: 100%;
 }
 .tablaleasing{
-    width: 100%; 
+    width: 100% !important; 
     text-align: right; 
     border: 1px gray solid; 
     border-collapse: collapse;
