@@ -27,6 +27,7 @@ class movimientos_model extends movimientos_class{
         mysqli_close ($this->link);
     }
 
+    // funcion para mostrar movimientos de la cuenta bancaria
     public function mostrar($idCuentaBancaria) {
         $this->OpenConnect();
 
