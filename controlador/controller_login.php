@@ -1,5 +1,5 @@
 <?php
-
+//Controlador para nuestro login 
 require_once '../modelo/usuario_model.php';
 
 $data=json_decode(file_get_contents("php://input"),true);

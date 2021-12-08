@@ -1,5 +1,5 @@
 <?php
-
+//Controlador que ordena por tipo los productos
 include_once '../modelo/producto_model.php';
 
 $newProducto = new producto_model();

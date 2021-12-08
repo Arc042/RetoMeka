@@ -24,6 +24,8 @@ class usuario_model extends usuario_class {
     {
         mysqli_close ($this->link);
     }
+
+    // Funcion para el login
     public function findUserByUsername()
     {
         $this->OpenConnect();
@@ -52,6 +54,7 @@ class usuario_model extends usuario_class {
         return $valor;
     }
 
+    // Funcion para registrarse
     public function register($username,$nombre,$apellidos,$contrasena)
     {
         $this->OpenConnect();
@@ -61,18 +64,9 @@ class usuario_model extends usuario_class {
         
         $valor=false;
         
-        /*if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-        { 
-            
-            if ($row!=null)
-            {
-                $valor=true;
-            }
-        }*/
         
-        //mysqli_free_result($result);
         $this->CloseConnect();
-        //return $valor;
+        
     }
   
 }

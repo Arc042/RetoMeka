@@ -1,4 +1,5 @@
 <?php
+//Controlador que guarda la sesion de usuario para poder usarlo en varios index
 require_once '../modelo/usuario_model.php';
 
 $response=array();

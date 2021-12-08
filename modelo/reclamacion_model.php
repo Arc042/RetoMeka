@@ -35,6 +35,7 @@ class reclamacion_model extends reclamacion_class
      $this->link->close();
  }
  
+//  Funcion para insertar el cuestionario
  public function insert()
  {
      

@@ -27,6 +27,7 @@ class cuentabancaria_model extends cuentabancaria_class{
         mysqli_close ($this->link);
     }
 
+    // Funcion para mostrar cuentas bancarias
     public function mostrar() {
         $this->OpenConnect();
 
@@ -53,7 +54,7 @@ class cuentabancaria_model extends cuentabancaria_class{
     }
 
 
-
+    // Funcion para actualizar saldo
     public function updateSaldo(){
         $this->OpenConnect();
         $idCuentaBancaria=$this->idCuentaBancaria;
@@ -67,6 +68,7 @@ class cuentabancaria_model extends cuentabancaria_class{
         $this->CloseConnect();
     }
 
+    // Funcion para hacer una transferencia
     public function TransferirSaldo($origen, $destino, $importe, $fecha, $concepto){
         $this->OpenConnect();
         echo($importe);

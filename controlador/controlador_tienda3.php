@@ -1,5 +1,5 @@
 <?php
-
+//Controlador que hace una busqueda de productos mediante un input de texto
 include_once '../modelo/producto_model.php';
 
 $newProducto = new producto_model();

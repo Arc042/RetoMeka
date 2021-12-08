@@ -1,5 +1,5 @@
 <?php
-
+//Controladores que muestran y ordenan los productos de la tienda
 include_once '../modelo/producto_model.php';
 
 $newProducto = new producto_model();
