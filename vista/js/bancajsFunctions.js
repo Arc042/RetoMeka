@@ -51,7 +51,7 @@ function mostrar() {
         })
         .catch(error => console.log('Error status:', error));
 }
-
+//////////Fin funcion para rellenar el dropdown de las cuentas////////////////// 
 
 
 
