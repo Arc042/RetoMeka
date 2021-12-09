@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function (event){
     mostrar();
  
 })
-nirekontua="";
-idcuenta=0;
-var saldoActual="";
-cuentas="";
-canti="";
+        nirekontua="";
+        idcuenta=0;
+        var saldoActual="";
+        cuentas="";
+        canti="";
 
-// funcion para rellenar el dropdown de las cuentas
+///////////////////////funcion para rellenar el dropdown de las cuentas/////////////////////////////
 function mostrar() {
         var url = "../../controlador/controller_banca.php";
         
@@ -51,7 +51,12 @@ function mostrar() {
         })
         .catch(error => console.log('Error status:', error));
 }
- 
+
+
+
+
+
+ /////////////////funcion mostrar botones y movimientos al elegir cuenta//////////////////////
 function mostrarPorId() {
     
         
@@ -104,8 +109,10 @@ function mostrarPorId() {
             })
             .catch(error => console.log('Error status:', error));
 }
- 
-// Funcion que muestra la tabla de prestamos
+ ////////////////////////Fin mostrar botones al elegir cuentabancaria////////////////////////////
+
+
+//////////Funcion que muestra la tabla de prestamos///////////////////////
 $('#prestamo').click(function() {
     
     $('#campoDinamico').html('')
@@ -161,9 +168,9 @@ $('#prestamo').click(function() {
    
     
 })
+ //////////////////////////Fin tabla prestamo///////////////////////
  
- 
-// Funcion que muestra la tabla de leasing
+//////Funcion que muestra la tabla de leasing/////
 $('#leasing').click(function() {
    
     $('#campoDinamico').html('')
@@ -219,9 +226,9 @@ $('#leasing').click(function() {
      '<tbody id="tbody_2"></tbody></table></div>')
     $('#campoDinamico').css('display','block')
 })
- 
+ ////////////////////////Fin tabla leasing//////////////////////////
 
-// Funcion para transferir capital de una cuenta a otra
+/////////////Mostrar Transferencia/////////
 $('#transferir').click(function() {
    
 
@@ -290,7 +297,8 @@ $('#transferir').click(function() {
    
     
     $('#campoDinamico').css('display','block');
-       
+
+
         var combo=document.getElementById("seleccionarCuenta");
         var selected=combo.options[combo.selectedIndex].value;
          selected=selected-1;
@@ -352,6 +360,13 @@ $('#transferir').click(function() {
     });
  
 })
+//////////////////Fin transferencia//////////////////////////
+
+
+
+
+
+/////////////////Funcion para transferir capital de una cuenta a otra////////////
 function transferirdinero(nirekontua) {
     var desde = document.getElementById("CuentaOrigen").value;
     
@@ -413,8 +428,11 @@ function transferirdinero(nirekontua) {
         mostrarPorId();
         document.getElementById("saldo").innerHTML = "<h3 id='saldo'>Saldo:" +saldoActual.toFixed(2)+"</h3>";
 }
- 
-// Funcion para insertar Capital a la cuenta bancaria
+ //////////Fin de la funcion transferencia///////////////
+
+
+
+//////////////////Mostrar insertar/////////////////////
 $('#insertar').click(function(){  
    
     $('#campoDinamico').html('')
@@ -444,9 +462,10 @@ $('#insertar').click(function(){
         
      
     });
-});      
+});   
+//////////////Fin mostrar insertar/////////////////////   
  
- 
+/////////////////Funcion para Insertar capital a la cuenta bancaria///////////////////
 function insertarSaldo(nirekontua) {
     var saldo = document.getElementById("cantidad").value;
        
@@ -469,19 +488,9 @@ function insertarSaldo(nirekontua) {
                 
             })
 }
+ ////////////////Fin funcion transferencia//////////////////////////
  
- 
-// Funcion que muestra un mensaje al insertar capital
-function insertCorrecto() {
-    Swal.fire(
-        'Correcto!',
-        'Insertado Correctamente',
-        'ok'
-    )
-
-}
-
-  
+ //////Funcion para solo introducir numeros en inputs//////////////
 function solonumeros(e){
     console.log(e.key); 
   
@@ -493,3 +502,4 @@ function solonumeros(e){
       
     }
   }
+  //////////Fin funcion solonumeros///////////////

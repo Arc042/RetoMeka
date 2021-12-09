@@ -8,6 +8,7 @@ var DIARIO = "diario";
         var SEMESTRAL = "semestral";
         var ANUAL = "anual";
         
+          ////////Funcion elegir tasa//////////////
         function getTasa(tasa, tasa_tipo, periodo) {
             if (tasa_tipo == ANUAL) { tasa = tasa / 12 }
             tasa = tasa / 100.0
@@ -22,14 +23,18 @@ var DIARIO = "diario";
             if (periodo == ANUAL) { tasa = tasa * 12 };
             return tasa;
         }
-        
+         ////////Fin elegir tasa////////////////
+
+        /////////Funcion para obtener valor de cuota//////////////
         function getValorDeCuotaFija(monto, tasa, cuotas, periodo, tasa_tipo) {
             tasa = getTasa(tasa, tasa_tipo, periodo);
             valor = monto *( (tasa * Math.pow(1 + tasa, cuotas)) / (Math.pow(1 + tasa, cuotas) - 1) );
             return valor.toFixed(2);
           
         }
-        
+          ////////Fin valor de cuota/////////////////////
+
+        ////Funcion calcular amortizacion//////////////
         function getAmortizacionPrestamo(monto, tasa, cuotas, periodo, tasa_tipo) {
             var valor_de_cuota = getValorDeCuotaFija(monto, tasa, cuotas, periodo, tasa_tipo);
             var saldo_al_capital = monto;
@@ -50,8 +55,10 @@ var DIARIO = "diario";
             }
             return items;
         }
+          ///////////Fin calcular amortizacion////////////////
         
-        
+
+        ////Funcion convertir numeros en tipo moneda//////// 
         function setMoneda(num) {
             num = num.toString().replace(/\$|\,/g, '');
             if (isNaN(num)) num = "0";
@@ -64,10 +71,11 @@ var DIARIO = "diario";
                 num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3));
             return (((sign) ? '' : '-') + '$' + num + ((cents == "00") ? '' : '.' + cents));
         }
+          ////////////////////Fin setMoneda//////////////
         
         
         
-            
+        /////////////////Funcion calcular Prestamo/////////////////
                 function calcular() {
                     var monto = document.getElementById("input_monto").value;
                     var cuotas = document.getElementById("input_cuotas").value;
@@ -117,12 +125,18 @@ var DIARIO = "diario";
                         }
                         tbody.appendChild(tr);
                     }
+        ///////////////////////////////Fin calcular Prestamo/////////////////////////////////
+
+      /////////////Se muestra mensage despues de clicar en leasing de cuanto se pagara durante X tiempo////////////
+                   
                     // var div1 = document.getElementById("div-valor-cuota");
                     // console.log("hau da div1")
                     // console.log(div1)
                     // console.log("hemen")
                     // console.log(document.getElementById("div-valor-cuota"))
                     // console.log(items[0][3])
+
+
                     valor = setMoneda(items[0][3]);
                     // div1.innerHTML = valor;
                     var msg = "";
@@ -156,4 +170,6 @@ var DIARIO = "diario";
         //    var div2 = document.getElementById("div-comentario");
         //    div2.innerHTML = msg;
                 }
+     //////////////////////////////////////Fin mensage///////////////////////////////////
+ 
                 

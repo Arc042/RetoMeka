@@ -169,7 +169,7 @@ document.getElementById("user_sort").addEventListener("change", function(){
     mostrarZA();
   }
 })
-
+////////funcion ordenar productos de la A a la Z//////////
 function ordenarAZ() {
     var url = "../../controlador/controlador_tienda.php";
     
@@ -280,7 +280,9 @@ function ordenarAZ() {
       })
       .catch(error => console.log('Error status:', error));
 }
+/////////////////////Fin funcion ordenar AZ////////////////
 
+///////////////////////Funcion ordenar productos de la Z a la A////////////
 function mostrarZA() {
   var url = "../../controlador/controlador_tienda.php";
 
@@ -391,6 +393,7 @@ function mostrarZA() {
     })
     .catch(error => console.log('Error status:', error));
 }
+//////////////////////////////Fin ordenar de ZA///////////////////////////
 /*Fin llamada y funcion para el filtro por orden alfabetico*/
 
 /*Llamada y funcion para el filtro por tipo*/
@@ -405,7 +408,9 @@ document.getElementById("user_filter").addEventListener("change", function(){
   ordenarTipo(tipo)
   }
 })
+/*Fin llamada al filtro por tipo*/
 
+//////////Funcion filtrar productos por Tipo////////////////
 function ordenarTipo(tipo) {
   var url = "../../controlador/controlador_tienda2.php";
   
@@ -521,6 +526,7 @@ function ordenarTipo(tipo) {
     })
     .catch(error => console.log('Error status:', error));
 }
+/////////Fin funcion filtrar productos por Tipo////////////////
 /*Fin llamada y funcion para el filtro por tipo*/
 
 /*Llamada y funcion para el filtro por nombre*/
@@ -533,7 +539,9 @@ document.getElementById("user_name").addEventListener("keyup", function(){
     buscarNombre(nombre)
   
 })
+/*Fin llamada y funcion para el filtro por nombre*/
 
+//////////////////////Funcion buscar productos por nombre//////////////////////
 function buscarNombre(nombre) {
   var url = "../../controlador/controlador_tienda3.php";
   var miData= {'nombre': nombre};
@@ -659,6 +667,7 @@ function buscarNombre(nombre) {
     })
     .catch(error => console.log('Error status:', error));
 }
+///////////////Fin funcion buscar productos por nombre//////////////////////////
 /*Fin llamada y funcion para el filtro por nombre*/
 
 /*Llamada y funcion para el filtro por precio*/
@@ -689,7 +698,9 @@ document.getElementById("slider-range").addEventListener("mouseleave", function(
     
   
 })
+/*Fin Llamada y funcion para el filtro por precio*/
 
+////////////////////////////////Funcion filtrar productos por precio/////////////////////
 function filtroPrecio(min,max) {
   var url = "../../controlador/controlador_tienda4.php";
   var miData= {'min': min,'max': max};
@@ -821,6 +832,8 @@ function filtroPrecio(min,max) {
     })
     .catch(error => console.log('Error status:', error));
 }
+////////////////////////////////Fin funcion filtrar productos por precio/////////////////////
+
 /*Fin llamada y funcion para el filtro por precio*/
 
 /*Funcion para que funcione el filtro por precio */
