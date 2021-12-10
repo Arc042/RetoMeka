@@ -1,4 +1,4 @@
-/*Solo deja escribir valores alfabeticos*/
+//////////////Funcion solo deja escribir valores alfabeticos///////////
 function soloLetras(e) {
     var key = e.keyCode || e.which,
       tecla = String.fromCharCode(key).toLowerCase(),
@@ -17,8 +17,11 @@ function soloLetras(e) {
       return false;
     }
   }
-  /*Fin solo valores alfabeticos*/
+  ///////////////Fin solo valores alfabeticos///////////////////
 
+
+
+  ////////////Funcion click en boton de formulario/////////////////////
   document.getElementById("btnFormulario").onclick = function Hola() {
 
     if (document.getElementById("nombre").value == "") {
@@ -66,8 +69,10 @@ function soloLetras(e) {
  
   }
 }
+/////////////FIn click boton formulario/////////////////////
 
 
+////////////Funcion insertar formulario//////////////////////////
 function insert() {
   var nombre = document.getElementById("nombre").value;
   var correo = document.getElementById("email").value;
@@ -94,3 +99,4 @@ function insert() {
 .catch(error => console.error('Error status:', error));	
 };
 }
+/////////Fin funcion insertar formulario//////////////////

@@ -1,3 +1,5 @@
+//////////////////Mostrar cards con informacion de cada persona////////////////////////
+/*Click en la parte de pulsar aqui para mas informacion*/ 
 document.getElementById("trabajador").addEventListener("click",function(){
     Swal.fire({
         title: 'Saioa Garitagoitia!',
@@ -39,5 +41,6 @@ document.getElementById("trabajador4").addEventListener("click",function(){
         imageAlt: 'Custom image',
       }) 
 })
-
+/*Fin clicks para mostrar el modal*/
+/////////////////////Fin mostar cards con informacion de cada persona ///////////////////////////////////////7
 

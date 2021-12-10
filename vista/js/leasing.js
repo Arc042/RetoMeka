@@ -1,7 +1,4 @@
 
- 
-
-
 var DIARIO = "diario";
         var SEMANAL = "semanal";
         var QUINCENAL = "quincenal";
@@ -11,7 +8,9 @@ var DIARIO = "diario";
         var CUATRIMESTRAL = "cuatrimestral";
         var SEMESTRAL = "semestral";
         var ANUAL = "anual";
+
         
+        ////////Funcion elegir tasa//////////////
         function getTasa(tasa1, tasa_tipo2, periodo2) {
             if (tasa_tipo2 == ANUAL) { tasa1 = tasa1 / 12 }
             tasa1 = tasa1 / 100.0
@@ -26,41 +25,54 @@ var DIARIO = "diario";
             if (periodo2 == ANUAL) { tasa1 = tasa1 * 12 };
             return tasa1;
         }
-        
+        ////////Fin elegir tasa////////////////
+
+        /////////Funcion para obtener valor de cuota//////////////
         function getValorDeCuotaFija(monto1, tasa1, cuotas1, periodo2, tasa_tipo2) {
             tasa1 = getTasa(tasa1, tasa_tipo2, periodo2);
              valor2 = monto1 *( (tasa1 * Math.pow(1 + tasa1, cuotas1)) / (Math.pow(1 + tasa1, cuotas1) - 1) );
             return valor2.toFixed(2);
         }
-        
+        ////////Fin valor de cuota/////////////////////
+
+        ////Funcion calcular amortizacion//////////////
         function getAmortizacion(monto1, tasa1, cuotas1, periodo2, tasa_tipo2) {
+
             var valor_de_cuota1 = getValorDeCuotaFija(monto1, tasa1, cuotas1, periodo2, tasa_tipo2);
             var saldo_al_capital1 = monto1;
-            //var Deuda = saldo_al_capital-residual;
+                        
             var items2 = new Array();
             valor_de_cuota1=parseFloat(valor_de_cuota1);
-        // console.log("saldo_al_capital");
-        // console.log(saldo_al_capital)
-            for (i=0; i < cuotas1; i++) {
+
+            // console.log("saldo_al_capital");
+            // console.log(saldo_al_capital)
+           
+        for (i=0; i < cuotas1; i++) {
                 interes1 = saldo_al_capital1 * getTasa(tasa1, tasa_tipo2, periodo2);
+               
                 // console.log("valor_de_cuota");
                 // console.log(valor_de_cuota);
 
                 abono_al_capital1 = valor_de_cuota1 - interes1;
+
                 // saldo_al_capital -= abono_al_capital;
+
                 IVA = (valor_de_cuota1*21)/100;
+
                 // console.log("1")
-               
                 // console.log(abono_al_capital)
+
                 saldo_al_capital1=parseFloat(saldo_al_capital1);
                 abono_al_capital1=parseFloat(abono_al_capital1);
                  Deuda = (saldo_al_capital1 - abono_al_capital1);
                  Deuda=Deuda.toFixed(2);
                  IVA=parseFloat(IVA);
                 cuotaT= valor_de_cuota1 + IVA;
+
                 // console.log(valor_de_cuota1)
                 // console.log(IVA)
                 // console.log(cuotaT)
+
                 numero1 = i+1;
                 
                 interes1 = interes1.toFixed(2);
@@ -73,8 +85,10 @@ var DIARIO = "diario";
             }
             return items2;
         }
+        ///////////Fin calcular amortizacion////////////////
         
-        
+
+        ////Funcion convertir numeros en tipo moneda////////
         function setMoneda(num) {
             num = num.toString().replace(/\$|\,/g, '');
             if (isNaN(num)) num = "0";
@@ -87,11 +101,11 @@ var DIARIO = "diario";
                 num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3));
             return (((sign) ? '' : '-') + '$' + num + ((cents == "00") ? '' : '.' + cents));
         }
+        ////////////////////Fin setMoneda//////////////
         
         
         
-        
-        
+        /////////////////Funcion calcular leasing/////////////////
                 function calcularLeasing() {
             
                     var monto1 = document.getElementById("input_monto1").value;
@@ -139,11 +153,17 @@ var DIARIO = "diario";
                         }
                         tbody1.appendChild(tr2);
                     }
+        ///////////////////////////////Fin calcular Leasing/////////////////////////////////
+
+      /////////////Se muestra mensage despues de clicar en leasing de cuanto se pagara durante X tiempo////////////
+
                     // var div1 = document.getElementById("div-valor-cuota");
                     
                     valor = setMoneda(items2[0][3]);
                     // div1.innerHTML = valor;
                     var msg = "";
+
+
                     if (periodo2 == "diario") { 
             msg = "Usted estará pagando " + valor + ", todos los dias durante " + items2.length + " dias.";
            }
@@ -174,4 +194,5 @@ var DIARIO = "diario";
         //    var div2 = document.getElementById("div-comentario");
         //    div2.innerHTML = msg;
                 }
+        //////////////////////////////////////Fin mensage///////////////////////////////////
  

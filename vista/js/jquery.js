@@ -1,5 +1,6 @@
 /*Carga dinamicamente el header y el footer*/
 
+///////////Se cargan header.html y footer en index.html////////////////////////
 window.onload=function() {
 
     $("#header").load("header.html",funcionesHeader); 
@@ -21,12 +22,15 @@ window.onload=function() {
     } else {
       sessionVarsView();
     }
-
+/////////Funciones click de login logout y registrarse///////////////
     $("#submit").on('click', login);
     $("#logout").on('click', logout);
     $("#submitregister").on('click', register);
     $("#comprar").css('display','inline-block');
 
+
+
+///////Mostrar modal login/////////////
     var target = $("#modalForm");
     $("#exit").on('click', function(){
       removeElement(target);
@@ -56,7 +60,10 @@ window.onload=function() {
       });
      
     }
+//////////Fin mostrar modal login////////////////
 
+
+////////////Funcion click del boton login/////////////////
 /*Modal login*/
     $("#btnLogin").click(function(){
       // alert("hola");
@@ -78,6 +85,9 @@ window.onload=function() {
  
       });
 /*Fin modal login*/
+///////FIn boton click en login//////////////////
+
+
 
 /*Modal registro*/
       $("#btnregistrarmodal").click(function(){
